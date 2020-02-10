@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Tag;
+use App\Bookmark;
 use Illuminate\Support\Facades\Auth;
 
 class TagController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //タグの一覧を表示
     public function index(Request $request)
     {
@@ -57,6 +62,26 @@ class TagController extends Controller
         $user = Auth::user();
 
         //mypageにリダイレクト
+        return redirect('/mypage');
+    }
+
+    //タグの削除
+    public function delete(Request $request)
+    {
+        //削除するタグを取得
+        $tag = Tag::find($request->id);
+
+        //タグの中のブックマークを取得
+        $bookmarks = Bookmark::where('tag_id', $request->id)->get();
+
+        //レコードの削除
+        $tag->delete();
+
+        if (count($bookmarks) > 0) {
+            foreach ($bookmarks as $bookmark) {
+                $bookmark->delete();
+            }
+        }
         return redirect('/mypage');
     }
 }

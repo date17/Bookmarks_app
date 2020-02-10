@@ -18,12 +18,26 @@
         </div>
         @else
         <div class="login-check">
-            <div class="user-name">{{$user->name}}</div>
+            <div class="user-name">{{Auth::user()->name}}</div>
             <div class="logout"><a href="{{route('logout')}}">ログアウト</a></div>
             @endguest
         </div>
     </header>
     <main>
+        <div class="navi">
+            <div id="label-bookmark">
+                <div>ブックマーク一覧</div>
+            </div>
+            <div id="label-tag">
+                <div>タグ一覧</div>
+            </div>
+            <div id="label-user">
+                <div>ユーザー情報</div>
+            </div>
+            <div id="label-common">
+                <div>共有ページへ</div>
+            </div>
+        </div>
         <div class="content">
             @yield('content')
         </div>

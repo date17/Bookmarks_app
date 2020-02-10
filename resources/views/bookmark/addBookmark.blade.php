@@ -3,35 +3,42 @@
 @section('title', 'add Bookmark Form')
 
 @section('content')
-<form action="/addbookmark" method="POST">
+
+@foreach ($tags as $tag)
+<p>{{$tag->id}} : {{$tag->name}}</p>
+@endforeach
+
+@if(count($errors) > 0)
+<ul>
+    @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+</ul>
+@endif
+<p>user_id:{{Auth::user()->id}}</p>
+<form action="/mypage/bookmark/add" method="POST">
     @csrf
+    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
     <label>タイトル :
-        <input type="text" name="title" required>
+        <input type="text" name="title" value="{{old('title')}}" required>
     </label>
     <br>
     <label>URL :
-        <input type="text" name="url" required>
+        <input type="text" name="url" value="{{old('url')}}" required>
     </label>
     <br>
     <label>タグ :
-        <div id="selectTag">タグを選択</div>
-        <div id="createTag">新しいタグを作成</div>
-        <input id="tag_check" type="hidden" name="tag_check" value="none">
+        <div id="selectTagForm">
+            <select name="tag_id">
+                @foreach ($tags as $tag)
+                <option value={{$tag->id}}>{{$tag->name}}</option>
+                @endforeach
+            </select>
+        </div>
     </label>
-    <div id="selectTagForm">
-        <select name="tag_id">
-            @foreach ($tags as $tag)
-            <option value={{$tag->id}}>{{$tag->name}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div id="createTagForm">
-        タグ名 :
-        <input type="text" name="tag_name">
-    </div>
     <br>
     <input type="submit" value="add">
 </form>
 
-<script src="{{asset('js/selectOrCreateTag.js')}}"></script>
+{{-- <script src="{{asset('js/selectOrCreateTag.js')}}"></script> --}}
 @endsection

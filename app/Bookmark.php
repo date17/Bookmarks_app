@@ -13,8 +13,8 @@ class Bookmark extends Model
     public static $rules = array(
         'title' => 'required',
         'url' => 'url',
-        'tag_id' => 'number',
-        'user_id' => 'required|number',
+        'tag_id' => 'integer',
+        'user_id' => 'required|integer',
     );
 
     //ログインしているユーザのブックマークを取得
@@ -27,6 +27,19 @@ class Bookmark extends Model
     public function scopeSelectTag($query, $tag_id)
     {
         return $query->where('tag_id', $tag_id);
+    }
+
+    //フォームから受け取ったtag_idのレコードが存在しているかの確認
+    public static function existTag($tag_id)
+    {
+
+        if (is_null(Tag::find($tag_id))) {
+            //tag_idのタグが存在しなかったらfalse
+            return false;
+        } else {
+            //tag_idのタグが存在したらtrue
+            return true;
+        }
     }
 
     //has One結合（commonテーブル）

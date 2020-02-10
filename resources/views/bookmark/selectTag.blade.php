@@ -8,8 +8,12 @@
 <p>{{$bookmark->title}}</p>
 <p>{{$bookmark->url}}</p>
 <p>{{$bookmark->tag->name}}</p>
-<button>編集</button>
-<button>削除</button>
+<a href="/mypage/bookmark/edit/{{$bookmark->id}}">
+    <button>編集</button>
+</a>
+<a href="/mypage/bookmark/delete/{{$bookmark->id}}">
+    <button>削除</button>
+</a>
 @endforeach
 @endisset
 @endsection

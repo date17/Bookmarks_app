@@ -21,10 +21,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //ユーザーのホーム画面
 Route::get('/mypage', 'TagController@indexUser');
-Route::post('/tagAdd', 'TagController@create');
-Route::get('/mypage/{selectTag}', 'BookmarkController@showTagBookmarks');
-Route::get('/addbookmark', 'BookmarkController@add');
-Route::post('/addBookmark', 'BookmarkController@create');
+//タグの追加
+Route::post('/mypage/tag/add', 'TagController@create');
+//タグの削除
+Route::get('/mypage/tag/delete/{id}', 'TagController@delete');
+//選択したタグのブックマーク一覧
+Route::get('/mypage/tag/select/{selectTag}', 'BookmarkController@showTagBookmarks');
+//ブックマークの追加
+Route::get('/mypage/bookmark/add', 'BookmarkController@add');
+Route::post('/mypage/bookmark/add', 'BookmarkController@create');
+//ブックマークの編集
+Route::get('/mypage/bookmark/edit/{id}', 'BookmarkController@edit');
+Route::post('/mypage/bookmark/edit/{id}', 'BookmarkController@update');
+//ブックマークの削除
+Route::get('/mypage/bookmark/delete/{id}', 'BookmarkController@delete');
+//ログインしているユーザのブックマーク一覧
+Route::get('/mypage/bookmarks', 'bookmarkController@showBookmarks');
 
 //Reactを使ったSPAとなるため、全ルートをひとつにする
 // Route::get('/{any}', function () {

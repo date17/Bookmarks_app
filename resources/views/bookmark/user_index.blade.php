@@ -9,7 +9,16 @@
     <div class="tags">
         @foreach ($tags as $tag)
         <div class="tag">
-            <div class="tag-title"><a href="{{ asset('/mypage/{{$tag->id}}') }}">{{ $tag->name }}</a></div>
+            <div class="tag-title">
+                <a href="/mypage/tag/select/{{$tag->id}}">
+                    {{ $tag->name }}
+                </a>
+                <a href="/mypage/tag/delete/{{$tag->id}}">
+                    <button>
+                        タグの削除
+                    </button>
+                </a>
+            </div>
         </div>
         @endforeach
     </div>
@@ -18,7 +27,7 @@
         <img src="{{asset('image/pngtree-button-plus-icon-png-image_3566853.jpg')}}" alt="プラスのロゴ">
     </div>
     <div id="addTagForm">
-        <form action="/tagAdd" method="post">
+        <form action="/mypage/tag/add" method="post">
             @csrf
             <input type="hidden" name="user_id" value={{$user->id}}>
             <label>Tagの名前：

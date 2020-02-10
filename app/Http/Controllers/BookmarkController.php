@@ -10,12 +10,32 @@ use App\Tag;
 
 class BookmarkController extends Controller
 {
+    public function __construct()
+    {
+        //全ページでログインしていなかったらlogin画面に遷移
+        $this->middleware('auth');
+    }
+
     //全データを表示
     public function index(Request $request)
     {
         $bookmarks = Bookmark::all();
 
         return $bookmarks;
+    }
+
+    //ログインしているユーザのブックマークを一覧表示
+    public function showBookmarks(Request $request)
+    {
+        //ログインしているユーザの情報を取得
+        $user = Auth::user();
+
+        //ログインしているユーザのブックマークを一覧取得
+        $bookmarks = Bookmark::where('user_id', $user->id)->get();
+
+        return view('bookmark.showBookmarks', [
+            'bookmarks' => $bookmarks
+        ]);
     }
 
     //ログインしているユーザーのブックマークをタグごとに表示
@@ -25,7 +45,7 @@ class BookmarkController extends Controller
         $user = Auth::user();
 
         //２つのスコープを使ってログインしているユーザの指定したタグに紐づいているbookmarkを取得
-        $bookmarks = Bookmark::loginUser($uer->id)->selectTag($request->selectTag)->get();
+        $bookmarks = Bookmark::loginUser($user->id)->selectTag($request->selectTag)->get();
 
         return view('bookmark.selectTag', [
             'bookmarks' => $bookmarks
@@ -50,24 +70,70 @@ class BookmarkController extends Controller
     //ブックマークの新規登録
     public function create(Request $request)
     {
-        //ログインしているユーザを取得
-        $user = Auth::user();
-        //タグが入力であるかどうかを調べる
-        if ($request->tag_check === 'none') {
-            //タグが何も指定されていない時
-            $tag_id = null;
-        } elseif ($request->tag_check === 'select' && !is_null($request->tag_id)) {
-            //タグを選択した場合
+        //バリデーションチェック
+        $this->validate($request, Bookmark::$rules);
+
+        //タグが存在しているかを確認
+        if (Bookmark::existTag($request->tag_id) === true) {
+            //存在している場合
             $tag_id = $request->tag_id;
-        } elseif ($request->tag_check === 'create' && !is_null($request->tag_name)) {
-            //タグを新しく作成してそれを利用する場合
-            //新しいタグの作成
-            $tag = new Tag();
-            $param = [
-                'name' => $request->tag_name,
-                'user_id' => $user->id
-            ];
-            $tag->fill($param)->save();
+        } else {
+            $tag_id = null;
         }
+
+        $param = [
+            'title' => $request->title,
+            'url' => $request->url,
+            'user_id' => $request->user_id,
+            'tag_id' => $tag_id
+        ];
+
+        //値をセットして保存
+        $bookmark = new Bookmark();
+        $bookmark->fill($param)->save();
+
+        //ユーザーのホーム画面にリダイレクト
+        return redirect('/mypage');
+    }
+
+    //特定のブックマークを取得
+    public function edit(Request $request)
+    {
+        $bookmark = Bookmark::find($request->id);
+        $tags = Tag::all();
+
+        return view('bookmark.edit', [
+            'bookmark' => $bookmark,
+            'tags' => $tags
+        ]);
+    }
+
+    //ブックマークの編集
+    public function update(Request $request)
+    {
+        //バリデーション
+        $this->validate($request, Bookmark::$rules);
+
+        //インスタンスの取得
+        $bookmark = Bookmark::find($request->id);
+
+        $param = $request->all();
+        //_tokenを値から除外
+        unset($param['_token']);
+        //値をセットして保存
+        $bookmark->fill($param)->save();
+
+        //ユーザのホームにリダイレクト
+        return redirect('/mypage');
+    }
+
+    //ブックマークの削除
+    public function delete(Request $request)
+    {
+        //削除するブックマークの取得
+        $bookmark = Bookmark::find($request->id)->delete();
+
+        //mypageにリダイレクト
+        return redirect('/mypage');
     }
 }

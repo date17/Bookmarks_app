@@ -4,140 +4,195 @@
 // Variables
 @import "variables";
 html {
+  margin: 0;
+  body {
     margin: 0;
-    body {
-        margin: 0;
-        header {
-            display: flex;
-            border-bottom: 1px solid #000;
-            box-shadow: inset;
-            .title {
-                width: 30%;
-                height: 70px;
-                margin: 0 20% 0 0;
-                text-align: left;
-                font-size: 20pt;
-                font-weight: bold;
-                line-height: 70px;
-            }
-            .login-check {
-                display: flex;
-                width: 40%;
-                height: 70px;
-                margin: 0 0 0 10%;
-                text-align: center;
-                .login {
-                    margin: 5px 0 5px 20%;
-                    width: 30%;
-                    padding: auto auto auto auto;
-                    background-color: red;
-                    border: 1px solid red;
-                    color: white;
-                    font-weight: bold;
-                    line-height: 60px;
-                    a {
-                        text-decoration: none;
-                    }
-                }
-                .register {
-                    margin: 5px 10% 5px 10%;
-                    width: 30%;
-                    padding: auto auto auto auto;
-                    background-color: red;
-                    border: 1px solid red;
-                    color: white;
-                    font-weight: bold;
-                    line-height: 60px;
-                    a {
-                        text-decoration: none;
-                    }
-                }
-                .user-name {
-                    margin: 5px 0 5px 20%;
-                    width: 30%;
-                    padding: auto auto auto auto;
-                    border: 1px solid red;
-                    font-weight: bold;
-                    line-height: 60px;
-                    a {
-                        text-decoration: none;
-                    }
-                }
-                .logout {
-                    margin: 5px 10% 5px 10%;
-                    width: 30%;
-                    padding: auto auto auto auto;
-                    background-color: red;
-                    border: 1px solid red;
-                    color: white;
-                    font-weight: bold;
-                    line-height: 60px;
-                    a {
-                        text-decoration: none;
-                    }
-                }
-            }
+    header {
+      display: flex;
+      border-bottom: 1px solid #000;
+      box-shadow: inset;
+      .title {
+        width: 30%;
+        height: 70px;
+        margin: 0 20% 0 0;
+        text-align: left;
+        font-size: 20pt;
+        font-weight: bold;
+        line-height: 70px;
+      }
+      .login-check {
+        display: flex;
+        width: 40%;
+        height: 70px;
+        margin: 0 0 0 10%;
+        text-align: center;
+        .login {
+          margin: 5px 0 5px 20%;
+          width: 30%;
+          padding: auto auto auto auto;
+          background-color: red;
+          border: 1px solid red;
+          color: white;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
         }
-        main {
-            .content {
-                .tag-all {
-                    width: 70%;
-                    margin: 50px 15%;
-                    .tags {
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        .tag {
-                            display: inline-block;
-                            width: 20%;
-                            height: 150px;
-                            margin: 15px 2.5%;
-                            background-color: #000;
-                            .tag-title {
-                                line-height: 150px;
-                                font-weight: bold;
-                                font-size: 1.1rem;
-                                text-align: center;
-                                color: #fff;
-                            }
-                        }
-                    }
-                    .tag-add {
-                        width: 150px;
-                        height: 150px;
-                        margin: 10px auto;
-                        border: 1px solid #000;
-                        border-radius: 50%;
-                        text-align: center;
-                        img {
-                            width: 80px;
-                            padding: 35px;
-                        }
-                    }
-                }
-            }
+        .register {
+          margin: 5px 10% 5px 10%;
+          width: 30%;
+          padding: auto auto auto auto;
+          background-color: red;
+          border: 1px solid red;
+          color: white;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
         }
-        footer {
-            .copyright {
-                text-align: right;
-                font-size: 0.5rem;
-            }
-            .github {
-                text-align: center;
-                font-size: 0.7rem;
-                font-weight: bold;
-                width: 30%;
-                margin: 5px 35%;
-
-                a {
-                    text-decoration: none;
-                    color: black;
-                    :hover {
-                        opacity: 0.6;
-                        text-decoration: none;
-                    }
-                }
-            }
+        .user-name {
+          margin: 5px 0 5px 20%;
+          width: 30%;
+          padding: auto auto auto auto;
+          border: 1px solid red;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
         }
+        .logout {
+          margin: 5px 10% 5px 10%;
+          width: 30%;
+          padding: auto auto auto auto;
+          background-color: red;
+          border: 1px solid red;
+          color: white;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
+        }
+      }
     }
+    main {
+      display: flex;
+      .navi {
+        width: 20%;
+        margin: 0;
+        #label-bookmark {
+          width: 100%;
+          height: 40px;
+          background-color: #000;
+          border: 1px solid #fff;
+          box-sizing: border-box;
+          text-align: center;
+          div {
+            line-height: 40px;
+            color: #fff;
+          }
+        }
+        #label-tag {
+          width: 100%;
+          height: 40px;
+          background-color: #000;
+          border: 1px solid #fff;
+          box-sizing: border-box;
+          text-align: center;
+          div {
+            line-height: 40px;
+            color: #fff;
+          }
+        }
+        #label-user {
+          width: 100%;
+          height: 40px;
+          background-color: #000;
+          border: 1px solid #fff;
+          box-sizing: border-box;
+          text-align: center;
+          div {
+            line-height: 40px;
+            color: #fff;
+          }
+        }
+        #label-common {
+          width: 100%;
+          height: 40px;
+          background-color: #000;
+          border: 1px solid #fff;
+          box-sizing: border-box;
+          text-align: center;
+          div {
+            line-height: 40px;
+            color: #fff;
+          }
+        }
+      }
+      .content {
+        width: 80%;
+        margin: 0 15% 0 5%;
+        .tag-all {
+          width: 90%;
+          margin: 50px 5%;
+          .tags {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            .tag {
+              display: inline-block;
+              width: 20%;
+              height: 150px;
+              margin: 15px 2.5%;
+              background-color: #000;
+              .tag-title {
+                line-height: 150px;
+                font-weight: bold;
+                font-size: 1.1rem;
+                text-align: center;
+                color: #fff;
+              }
+            }
+          }
+          .tag-add {
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            border: 1px solid #000;
+            border-radius: 50%;
+            text-align: center;
+            img {
+              width: 80px;
+              padding: 35px;
+            }
+          }
+        }
+      }
+    }
+    footer {
+      .copyright {
+        text-align: right;
+        font-size: 0.5rem;
+      }
+      .github {
+        text-align: center;
+        font-size: 0.7rem;
+        font-weight: bold;
+        width: 30%;
+        margin: 5px 35%;
+
+        a {
+          text-decoration: none;
+          color: black;
+          :hover {
+            opacity: 0.6;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
 }
