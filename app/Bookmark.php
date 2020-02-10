@@ -17,6 +17,18 @@ class Bookmark extends Model
         'user_id' => 'required|number',
     );
 
+    //ログインしているユーザのブックマークを取得
+    public function scopeLoginUser($query, $user_id)
+    {
+        return $query->where('user_id', $user_id);
+    }
+
+    //mypageで選択されたタグに紐づいているブックマークを取得
+    public function scopeSelectTag($query, $tag_id)
+    {
+        return $query->where('tag_id', $tag_id);
+    }
+
     //has One結合（commonテーブル）
     public function common()
     {

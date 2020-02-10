@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import "variables";
+html {
+  margin: 0;
+}
+html body {
+  margin: 0;
+}
+html body header {
+  display: flex;
+  border-bottom: 1px solid #000;
+  box-shadow: inset;
+}
+html body header .title {
+  width: 30%;
+  height: 70px;
+  margin: 0 20% 0 0;
+  text-align: left;
+  font-size: 20pt;
+  font-weight: bold;
+  line-height: 70px;
+}
+html body header .login-check {
+  display: flex;
+  width: 40%;
+  height: 70px;
+  margin: 0 0 0 10%;
+  text-align: center;
+}
+html body header .login-check .login {
+  margin: 5px 0 5px 20%;
+  width: 30%;
+  padding: auto auto auto auto;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  font-weight: bold;
+  line-height: 60px;
+}
+html body header .login-check .login a {
+  text-decoration: none;
+}
+html body header .login-check .register {
+  margin: 5px 10% 5px 10%;
+  width: 30%;
+  padding: auto auto auto auto;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  font-weight: bold;
+  line-height: 60px;
+}
+html body header .login-check .register a {
+  text-decoration: none;
+}
+html body header .login-check .user-name {
+  margin: 5px 0 5px 20%;
+  width: 30%;
+  padding: auto auto auto auto;
+  border: 1px solid red;
+  font-weight: bold;
+  line-height: 60px;
+}
+html body header .login-check .user-name a {
+  text-decoration: none;
+}
+html body header .login-check .logout {
+  margin: 5px 10% 5px 10%;
+  width: 30%;
+  padding: auto auto auto auto;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  font-weight: bold;
+  line-height: 60px;
+}
+html body header .login-check .logout a {
+  text-decoration: none;
+}
+html body main .content .tag-all {
+  width: 70%;
+  margin: 50px 15%;
+}
+html body main .content .tag-all .tags {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+html body main .content .tag-all .tags .tag {
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+  margin: 15px 2.5%;
+  background-color: #000;
+}
+html body main .content .tag-all .tags .tag .tag-title {
+  line-height: 150px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #fff;
+}
+html body main .content .tag-all .tag-add {
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+  border: 1px solid #000;
+  border-radius: 50%;
+  text-align: center;
+}
+html body main .content .tag-all .tag-add img {
+  width: 80px;
+  padding: 35px;
+}
+html body footer .copyright {
+  text-align: right;
+  font-size: 0.5rem;
+}
+html body footer .github {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  width: 30%;
+  margin: 5px 35%;
+}
+html body footer .github a {
+  text-decoration: none;
+  color: black;
+}
+html body footer .github a :hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
