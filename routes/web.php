@@ -15,7 +15,6 @@
 //     return view('welcome');
 // });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -43,6 +42,8 @@ Route::get('/mypage/bookmarks', 'bookmarkController@showBookmarks');
 Route::get('/mypage/user/detail', function () {
     return view("user.detail");
 });
+
+Auth::routes();
 
 //Reactを使ったSPAとなるため、全ルートをひとつにする
 // Route::get('/{any}', function () {
