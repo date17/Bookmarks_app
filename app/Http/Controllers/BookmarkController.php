@@ -24,6 +24,22 @@ class BookmarkController extends Controller
         return $bookmarks;
     }
 
+    //mypage(bookmarkとtagを全件返す)
+    public function mypage(Request $request)
+    {
+        //ログインしているユーザーを取得
+        $user = Auth::user();
+
+        $bookmarks = Bookmark::loginUser($user->id)->get();
+
+        $tags = Tag::userTags($user->id)->get();
+
+        return view('bookmark.mypage', [
+            "bookmarks" => $bookmarks,
+            "tags" => $tags
+        ]);
+    }
+
     //ログインしているユーザのブックマークを一覧表示
     public function showBookmarks(Request $request)
     {
@@ -93,7 +109,7 @@ class BookmarkController extends Controller
         $bookmark->fill($param)->save();
 
         //ユーザーのホーム画面にリダイレクト
-        return redirect('/mypage');
+        return redirect("/mypage");
     }
 
     //特定のブックマークを取得

@@ -1,0 +1,328 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+html {
+  margin: 0;
+  background-color: rgb(32, 30, 30);
+  body {
+    margin: 0;
+    header {
+      position: fixed;
+      width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+      top: 0px;
+      left: 0px;
+      display: flex;
+      // border-bottom: 1px solid #000;
+      background-color: #fff;
+      z-index: 2;
+      .title {
+        width: 30%;
+        height: 70px;
+        margin: 0 20% 0 0;
+        text-align: left;
+        font-size: 20pt;
+        font-weight: bold;
+        line-height: 70px;
+      }
+      .login-check {
+        display: flex;
+        width: 40%;
+        height: 70px;
+        margin: 0 0 0 10%;
+        text-align: center;
+        .login {
+          margin: 5px 0 5px 20%;
+          width: 30%;
+          padding: auto auto auto auto;
+          background-color: red;
+          border: 1px solid red;
+          color: white;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
+        }
+        .register {
+          margin: 5px 10% 5px 10%;
+          width: 30%;
+          padding: auto auto auto auto;
+          background-color: red;
+          border: 1px solid red;
+          color: white;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
+        }
+        .user-name {
+          margin: 5px 0 5px 20%;
+          width: 30%;
+          padding: auto auto auto auto;
+          border: 1px solid red;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
+        }
+        .logout {
+          margin: 5px 10% 5px 10%;
+          width: 30%;
+          padding: auto auto auto auto;
+          background-color: red;
+          border: 1px solid red;
+          color: white;
+          font-weight: bold;
+          line-height: 60px;
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    main {
+      display: flex;
+      width: 100%;
+      height: 90%;
+      background-color: rgb(32, 30, 30);
+      .navi {
+        position: fixed;
+        top: 71px;
+        left: 0px;
+        width: 20%;
+        height: 100%;
+        background-color: rgb(32, 30, 30);
+        border-top: 1px solid gray;
+        border-right: 1px solid gray;
+        box-sizing: border-box;
+        margin: 0;
+        #label-bookmark {
+          width: 90%;
+          height: 60px;
+          padding: 0 0 0 10%;
+          margin: 0 0 0 10%;
+          background-color: rgb(32, 30, 30);
+          border: 1px solid #000;
+          border-collapse: collapse;
+          box-sizing: border-box;
+          text-align: left;
+          &:hover {
+            opacity: 0.7;
+          }
+          .name {
+            line-height: 60px;
+            color: #fff;
+          }
+        }
+        #label-bookmark-detail {
+          width: 70%;
+          margin: 0 0 0 30%;
+          #bookmark-add {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(32, 30, 30) 00;
+            color: #fff;
+            text-align: left;
+            line-height: 40px;
+            &:hover {
+              opacity: 0.7;
+            }
+            a {
+              text-decoration: none;
+              color: #fff;
+              span {
+                padding: 0 0 0 0.7rem;
+              }
+            }
+          }
+        }
+        #label-tag {
+          width: 90%;
+          height: 60px;
+          padding: 0 0 0 10%;
+          margin: 0 0 0 10%;
+          background-color: rgb(32, 30, 30);
+          border: 1px solid #000;
+          border-collapse: collapse;
+          box-sizing: border-box;
+          text-align: left;
+          &:hover {
+            opacity: 0.7;
+          }
+          .name {
+            line-height: 60px;
+            color: #fff;
+          }
+        }
+        #label-tag-detail {
+          width: 70%;
+          margin: 0 0 0 30%;
+          #tag-add {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(32, 30, 30);
+            color: #fff;
+            text-align: left;
+            line-height: 40px;
+            &:hover {
+              opacity: 0.7;
+            }
+            span {
+              padding: 0 0 0 0.7rem;
+            }
+            a {
+              text-decoration: none;
+              color: #fff;
+            }
+          }
+        }
+        #label-user {
+          width: 90%;
+          height: 60px;
+          padding: 0 0 0 10%;
+          margin: 0 0 0 10%;
+          background-color: rgb(32, 30, 30);
+          border: 1px solid #000;
+          border-collapse: collapse;
+          box-sizing: border-box;
+          text-align: left;
+          &:hover {
+            opacity: 0.7;
+          }
+          .name {
+            line-height: 60px;
+            color: #fff;
+          }
+        }
+        #label-user-detail {
+          width: 70%;
+          margin: 0 0 0 30%;
+          #user-detail {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(32, 30, 30);
+            color: #fff;
+            text-align: left;
+            line-height: 40px;
+            &:hover {
+              opacity: 0.7;
+            }
+            span {
+              padding: 0 0 0 0.7rem;
+            }
+          }
+          #user-logout {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(32, 30, 30);
+            color: #fff;
+            text-align: left;
+            line-height: 40px;
+            &:hover {
+              opacity: 0.7;
+            }
+            span {
+              padding: 0 0 0 0.7rem;
+            }
+          }
+          #user-retire {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(32, 30, 30);
+            color: #fff;
+            text-align: left;
+            line-height: 40px;
+            &:hover {
+              opacity: 0.7;
+            }
+            span {
+              padding: 0 0 0 0.7rem;
+            }
+          }
+        }
+        #label-other {
+          width: 90%;
+          height: 60px;
+          padding: 0 0 0 10%;
+          margin: 0 0 0 10%;
+          background-color: rgb(32, 30, 30);
+          border: 1px solid #000;
+          border-collapse: collapse;
+          box-sizing: border-box;
+          text-align: left;
+          &:hover {
+            opacity: 0.7;
+          }
+          .name {
+            line-height: 60px;
+            color: #fff;
+          }
+        }
+        #label-other-detail {
+          width: 70%;
+          margin: 0 0 0 30%;
+          #other-common {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(32, 30, 30);
+            color: #fff;
+            text-align: left;
+            line-height: 40px;
+            &:hover {
+              opacity: 0.7;
+            }
+            span {
+              padding: 0 0 0 0.7rem;
+            }
+          }
+        }
+      }
+      .content {
+        width: 80%;
+        margin: 71px 0 0 20%;
+        z-index: 1;
+        position: relative;
+      }
+    }
+    // footer {
+    //   width: 80%;
+    //   position: static;
+    //   bottom: 0;
+    //   right: 0;
+    //   color: #fff;
+    //   background-color: rgb(32, 30, 30);
+    //   padding: 10px 0 10px 0;
+    //   margin: 0 0 0 20%;
+    //   border-top: 1px solid gray;
+    //   // border-left: 1px solid gray;
+    //   box-sizing: border-box;
+    //   z-index: 3;
+    //   .copyright {
+    //     text-align: right;
+    //     font-size: 0.5rem;
+    //   }
+    //   .github {
+    //     text-align: center;
+    //     font-size: 0.7rem;
+    //     font-weight: bold;
+    //     width: 30%;
+    //     margin: 0 auto 0;
+
+    //     a {
+    //       text-decoration: none;
+    //       color: #fff;
+    //       :hover {
+    //         opacity: 0.6;
+    //         text-decoration: none;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}

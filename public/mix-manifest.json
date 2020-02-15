@@ -1,5 +1,12 @@
 {
     "/js/addTagForm.js": "/js/addTagForm.js",
     "/css/app.css": "/css/app.css",
+    "/css/bookmarks/bookmarks.css": "/css/bookmarks/bookmarks.css",
+    "/css/bookmarks/mypage.css": "/css/bookmarks/mypage.css",
+    "/css/bookmarks/editBookmark.css": "/css/bookmarks/editBookmark.css",
+    "/css/bookmarks/addBookmark.css": "/css/bookmarks/addBookmark.css",
+    "/css/bookmarks/addTag.css": "/css/bookmarks/addTag.css",
+    "/js/layout.js": "/js/layout.js",
+    "/js/mypage.js": "/js/mypage.js",
     "/js/selectOrCreateTag.js": "/js/selectOrCreateTag.js"
 }

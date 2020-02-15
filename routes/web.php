@@ -20,8 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //ユーザーのホーム画面
-Route::get('/mypage', 'TagController@indexUser');
+Route::get('/mypage', 'BookmarkController@mypage');
 //タグの追加
+Route::get('/mypage/tag/add', 'TagController@add');
 Route::post('/mypage/tag/add', 'TagController@create');
 //タグの削除
 Route::get('/mypage/tag/delete/{id}', 'TagController@delete');

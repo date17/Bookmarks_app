@@ -1,0 +1,343 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);html {
+  margin: 0;
+  background-color: #201e1e;
+}
+
+html body {
+  margin: 0;
+}
+
+html body header {
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  top: 0px;
+  left: 0px;
+  display: -webkit-box;
+  display: flex;
+  background-color: #fff;
+  z-index: 2;
+}
+
+html body header .title {
+  width: 30%;
+  height: 70px;
+  margin: 0 20% 0 0;
+  text-align: left;
+  font-size: 20pt;
+  font-weight: bold;
+  line-height: 70px;
+}
+
+html body header .login-check {
+  display: -webkit-box;
+  display: flex;
+  width: 40%;
+  height: 70px;
+  margin: 0 0 0 10%;
+  text-align: center;
+}
+
+html body header .login-check .login {
+  margin: 5px 0 5px 20%;
+  width: 30%;
+  padding: auto auto auto auto;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+html body header .login-check .login a {
+  text-decoration: none;
+}
+
+html body header .login-check .register {
+  margin: 5px 10% 5px 10%;
+  width: 30%;
+  padding: auto auto auto auto;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+html body header .login-check .register a {
+  text-decoration: none;
+}
+
+html body header .login-check .user-name {
+  margin: 5px 0 5px 20%;
+  width: 30%;
+  padding: auto auto auto auto;
+  border: 1px solid red;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+html body header .login-check .user-name a {
+  text-decoration: none;
+}
+
+html body header .login-check .logout {
+  margin: 5px 10% 5px 10%;
+  width: 30%;
+  padding: auto auto auto auto;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+html body header .login-check .logout a {
+  text-decoration: none;
+}
+
+html body main {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 90%;
+  background-color: #201e1e;
+}
+
+html body main .navi {
+  position: fixed;
+  top: 71px;
+  left: 0px;
+  width: 20%;
+  height: 100%;
+  background-color: #201e1e;
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html body main .navi #label-bookmark {
+  width: 90%;
+  height: 60px;
+  padding: 0 0 0 10%;
+  margin: 0 0 0 10%;
+  background-color: #201e1e;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+html body main .navi #label-bookmark:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-bookmark .name {
+  line-height: 60px;
+  color: #fff;
+}
+
+html body main .navi #label-bookmark-detail {
+  width: 70%;
+  margin: 0 0 0 30%;
+}
+
+html body main .navi #label-bookmark-detail #bookmark-add {
+  width: 100%;
+  height: 40px;
+  background-color: #201e1e 0;
+  color: #fff;
+  text-align: left;
+  line-height: 40px;
+}
+
+html body main .navi #label-bookmark-detail #bookmark-add:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-bookmark-detail #bookmark-add a {
+  text-decoration: none;
+  color: #fff;
+}
+
+html body main .navi #label-bookmark-detail #bookmark-add a span {
+  padding: 0 0 0 0.7rem;
+}
+
+html body main .navi #label-tag {
+  width: 90%;
+  height: 60px;
+  padding: 0 0 0 10%;
+  margin: 0 0 0 10%;
+  background-color: #201e1e;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+html body main .navi #label-tag:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-tag .name {
+  line-height: 60px;
+  color: #fff;
+}
+
+html body main .navi #label-tag-detail {
+  width: 70%;
+  margin: 0 0 0 30%;
+}
+
+html body main .navi #label-tag-detail #tag-add {
+  width: 100%;
+  height: 40px;
+  background-color: #201e1e;
+  color: #fff;
+  text-align: left;
+  line-height: 40px;
+}
+
+html body main .navi #label-tag-detail #tag-add:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-tag-detail #tag-add span {
+  padding: 0 0 0 0.7rem;
+}
+
+html body main .navi #label-tag-detail #tag-add a {
+  text-decoration: none;
+  color: #fff;
+}
+
+html body main .navi #label-user {
+  width: 90%;
+  height: 60px;
+  padding: 0 0 0 10%;
+  margin: 0 0 0 10%;
+  background-color: #201e1e;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+html body main .navi #label-user:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-user .name {
+  line-height: 60px;
+  color: #fff;
+}
+
+html body main .navi #label-user-detail {
+  width: 70%;
+  margin: 0 0 0 30%;
+}
+
+html body main .navi #label-user-detail #user-detail {
+  width: 100%;
+  height: 40px;
+  background-color: #201e1e;
+  color: #fff;
+  text-align: left;
+  line-height: 40px;
+}
+
+html body main .navi #label-user-detail #user-detail:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-user-detail #user-detail span {
+  padding: 0 0 0 0.7rem;
+}
+
+html body main .navi #label-user-detail #user-logout {
+  width: 100%;
+  height: 40px;
+  background-color: #201e1e;
+  color: #fff;
+  text-align: left;
+  line-height: 40px;
+}
+
+html body main .navi #label-user-detail #user-logout:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-user-detail #user-logout span {
+  padding: 0 0 0 0.7rem;
+}
+
+html body main .navi #label-user-detail #user-retire {
+  width: 100%;
+  height: 40px;
+  background-color: #201e1e;
+  color: #fff;
+  text-align: left;
+  line-height: 40px;
+}
+
+html body main .navi #label-user-detail #user-retire:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-user-detail #user-retire span {
+  padding: 0 0 0 0.7rem;
+}
+
+html body main .navi #label-other {
+  width: 90%;
+  height: 60px;
+  padding: 0 0 0 10%;
+  margin: 0 0 0 10%;
+  background-color: #201e1e;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+html body main .navi #label-other:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-other .name {
+  line-height: 60px;
+  color: #fff;
+}
+
+html body main .navi #label-other-detail {
+  width: 70%;
+  margin: 0 0 0 30%;
+}
+
+html body main .navi #label-other-detail #other-common {
+  width: 100%;
+  height: 40px;
+  background-color: #201e1e;
+  color: #fff;
+  text-align: left;
+  line-height: 40px;
+}
+
+html body main .navi #label-other-detail #other-common:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #label-other-detail #other-common span {
+  padding: 0 0 0 0.7rem;
+}
+
+html body main .content {
+  width: 80%;
+  margin: 71px 0 0 20%;
+  z-index: 1;
+  position: relative;
+}
+

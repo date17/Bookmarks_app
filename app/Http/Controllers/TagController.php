@@ -41,6 +41,16 @@ class TagController extends Controller
     }
 
     //タグの新規追加
+    public function add(Request $request)
+    {
+        //ログインしている人のタグを取得
+        $tags = Tag::userTags(Auth::user()->id)->get();
+
+        return view("bookmark.addTag", [
+            "tags" => $tags
+        ]);
+    }
+
     public function create(Request $request)
     {
         //バリデーションチェック

@@ -12,5 +12,12 @@ const mix = require("laravel-mix");
  */
 
 mix.sass("resources/sass/app.scss", "public/css")
+    .sass("resources/sass/bookmarks.scss", "public/css/bookmarks")
+    .sass("resources/sass/mypage.scss", "public/css/bookmarks")
+    .sass("resources/sass/editBookmark.scss", "public/css/bookmarks")
+    .sass("resources/sass/addBookmark.scss", "public/css/bookmarks")
+    .sass("resources/sass/addTag.scss", "public/css/bookmarks")
     .js("resources/js/addTagForm.js", "public/js")
-    .js("resources/js/selectOrCreateTag.js", "public/js");
+    .js("resources/js/selectOrCreateTag.js", "public/js")
+    .js("resources/js/layout.js", "public/js")
+    .js("resources/js/mypage.js", "public/js");

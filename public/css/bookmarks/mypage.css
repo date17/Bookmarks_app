@@ -1,0 +1,181 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);.content {
+  width: 80%;
+  margin: 71px 0 0 20%;
+  background-color: #201e1e;
+  border-top: 1px solid gray;
+  box-sizing: border-box;
+  margin: 0 0 15%;
+  display: -webkit-box;
+  display: flex;
+}
+
+.content #all-bookmarks {
+  width: 45%;
+  margin: 0 0 0 10%;
+}
+
+.content #all-bookmarks .page-title {
+  font-size: 20pt;
+  font-weight: bold;
+  color: #be8c52;
+  margin: 30px 0 30px;
+  position: relative;
+  bottom: 0;
+  right: 5%;
+}
+
+.content #all-bookmarks .title-close {
+  color: #fff;
+  text-align: left;
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.content #all-bookmarks .title-close span {
+  padding: 0 0 0 0.7rem;
+}
+
+.content #all-bookmarks .title-open {
+  text-align: left;
+  color: #fff;
+  font-size: 1.5rem;
+  display: none;
+  margin: 0 0 0.5rem;
+}
+
+.content #all-bookmarks .title-open span {
+  padding: 0 0 0 0.7rem;
+}
+
+.content #all-bookmarks .detail {
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  display: none;
+}
+
+.content #all-bookmarks .detail .first-tag {
+  text-align: left;
+  color: yellow;
+  font-weight: bold;
+  margin: 0 0 0.8rem;
+}
+
+.content #all-bookmarks .detail .url {
+  margin: 0 0 0.8rem 2rem;
+  color: #a2c2e6;
+  text-align: left;
+}
+
+.content #all-bookmarks .detail .url span {
+  padding: 0 0 0 0.7rem;
+}
+
+.content #all-bookmarks .detail .url span a {
+  text-decoration: none;
+  color: #a2c2e6;
+  padding: 0 0 0 0.3rem;
+}
+
+.content #all-bookmarks .detail .tag {
+  margin: 0 0 0.8rem 2rem;
+  color: #a2c2e6;
+  text-align: left;
+}
+
+.content #all-bookmarks .detail .tag span {
+  padding: 0 0 0 0.7rem;
+}
+
+.content #all-bookmarks .detail .end-tag {
+  text-align: left;
+  color: yellow;
+  font-weight: bold;
+}
+
+.content #all-bookmarks .detail .btn {
+  height: 2rem;
+  width: 90%;
+  margin: 0 10% 0 0;
+  text-align: right;
+}
+
+.content #all-bookmarks .detail .btn .edit-bookmark {
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  margin: 0.25rem 0.5rem;
+  background-color: #201e1e;
+  border: 1px solid yellow;
+  box-sizing: border-box;
+  color: yellow;
+}
+
+.content #all-bookmarks .detail .btn .del-bookmark {
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  margin: 0.25rem 0.5rem;
+  background-color: #201e1e;
+  border: 1px solid yellow;
+  box-sizing: border-box;
+  color: yellow;
+}
+
+.content .all-tags {
+  width: 40%;
+  margin: 0 5% 0 0;
+}
+
+.content .all-tags .tags-title {
+  font-size: 20pt;
+  font-weight: bold;
+  margin: 30px 0;
+  color: #be8c52;
+  text-align: left;
+}
+
+.content .all-tags ul {
+  width: 100%;
+  list-style: none;
+  color: #a2c2e6;
+  padding: 0 0 0 20px;
+}
+
+.content .all-tags ul .tags {
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  height: 44px;
+}
+
+.content .all-tags ul .tags .tag {
+  width: 70%;
+  text-align: left;
+  margin: 0;
+}
+
+.content .all-tags ul .tags .tag li {
+  margin: 0.5rem 0 0.5rem 0.3rem;
+  font-size: 1.5rem;
+}
+
+.content .all-tags ul .tags .tag li span {
+  margin: 0 0.7rem 0 0;
+}
+
+.content .all-tags ul .tags .btn {
+  text-align: left;
+  width: 32px;
+  height: 44px;
+}
+
+.content .all-tags ul .tags .btn button {
+  background-color: #201e1e;
+  border: 0.5px solid yellow;
+  color: yellow;
+  padding: 5px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  height: 28px;
+}
+
