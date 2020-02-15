@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -38,6 +38,11 @@ Route::post('/mypage/bookmark/edit/{id}', 'BookmarkController@update');
 Route::get('/mypage/bookmark/delete/{id}', 'BookmarkController@delete');
 //ログインしているユーザのブックマーク一覧
 Route::get('/mypage/bookmarks', 'bookmarkController@showBookmarks');
+
+//ユーザーの情報
+Route::get('/mypage/user/detail', function () {
+    return view("user.detail");
+});
 
 //Reactを使ったSPAとなるため、全ルートをひとつにする
 // Route::get('/{any}', function () {

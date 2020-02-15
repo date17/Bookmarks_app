@@ -213,8 +213,12 @@ html {
             &:hover {
               opacity: 0.7;
             }
-            span {
-              padding: 0 0 0 0.7rem;
+            a {
+              color: #fff;
+              text-decoration: none;
+              span {
+                padding: 0 0 0 0.7rem;
+              }
             }
           }
           #user-logout {

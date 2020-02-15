@@ -60,8 +60,12 @@
                 </div>
             </div>
             <div id="label-user-detail">
-                <div id="user-detail"><i class="fas fa-link"></i><span>詳細</span></div>
+                <div id="user-detail"><a href="/mypage/user/detail"><i class="fas fa-link"></i><span>詳細</span></a></div>
                 <div id="user-logout"><i class="fas fa-link"></i><span>ログアウト</span></div>
+                {{-- logoutform  javascriptで使うため、常に非表示--}}
+                <form id="logoutForm" action="{{route("logout")}}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
                 <div id="user-retire"><i class="fas fa-link"></i><span>退会</span></div>
             </div>
             <div id="label-other">

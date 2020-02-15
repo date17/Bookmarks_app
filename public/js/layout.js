@@ -189,6 +189,16 @@ label.other.onclick = function () {
     document.getElementById("other-open").style.display = "none";
     displayNone(detail.other[0]);
   }
+}; //ログアウト処理
+
+
+detail.user[1].logout.onclick = function () {
+  if (window.confirm("ログアウトしてよろしいでしょうか？")) {
+    logout_form = document.getElementById("logoutForm");
+    logout_form.submit();
+  } else {
+    window.alert("キャンセルされました");
+  }
 }; //非表示にする関数
 
 

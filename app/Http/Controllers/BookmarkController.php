@@ -39,21 +39,6 @@ class BookmarkController extends Controller
             "tags" => $tags
         ]);
     }
-
-    //ログインしているユーザのブックマークを一覧表示
-    public function showBookmarks(Request $request)
-    {
-        //ログインしているユーザの情報を取得
-        $user = Auth::user();
-
-        //ログインしているユーザのブックマークを一覧取得
-        $bookmarks = Bookmark::where('user_id', $user->id)->get();
-
-        return view('bookmark.showBookmarks', [
-            'bookmarks' => $bookmarks
-        ]);
-    }
-
     //ログインしているユーザーのブックマークをタグごとに表示
     public function showTagBookmarks(Request $request)
     {

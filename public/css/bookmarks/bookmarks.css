@@ -253,7 +253,12 @@ html body main .navi #label-user-detail #user-detail:hover {
   opacity: 0.7;
 }
 
-html body main .navi #label-user-detail #user-detail span {
+html body main .navi #label-user-detail #user-detail a {
+  color: #fff;
+  text-decoration: none;
+}
+
+html body main .navi #label-user-detail #user-detail a span {
   padding: 0 0 0 0.7rem;
 }
 
