@@ -1,12 +1,57 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.content {
-  width: 80%;
-  margin: 71px 0 0 20%;
-  background-color: #201e1e;
+.content {
   border-top: 1px solid gray;
   box-sizing: border-box;
-  margin: 0 0 15%;
-  display: -webkit-box;
-  display: flex;
+}
+
+.content .select-tag {
+  width: 45%;
+  margin: 5% 0 20px 10%;
+}
+
+.content .select-tag .title {
+  font-size: 20pt;
+  margin: 0 0 20px 0;
+  color: #be8c52;
+  font-weight: bold;
+  position: relative;
+  bottom: 0;
+  right: 5%;
+}
+
+.content .select-tag .first-tag {
+  text-align: left;
+  color: yellow;
+  font-size: 18pt;
+  font-weight: bold;
+  margin: 0 0 0.8rem;
+}
+
+.content .select-tag .tag {
+  height: 40px;
+  padding: 0 0 0 2rem;
+  font-size: 18pt;
+  font-weight: bold;
+  color: #a2c2e6;
+  text-align: left;
+  line-height: 40px;
+}
+
+.content .select-tag .tag span {
+  padding: 0 2rem 0 0;
+}
+
+.content .select-tag .end-tag {
+  text-align: left;
+  color: yellow;
+  font-size: 18pt;
+  font-weight: bold;
+  margin: 0.8rem 0 0;
+}
+
+.content .select-tag .nothing {
+  color: #fff;
+  text-align: left;
+  font-size: 1.5rem;
 }
 
 .content #all-bookmarks {
@@ -121,66 +166,9 @@
   color: yellow;
 }
 
-.content .all-tags {
-  width: 40%;
-  margin: 0 5% 0 0;
-}
-
-.content .all-tags .tags-title {
-  font-size: 20pt;
-  font-weight: bold;
-  margin: 30px 0;
-  color: #be8c52;
+.content #all-bookmarks .nothing {
+  color: #fff;
   text-align: left;
-}
-
-.content .all-tags ul {
-  width: 100%;
-  list-style: none;
-  color: #a2c2e6;
-  padding: 0 0 0 20px;
-}
-
-.content .all-tags ul .tags {
-  display: -webkit-box;
-  display: flex;
-  width: 100%;
-  height: 44px;
-}
-
-.content .all-tags ul .tags .tag {
-  width: 70%;
-  text-align: left;
-  margin: 0;
-}
-
-.content .all-tags ul .tags .tag li {
-  margin: 0.5rem 0 0.5rem 0.3rem;
   font-size: 1.5rem;
-}
-
-.content .all-tags ul .tags .tag li a {
-  text-decoration: none;
-  color: #a2c2e6;
-}
-
-.content .all-tags ul .tags .tag li a span {
-  margin: 0 0.7rem 0 0;
-}
-
-.content .all-tags ul .tags .btn {
-  text-align: left;
-  width: 32px;
-  height: 44px;
-}
-
-.content .all-tags ul .tags .btn button {
-  background-color: #201e1e;
-  border: 0.5px solid yellow;
-  color: yellow;
-  padding: 5px 5px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  height: 28px;
 }
 

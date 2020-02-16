@@ -45,11 +45,15 @@ class BookmarkController extends Controller
         //ログインしているユーザの情報を取得
         $user = Auth::user();
 
+        //リクエストで受け取ったタグIDを用いてタグのレコードを取得
+        $tag = Tag::find($request->selectTag);
+
         //２つのスコープを使ってログインしているユーザの指定したタグに紐づいているbookmarkを取得
         $bookmarks = Bookmark::loginUser($user->id)->selectTag($request->selectTag)->get();
 
         return view('bookmark.selectTag', [
-            'bookmarks' => $bookmarks
+            'bookmarks' => $bookmarks,
+            'tag' => $tag
         ]);
     }
 

@@ -1,18 +1,50 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-
-// Variables
-@import "variables";
 .content {
-  width: 80%;
-  margin: 71px 0 0 20%;
-  background-color: rgb(32, 30, 30);
   border-top: 1px solid gray;
-  // border-left: 1px solid gray;
-  // border-bottom: 1px solid gray;
   box-sizing: border-box;
-  margin: 0 0 15%;
-  display: flex;
+  .select-tag {
+    width: 45%;
+    margin: 5% 0 20px 10%;
+    .title {
+      font-size: 20pt;
+      margin: 0 0 20px 0;
+      color: rgb(190, 140, 82);
+      font-weight: bold;
+      position: relative;
+      bottom: 0;
+      right: 5%;
+    }
+    .first-tag {
+      text-align: left;
+      color: yellow;
+      font-size: 18pt;
+      font-weight: bold;
+      margin: 0 0 0.8rem;
+    }
+    .tag {
+      height: 40px;
+      padding: 0 0 0 2rem;
+      font-size: 18pt;
+      font-weight: bold;
+      color: rgb(162, 194, 230);
+      text-align: left;
+      line-height: 40px;
+      span {
+        padding: 0 2rem 0 0;
+      }
+    }
+    .end-tag {
+      text-align: left;
+      color: yellow;
+      font-size: 18pt;
+      font-weight: bold;
+      margin: 0.8rem 0 0;
+    }
+    .nothing {
+      color: #fff;
+      text-align: left;
+      font-size: 1.5rem;
+    }
+  }
   #all-bookmarks {
     width: 45%;
     margin: 0 0 0 10%;
@@ -107,57 +139,10 @@
         }
       }
     }
-  }
-  .all-tags {
-    width: 40%;
-    margin: 0 5% 0 0;
-    .tags-title {
-      font-size: 20pt;
-      font-weight: bold;
-      margin: 30px 0;
-      color: rgb(190, 140, 82);
+    .nothing {
+      color: #fff;
       text-align: left;
-    }
-    ul {
-      width: 100%;
-      list-style: none;
-      color: rgb(162, 194, 230);
-      padding: 0 0 0 20px;
-      .tags {
-        display: flex;
-        width: 100%;
-        height: 44px;
-        .tag {
-          width: 70%;
-          text-align: left;
-          margin: 0;
-          li {
-            margin: 0.5rem 0 0.5rem 0.3rem;
-            font-size: 1.5rem;
-            a {
-              text-decoration: none;
-              color: rgb(162, 194, 230);
-              span {
-                margin: 0 0.7rem 0 0;
-              }
-            }
-          }
-        }
-        .btn {
-          text-align: left;
-          width: 32px;
-          height: 44px;
-          button {
-            background-color: rgb(32, 30, 30);
-            border: 0.5px solid yellow;
-            color: yellow;
-            padding: 5px 5px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            height: 28px;
-          }
-        }
-      }
+      font-size: 1.5rem;
     }
   }
 }

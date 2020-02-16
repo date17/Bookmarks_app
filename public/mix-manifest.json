@@ -8,6 +8,7 @@
     "/css/bookmarks/addTag.css": "/css/bookmarks/addTag.css",
     "/css/user/login.css": "/css/user/login.css",
     "/css/user/register.css": "/css/user/register.css",
+    "/css/bookmarks/selectTag.css": "/css/bookmarks/selectTag.css",
     "/js/layout.js": "/js/layout.js",
     "/js/mypage.js": "/js/mypage.js",
     "/js/selectOrCreateTag.js": "/js/selectOrCreateTag.js"

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('css/bookmarks/mypage.css')}}">
 @endsection
 
-@section('title', "MyPage")
+@section('title', "MYPAGE")
 
 @section('content')
 <div id="all-bookmarks">
@@ -34,7 +34,8 @@
         @foreach ($tags as $tag)
         <div class="tags">
             <div class="tag">
-                <li><span><i class="fas fa-link"></i></span>{{$tag->name}}</li>
+                <li><a href="/mypage/tag/select/{{$tag->id}}"><span><i class="fas fa-link"></i></span>{{$tag->name}}</a>
+                </li>
             </div>
             <div class="btn">
                 <button class="del_tag" id="{{$tag->id}}">削除</button>
