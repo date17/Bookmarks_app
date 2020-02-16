@@ -27,7 +27,7 @@ html body header .page-title {
   font-weight: bold;
 }
 
-html body header .register {
+html body header .login {
   width: 15%;
   margin: 0 10% 0 25%;
   font-size: 16pt;
@@ -35,40 +35,38 @@ html body header .register {
   text-align: center;
 }
 
-html body header .register a {
+html body header .login a {
   text-decoration: none;
   color: #000;
 }
 
 html body main {
-  width: 50%;
+  width: 70%;
   margin: 50px auto;
 }
 
 html body main .form {
-  width: 100%;
-  margin: 20px 20px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 html body main .form .first-tag {
-  color: yellow;
-  width: 10%;
-  font-size: 18pt;
   text-align: left;
+  font-size: 18pt;
   font-weight: bold;
   margin: 20px 0 3rem;
+  color: yellow;
 }
 
 html body main .form .end-tag {
-  color: yellow;
-  width: 10%;
-  font-size: 18pt;
   text-align: left;
+  font-size: 18pt;
   font-weight: bold;
   margin: 3rem 0 20px;
+  color: yellow;
 }
 
-html body main .form .email-address {
+html body main .form .name {
   display: -webkit-box;
   display: flex;
   width: 90%;
@@ -77,20 +75,51 @@ html body main .form .email-address {
   margin: 20px auto;
 }
 
-html body main .form .email-address .label {
-  width: 20%;
+html body main .form .name .label {
+  width: 30%;
   font-size: 18pt;
   margin: 0 5% 0 0;
   color: #a2c2e6;
 }
 
-html body main .form .email-address .input {
-  width: 70%;
+html body main .form .name .input {
+  width: 60%;
   margin: 0 2.5% 0 2.5%;
   height: 18pt;
 }
 
-html body main .form .email-address .input input {
+html body main .form .name .input input {
+  width: 100%;
+  background-color: #201e1e;
+  border: none;
+  border-bottom: 2px solid yellow;
+  font-size: 16pt;
+  color: #a2c2e6;
+}
+
+html body main .form .email {
+  display: -webkit-box;
+  display: flex;
+  width: 90%;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
+}
+
+html body main .form .email .label {
+  width: 30%;
+  font-size: 18pt;
+  margin: 0 5% 0 0;
+  color: #a2c2e6;
+}
+
+html body main .form .email .input {
+  width: 60%;
+  margin: 0 2.5% 0 2.5%;
+  height: 18pt;
+}
+
+html body main .form .email .input input {
   width: 100%;
   background-color: #201e1e;
   border: none;
@@ -109,14 +138,14 @@ html body main .form .password {
 }
 
 html body main .form .password .label {
-  width: 20%;
+  width: 30%;
   font-size: 18pt;
   margin: 0 5% 0 0;
   color: #a2c2e6;
 }
 
 html body main .form .password .input {
-  width: 70%;
+  width: 60%;
   margin: 0 2.5% 0 2.5%;
   height: 18pt;
 }
@@ -130,20 +159,35 @@ html body main .form .password .input input {
   color: #a2c2e6;
 }
 
-html body main .form .error-email ul {
-  list-style: none;
-  font-size: 18pt;
-  color: red;
-  font-weight: bold;
-  margin: 10px 0;
+html body main .form .password-confirm {
+  display: -webkit-box;
+  display: flex;
+  width: 90%;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
 }
 
-html body main .form .error-password ul {
-  list-style: none;
+html body main .form .password-confirm .label {
+  width: 30%;
   font-size: 18pt;
-  color: red;
-  font-weight: bold;
-  margin: 10px 0;
+  margin: 0 5% 0 0;
+  color: #a2c2e6;
+}
+
+html body main .form .password-confirm .input {
+  width: 60%;
+  margin: 0 2.5% 0 2.5%;
+  height: 18pt;
+}
+
+html body main .form .password-confirm .input input {
+  width: 100%;
+  background-color: #201e1e;
+  border: none;
+  border-bottom: 2px solid yellow;
+  font-size: 16pt;
+  color: #a2c2e6;
 }
 
 html body main .form .send-btn {
@@ -158,5 +202,13 @@ html body main .form .send-btn input {
   font-size: 18pt;
   font-weight: bold;
   padding: 5px 5px;
+}
+
+html body main .form .error ul {
+  list-style: none;
+  font-size: 18pt;
+  color: red;
+  font-weight: bold;
+  margin: 10px 0 10px 2rem;
 }
 

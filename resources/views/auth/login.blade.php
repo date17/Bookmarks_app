@@ -11,7 +11,7 @@
     <header>
         <div class="page-title">LOGIN FORM</div>
         <div class="register">
-            <div>register</div>
+            <div><a href="{{route("register")}}">register</a></div>
         </div>
     </header>
     <main>
