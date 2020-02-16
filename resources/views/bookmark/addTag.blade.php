@@ -3,7 +3,7 @@
 @section('link-css')
 <link rel="stylesheet" href="{{asset("css/bookmarks/addTag.css")}}">
 @endsection
-@section('title', "Add Tag")
+@section('title', "ADD TAG")
 
 
 @section('content')

@@ -225,7 +225,7 @@ for (var i = 0; i < del_bookmark.length; i++) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/js/mypage.js */"./resources/js/mypage.js");
+module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/js/mypage.js */"./resources/js/mypage.js");
 
 
 /***/ })

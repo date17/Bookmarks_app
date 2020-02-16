@@ -1,95 +1,95 @@
 .content {
-    border-top: 1px solid gray;
-    .add-tag {
-        margin: 30px 0 0 10%;
-        .errors {
-            margin: 20px 0 30px 0;
-            .error-title {
-                color: red;
-                font-size: 20pt;
-                font-weight: bold;
-            }
-            ul {
-                list-style: none;
-                li {
-                    color: red;
-                    font-size: 1.5rem;
-                    margin: 1rem;
-                }
-            }
+  border-top: 1px solid gray;
+  .add-tag {
+    margin: 5% 0 0 10%;
+    .errors {
+      margin: 20px 0 30px 0;
+      .error-title {
+        color: red;
+        font-size: 20pt;
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        li {
+          color: red;
+          font-size: 1.5rem;
+          margin: 1rem;
         }
-        .tags {
-            margin: 30px 0 30px;
-            .title {
-                font-size: 20pt;
-                color: rgb(190, 140, 82);
-                font-weight: bold;
-            }
-            .tags-name {
-                width: 70%;
-            }
-            .tag {
-                display: inline-block;
-                width: 25%;
-                margin: 1rem 0 0 2rem;
-                color: rgb(162, 194, 230);
-                text-align: center;
-                border-bottom: 1px solid yellow;
-            }
-        }
-        .add-tag-form {
-            .form-title {
-                font-size: 20pt;
-                color: rgb(190, 140, 82);
-                font-weight: bold;
-                margin: 2rem 0;
-            }
-            form {
-                width: 50%;
-                .first-tag {
-                    text-align: left;
-                    color: yellow;
-                    font-size: 18pt;
-                    font-weight: bold;
-                    margin: 0 0 0.8rem;
-                }
-                .end-tag {
-                    text-align: left;
-                    color: yellow;
-                    font-size: 18pt;
-                    font-weight: bold;
-                    margin: 0 0 0.8rem;
-                }
-                .name {
-                    margin: 2rem 0 2rem 2rem;
-                    span {
-                        font-size: 18pt;
-                        color: yellow;
-                        padding: 0 0.7rem 0 0;
-                    }
-                    input {
-                        background-color: rgb(32, 30, 30);
-                        border: none;
-                        border-bottom: 2px solid yellow;
-                        width: 15rem;
-                        height: 1.5rem;
-                        color: rgb(162, 194, 230);
-                    }
-                }
-                .send-btn {
-                    padding: 2rem 0 0 0;
-                    text-align: right;
-                    input {
-                        border: none;
-                        border: 2px solid yellow;
-                        background-color: rgb(32, 30, 30);
-                        color: yellow;
-                        padding: 10px 15px;
-                        font-size: 18pt;
-                        font-weight: bold;
-                    }
-                }
-            }
-        }
+      }
     }
+    .tags {
+      margin: 30px 0 30px;
+      .title {
+        font-size: 20pt;
+        color: rgb(190, 140, 82);
+        font-weight: bold;
+      }
+      .tags-name {
+        width: 70%;
+      }
+      .tag {
+        display: inline-block;
+        width: 25%;
+        margin: 1rem 0 0 2rem;
+        color: rgb(162, 194, 230);
+        text-align: center;
+        border-bottom: 1px solid yellow;
+      }
+    }
+    .add-tag-form {
+      .form-title {
+        font-size: 20pt;
+        color: rgb(190, 140, 82);
+        font-weight: bold;
+        margin: 5% 0 2rem;
+      }
+      form {
+        width: 50%;
+        .first-tag {
+          text-align: left;
+          color: yellow;
+          font-size: 18pt;
+          font-weight: bold;
+          margin: 0 0 0.8rem;
+        }
+        .end-tag {
+          text-align: left;
+          color: yellow;
+          font-size: 18pt;
+          font-weight: bold;
+          margin: 0.8rem 0 0.8rem;
+        }
+        .name {
+          margin: 2rem 0 2rem 3rem;
+          span {
+            font-size: 18pt;
+            color: yellow;
+            padding: 0 0.7rem 0 0;
+          }
+          input {
+            background-color: rgb(32, 30, 30);
+            border: none;
+            border-bottom: 2px solid yellow;
+            width: 15rem;
+            height: 1.5rem;
+            color: rgb(162, 194, 230);
+          }
+        }
+        .send-btn {
+          padding: 2rem 0 0 0;
+          text-align: right;
+          input {
+            border: none;
+            border: 2px solid yellow;
+            background-color: rgb(32, 30, 30);
+            color: yellow;
+            padding: 10px 15px;
+            font-size: 18pt;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
 }

@@ -29,6 +29,7 @@
 
 .content .create-form .form {
   margin: 1rem 2rem;
+  width: 70%;
 }
 
 .content .create-form .form .first-tag {
@@ -45,73 +46,97 @@
 }
 
 .content .create-form .form .title {
+  display: -webkit-box;
+  display: flex;
   font-size: 18pt;
   padding: 3rem 0 0 3rem;
   color: #a2c2e6;
 }
 
-.content .create-form .form .title span {
-  padding: 0 1.5rem 0 0;
-  text-align: left;
+.content .create-form .form .title .label {
+  width: 20%;
+  margin: 0 0 0 0;
 }
 
 .content .create-form .form .title .input {
-  width: 50%;
-  height: 20pt;
+  width: 60%;
+  margin: 0 20% 0 0;
+}
+
+.content .create-form .form .title .input input {
+  width: 100%;
+  height: 28px;
   border: none;
   border-bottom: 2px solid yellow;
   background-color: #201e1e;
   color: #a2c2e6;
+  box-sizing: border-box;
+  line-height: 28px;
 }
 
 .content .create-form .form .url {
+  display: -webkit-box;
+  display: flex;
   font-size: 18pt;
   padding: 3rem 0 0 3rem;
   color: #a2c2e6;
 }
 
-.content .create-form .form .url span {
-  padding: 0 1.5rem 0 0;
-  text-align: left;
+.content .create-form .form .url .label {
+  width: 20%;
+  margin: 0 0 0 0;
 }
 
 .content .create-form .form .url .input {
-  width: 50%;
-  height: 20pt;
+  width: 60%;
+  margin: 0 20% 0 0;
+}
+
+.content .create-form .form .url .input input {
+  width: 100%;
+  height: 28px;
   border: none;
   border-bottom: 2px solid yellow;
   background-color: #201e1e;
   color: #a2c2e6;
+  box-sizing: border-box;
+  line-height: 28px;
 }
 
 .content .create-form .form .tag {
+  display: -webkit-box;
+  display: flex;
   font-size: 18pt;
   padding: 3rem 0 0 3rem;
   color: #a2c2e6;
 }
 
-.content .create-form .form .tag span {
-  padding: 0 1.5rem 0 0;
-  text-align: left;
+.content .create-form .form .tag .label {
+  width: 20%;
+  margin: 0 0 0 0;
 }
 
-.content .create-form .form .tag select {
-  width: 50%;
-  height: 20pt;
+.content .create-form .form .tag .select {
+  width: 60%;
+  margin: 0 20% 0 0;
+}
+
+.content .create-form .form .tag .select select {
+  width: 100%;
+  height: 28px;
   border: none;
   border-bottom: 2px solid yellow;
+  border-radius: unset;
   background-color: #201e1e;
   color: #a2c2e6;
-  text-align: center;
-}
-
-.content .create-form .form .tag select option {
-  font-size: 18pt;
+  box-sizing: border-box;
+  line-height: 28px;
 }
 
 .content .create-form .form .send-btn {
   padding: 2rem 0 0 0;
-  margin: 0 0 0 55%;
+  text-align: right;
+  margin: 0 10% 0 0;
 }
 
 .content .create-form .form .send-btn input {

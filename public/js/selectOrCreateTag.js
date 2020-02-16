@@ -124,7 +124,7 @@ document.getElementById("createTag").onclick = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/js/selectOrCreateTag.js */"./resources/js/selectOrCreateTag.js");
+module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/js/selectOrCreateTag.js */"./resources/js/selectOrCreateTag.js");
 
 
 /***/ })

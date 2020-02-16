@@ -24,6 +24,7 @@
     }
     .form {
       margin: 1rem 2rem;
+      width: 70%;
       .first-tag {
         color: yellow;
         font-size: 20pt;
@@ -36,63 +37,82 @@
         text-align: left;
       }
       .title {
+        display: flex;
         font-size: 18pt;
         padding: 3rem 0 0 3rem;
         color: rgb(162, 194, 230);
-        span {
-          padding: 0 1.5rem 0 0;
-          text-align: left;
+        .label {
+          width: 20%;
+          margin: 0 0 0 0;
         }
         .input {
-          width: 50%;
-          height: 20pt;
-          border: none;
-          border-bottom: 2px solid yellow;
-          background-color: rgb(32, 30, 30);
-          color: rgb(162, 194, 230);
+          width: 60%;
+          margin: 0 20% 0 0;
+          input {
+            width: 100%;
+            height: 28px;
+            border: none;
+            border-bottom: 2px solid yellow;
+            background-color: rgb(32, 30, 30);
+            color: rgb(162, 194, 230);
+            box-sizing: border-box;
+            line-height: 28px;
+          }
         }
       }
       .url {
+        display: flex;
         font-size: 18pt;
         padding: 3rem 0 0 3rem;
         color: rgb(162, 194, 230);
-        span {
-          padding: 0 1.5rem 0 0;
-          text-align: left;
+        .label {
+          width: 20%;
+          margin: 0 0 0 0;
         }
         .input {
-          width: 50%;
-          height: 20pt;
-          border: none;
-          border-bottom: 2px solid yellow;
-          background-color: rgb(32, 30, 30);
-          color: rgb(162, 194, 230);
+          width: 60%;
+          margin: 0 20% 0 0;
+          input {
+            width: 100%;
+            height: 28px;
+            border: none;
+            border-bottom: 2px solid yellow;
+            background-color: rgb(32, 30, 30);
+            color: rgb(162, 194, 230);
+            box-sizing: border-box;
+            line-height: 28px;
+          }
         }
       }
       .tag {
+        display: flex;
         font-size: 18pt;
         padding: 3rem 0 0 3rem;
         color: rgb(162, 194, 230);
-        span {
-          padding: 0 1.5rem 0 0;
-          text-align: left;
+        .label {
+          width: 20%;
+          margin: 0 0 0 0;
         }
-        select {
-          width: 50%;
-          height: 20pt;
-          border: none;
-          border-bottom: 2px solid yellow;
-          background-color: rgb(32, 30, 30);
-          color: rgb(162, 194, 230);
-          text-align: center;
-          option {
-            font-size: 18pt;
+        .select {
+          width: 60%;
+          margin: 0 20% 0 0;
+          select {
+            width: 100%;
+            height: 28px;
+            border: none;
+            border-bottom: 2px solid yellow;
+            border-radius: unset;
+            background-color: rgb(32, 30, 30);
+            color: rgb(162, 194, 230);
+            box-sizing: border-box;
+            line-height: 28px;
           }
         }
       }
       .send-btn {
         padding: 2rem 0 0 0;
-        margin: 0 0 0 55%;
+        text-align: right;
+        margin: 0 10% 0 0;
         input {
           border: none;
           border: 2px solid yellow;

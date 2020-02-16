@@ -1,0 +1,64 @@
+.content {
+  border-top: 1px solid gray;
+}
+
+.content .detail {
+  width: 90%;
+  margin: 5% 0 0 10%;
+}
+
+.content .detail .page-title {
+  font-size: 20pt;
+  font-weight: bold;
+  margin: 0 0 2rem;
+  color: #be8c52;
+}
+
+.content .detail .first-tag {
+  font-size: 18pt;
+  font-weight: bold;
+  color: yellow;
+  margin: 20px 0 3rem;
+}
+
+.content .detail .end-tag {
+  font-size: 18pt;
+  font-weight: bold;
+  color: yellow;
+  margin: 3rem 0 20px;
+}
+
+.content .detail .name {
+  width: 100%;
+  height: 40px;
+  padding: 0 0 0 3rem;
+  margin: 20px 0;
+  line-height: 40px;
+}
+
+.content .detail .name div {
+  color: #a2c2e6;
+  font-size: 18pt;
+}
+
+.content .detail .name div span {
+  padding: 0 0.7rem 0 0;
+}
+
+.content .detail .email {
+  width: 100%;
+  height: 40px;
+  padding: 0 0 0 3rem;
+  margin: 20px 0;
+  line-height: 40px;
+}
+
+.content .detail .email div {
+  color: #a2c2e6;
+  font-size: 18pt;
+}
+
+.content .detail .email div span {
+  padding: 0 0.7rem 0 0;
+}
+

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('css/bookmarks/addBookmark.css')}}">
 @endsection
 
-@section('title', 'add Bookmark')
+@section('title', 'ADD BOOKMARK')
 
 @section('content')
 
@@ -28,22 +28,24 @@
             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
             <div class="first-tag">{</div>
             <div class="title">
-                <span>Title:</span>
-                <input type="text" name="title" value="{{old("title")}}" required class="input">
+                <div class="label">Title:</div>
+                <div class="input"><input type="text" name="title" value="{{old("title")}}" required></div>
             </div>
             <div class="url">
-                <span>Url:</span>
-                <input type="text" name="url" value="{{old("url")}}" required class="input">
+                <div class="label">Url:</div>
+                <div class="input"><input type="text" name="url" value="{{old("url")}}" required></div>
             </div>
             <div class="tag">
-                <span>Tag:</span>
+                <div class="label">Tag:</div>
                 @if (count($tags) > 0)
-                <select name="tag_id" value="{{old("tag_id")}}">
-                    <option value="" disabled selected>タグをお選びください</option>
-                    @foreach ($tags as $tag)
-                    <option value="{{$tag->id}}">{{$tag->name}}</option>
-                    @endforeach
-                </select>
+                <div class="select">
+                    <select name="tag_id" value="{{old("tag_id")}}">
+                        <option value="" disabled selected>タグをお選びください</option>
+                        @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 @else
                 @endif
             </div>

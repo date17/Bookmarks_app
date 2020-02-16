@@ -1,0 +1,53 @@
+.content {
+  border-top: 1px solid gray;
+  .detail {
+    width: 90%;
+    margin: 5% 0 0 10%;
+    .page-title {
+      font-size: 20pt;
+      font-weight: bold;
+      margin: 0 0 2rem;
+      color: rgb(190, 140, 82);
+    }
+    .first-tag {
+      font-size: 18pt;
+      font-weight: bold;
+      color: yellow;
+      margin: 20px 0 3rem;
+    }
+    .end-tag {
+      font-size: 18pt;
+      font-weight: bold;
+      color: yellow;
+      margin: 3rem 0 20px;
+    }
+    .name {
+      width: 100%;
+      height: 40px;
+      padding: 0 0 0 3rem;
+      margin: 20px 0;
+      line-height: 40px;
+      div {
+        color: rgb(162, 194, 230);
+        font-size: 18pt;
+        span {
+          padding: 0 0.7rem 0 0;
+        }
+      }
+    }
+    .email {
+      width: 100%;
+      height: 40px;
+      padding: 0 0 0 3rem;
+      margin: 20px 0;
+      line-height: 40px;
+      div {
+        color: rgb(162, 194, 230);
+        font-size: 18pt;
+        span {
+          padding: 0 0.7rem 0 0;
+        }
+      }
+    }
+  }
+}

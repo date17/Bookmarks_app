@@ -1,5 +1,9 @@
 <?php
 
+use App\Bookmark;
+use App\Tag;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +44,10 @@ Route::get('/mypage/bookmarks', 'bookmarkController@showBookmarks');
 
 //ユーザーの情報
 Route::get('/mypage/user/detail', function () {
+    // $count_bookmarks = Bookmark::loginUser(Auth::user()->id);
+    // $count_tags = Tag::userTags(Auth::user()->id);
     return view("user.detail");
-});
+})->middleware('auth');
 
 Auth::routes();
 
