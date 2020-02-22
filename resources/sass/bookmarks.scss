@@ -312,8 +312,12 @@ html {
             &:hover {
               opacity: 0.7;
             }
-            span {
-              padding: 0 0 0 0.7rem;
+            a {
+              text-decoration: none;
+              color: #fff;
+              span {
+                padding: 0 0 0 0.7rem;
+              }
             }
           }
         }

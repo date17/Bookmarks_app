@@ -10,6 +10,7 @@
     "/css/user/login.css": "/css/user/login.css",
     "/css/user/register.css": "/css/user/register.css",
     "/css/user/detail.css": "/css/user/detail.css",
+    "/css/common/commonSite.css": "/css/common/commonSite.css",
     "/js/layout.js": "/js/layout.js",
     "/js/mypage.js": "/js/mypage.js",
     "/js/selectOrCreateTag.js": "/js/selectOrCreateTag.js"

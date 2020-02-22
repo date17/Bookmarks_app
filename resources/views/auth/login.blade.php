@@ -50,6 +50,7 @@
                     <input type="submit" value="LOGIN">
                 </div>
             </form>
+            {{-- <a href="/password/reset"><button>パスワードを忘れた場合</button></a> --}}
         </div>
     </main>
 </body>

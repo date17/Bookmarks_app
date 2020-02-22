@@ -82,7 +82,9 @@
                 </div>
             </div>
             <div id="label-other-detail">
-                <div id="other-common"><i class="fas fa-link"></i><span>COMMON SITE</span></div>
+                <div id="other-common">
+                    <a href="{{route("common")}}"><i class="fas fa-link"></i><span>COMMONSITE</span></a>
+                </div>
             </div>
         </div>
         <div class="content">

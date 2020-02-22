@@ -1,0 +1,75 @@
+.content {
+  border-top: 1px solid gray;
+  .page-main {
+    width: 90%;
+    margin: 5% 0 0 10%;
+    .page-title {
+      font-size: 20pt;
+      font-weight: bold;
+      margin: 0 0 2rem;
+      color: rgb(190, 140, 82);
+    }
+    .all-bookmarks {
+      width: 80%;
+      margin: 0 20% 0 0;
+      .bookmark {
+        width: 80%;
+        margin: 20px 10%;
+        border: 1px solid gray;
+        display: flex;
+        .icon {
+          font-size: 1.5rem;
+          width: 10%;
+          margin: 0;
+          text-align: center;
+          color: gray;
+          i {
+            line-height: 48px;
+          }
+        }
+        .detail {
+          width: 80%;
+          margin: 0 10% 0 0;
+          .title {
+            color: #fff;
+            font-size: 1.3rem;
+            a {
+              text-decoration: none;
+              color: #fff;
+              span {
+                padding: 0 0 0 1rem;
+              }
+            }
+          }
+          .sub {
+            display: flex;
+            .user {
+              width: 20%;
+              margin: 0 5%;
+              color: gray;
+            }
+            .date {
+              width: 20%;
+              margin: 0 50% 0 0;
+              color: gray;
+            }
+          }
+        }
+      }
+      .pagenate {
+        text-align: center;
+        ul {
+          list-style: none;
+          li {
+            display: inline;
+            font-size: 1.4rem;
+            a {
+              text-decoration: none;
+              color: gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}

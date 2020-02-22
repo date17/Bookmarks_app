@@ -225,7 +225,7 @@ function rotateTag(tag, deg) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/js/layout.js */"./resources/js/layout.js");
+module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/js/layout.js */"./resources/js/layout.js");
 
 
 /***/ })

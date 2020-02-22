@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', "BookmarkController@mypage");
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -41,7 +39,8 @@ Route::post('/mypage/bookmark/edit/{id}', 'BookmarkController@update');
 Route::get('/mypage/bookmark/delete/{id}', 'BookmarkController@delete');
 //ログインしているユーザのブックマーク一覧
 Route::get('/mypage/bookmarks', 'bookmarkController@showBookmarks');
-
+//全ユーザの共通サイト
+Route::get('/common', "CommonController")->name("common");
 //ユーザーの情報
 Route::get('/mypage/user/detail', function () {
     // $count_bookmarks = Bookmark::loginUser(Auth::user()->id);

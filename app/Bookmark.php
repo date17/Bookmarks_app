@@ -17,6 +17,17 @@ class Bookmark extends Model
         'user_id' => 'required|integer',
     );
 
+    //日付のフォーマットを替える
+    function dateFormat($date)
+    {
+        return date("Y/m/d", strtotime($date));
+        // if (gettype($date) === "Date") {
+        //     return date("Y/m/d", $date);
+        // } else {
+        //     return $date;
+        // }
+    }
+
     //ログインしているユーザのブックマークを取得
     public function scopeLoginUser($query, $user_id)
     {

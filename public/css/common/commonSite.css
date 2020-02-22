@@ -1,0 +1,95 @@
+.content {
+  border-top: 1px solid gray;
+}
+
+.content .page-main {
+  width: 90%;
+  margin: 5% 0 0 10%;
+}
+
+.content .page-main .page-title {
+  font-size: 20pt;
+  font-weight: bold;
+  margin: 0 0 2rem;
+  color: #be8c52;
+}
+
+.content .page-main .all-bookmarks {
+  width: 80%;
+  margin: 0 20% 0 0;
+}
+
+.content .page-main .all-bookmarks .bookmark {
+  width: 80%;
+  margin: 20px 10%;
+  border: 1px solid gray;
+  display: -webkit-box;
+  display: flex;
+}
+
+.content .page-main .all-bookmarks .bookmark .icon {
+  font-size: 1.5rem;
+  width: 10%;
+  margin: 0;
+  text-align: center;
+  color: gray;
+}
+
+.content .page-main .all-bookmarks .bookmark .icon i {
+  line-height: 48px;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail {
+  width: 80%;
+  margin: 0 10% 0 0;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail .title {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail .title a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail .title a span {
+  padding: 0 0 0 1rem;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail .sub {
+  display: -webkit-box;
+  display: flex;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail .sub .user {
+  width: 20%;
+  margin: 0 5%;
+  color: gray;
+}
+
+.content .page-main .all-bookmarks .bookmark .detail .sub .date {
+  width: 20%;
+  margin: 0 50% 0 0;
+  color: gray;
+}
+
+.content .page-main .all-bookmarks .pagenate {
+  text-align: center;
+}
+
+.content .page-main .all-bookmarks .pagenate ul {
+  list-style: none;
+}
+
+.content .page-main .all-bookmarks .pagenate ul li {
+  display: inline;
+  font-size: 1.4rem;
+}
+
+.content .page-main .all-bookmarks .pagenate ul li a {
+  text-decoration: none;
+  color: gray;
+}
+
