@@ -48,6 +48,13 @@ Route::get('/mypage/user/detail', function () {
     return view("user.detail");
 })->middleware('auth');
 
+//お問い合わせフォームの表示
+Route::get("/contact", "ContactController@index")->name("contact.index");
+//お問い合わせフォームの入力を確認する
+Route::post("/contact/confirm", "ContactController@confirm")->name("contact.confirm");
+//送信
+Route::post("/contact/send", "ContactController@send")->name("contact.send");
+
 Auth::routes();
 
 //Reactを使ったSPAとなるため、全ルートをひとつにする

@@ -86,6 +86,9 @@
                     <a href="{{route("common")}}"><i class="fas fa-link"></i><span>COMMONSITE</span></a>
                 </div>
             </div>
+            <div id="contact">
+                <div class="title"><a href="/contact">CONTACT</a></div>
+            </div>
         </div>
         <div class="content">
             @yield('content')

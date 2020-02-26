@@ -381,6 +381,32 @@ html body main .navi #label-other-detail #other-common a span {
   padding: 0 0 0 0.7rem;
 }
 
+html body main .navi #contact {
+  width: 90%;
+  height: 60px;
+  padding: 0 0 0 10%;
+  margin: 0 0 0 10%;
+  background-color: #201e1e;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+html body main .navi #contact:hover {
+  opacity: 0.7;
+}
+
+html body main .navi #contact .title {
+  line-height: 60px;
+  color: #fff;
+}
+
+html body main .navi #contact .title a {
+  text-decoration: none;
+  color: #fff;
+}
+
 html body main .content {
   width: 80%;
   margin: 71px 0 0 20%;
