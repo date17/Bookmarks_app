@@ -171,6 +171,17 @@ document.getElementById("cancel").onclick = function () {
 
 /***/ }),
 
+/***/ "./resources/sass/confirm.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/confirm.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/detail.scss":
 /*!************************************!*\
   !*** ./resources/sass/detail.scss ***!
@@ -186,6 +197,17 @@ document.getElementById("cancel").onclick = function () {
 /*!******************************************!*\
   !*** ./resources/sass/editBookmark.scss ***!
   \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/index.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/index.scss ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -237,10 +259,21 @@ document.getElementById("cancel").onclick = function () {
 
 /***/ }),
 
+/***/ "./resources/sass/thanks.scss":
+/*!************************************!*\
+  !*** ./resources/sass/thanks.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/addTagForm.js ./resources/sass/app.scss ./resources/sass/bookmarks.scss ./resources/sass/mypage.scss ./resources/sass/editBookmark.scss ./resources/sass/addBookmark.scss ./resources/sass/addTag.scss ./resources/sass/selectTag.scss ./resources/sass/login.scss ./resources/sass/register.scss ./resources/sass/detail.scss ./resources/sass/commonSite.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/addTagForm.js ./resources/sass/app.scss ./resources/sass/bookmarks.scss ./resources/sass/mypage.scss ./resources/sass/editBookmark.scss ./resources/sass/addBookmark.scss ./resources/sass/addTag.scss ./resources/sass/selectTag.scss ./resources/sass/login.scss ./resources/sass/register.scss ./resources/sass/detail.scss ./resources/sass/commonSite.scss ./resources/sass/index.scss ./resources/sass/confirm.scss ./resources/sass/thanks.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -255,7 +288,10 @@ __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/selectTa
 __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/login.scss */"./resources/sass/login.scss");
 __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/register.scss */"./resources/sass/register.scss");
 __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/detail.scss */"./resources/sass/detail.scss");
-module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/commonSite.scss */"./resources/sass/commonSite.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/commonSite.scss */"./resources/sass/commonSite.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/index.scss */"./resources/sass/index.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/confirm.scss */"./resources/sass/confirm.scss");
+module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/thanks.scss */"./resources/sass/thanks.scss");
 
 
 /***/ })

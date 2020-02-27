@@ -1,0 +1,97 @@
+.content {
+  border-top: 1px solid gray;
+}
+
+.content .form {
+  width: 70%;
+  margin: 5% 15%;
+  border: 1px solid yellow;
+  box-sizing: border-box;
+}
+
+.content .form .email {
+  width: 100%;
+  padding: 0 5px 5px;
+  margin: 10px 0 0 0;
+  border-bottom: 1px solid yellow;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16pt;
+}
+
+.content .form .email label {
+  display: inline-block;
+  padding: 0 0.7rem 0 0;
+  width: 20%;
+}
+
+.content .form .category {
+  width: 100%;
+  padding: 0 5px 5px;
+  margin: 10px 0 0 0;
+  border-bottom: 1px solid yellow;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16pt;
+}
+
+.content .form .category label {
+  display: inline-block;
+  padding: 0 0.7rem 0 0;
+  width: 20%;
+}
+
+.content .form .body {
+  width: 100%;
+  padding: 0 5px 5px;
+  margin: 10px 0 0 0;
+  border-bottom: 1px solid yellow;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16pt;
+}
+
+.content .form .body label {
+  display: block;
+}
+
+.content .form .body .text {
+  width: 95%;
+  margin: 10px auto;
+  height: 12rem;
+}
+
+.content .form .edit-btn {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.content .form .edit-btn button {
+  width: 150px;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid yellow;
+  box-sizing: border-box;
+  background-color: #201e1e;
+}
+
+.content .form .send-btn {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.content .form .send-btn button {
+  width: 150px;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid yellow;
+  box-sizing: border-box;
+  background-color: #201e1e;
+}
+

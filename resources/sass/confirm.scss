@@ -1,0 +1,84 @@
+.content {
+  border-top: 1px solid gray;
+  .form {
+    width: 70%;
+    margin: 5% 15%;
+    border: 1px solid yellow;
+    box-sizing: border-box;
+    .email {
+      width: 100%;
+      padding: 0 5px 5px;
+      margin: 10px 0 0 0;
+      border-bottom: 1px solid yellow;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 16pt;
+      label {
+        display: inline-block;
+        padding: 0 0.7rem 0 0;
+        width: 20%;
+      }
+    }
+    .category {
+      width: 100%;
+      padding: 0 5px 5px;
+      margin: 10px 0 0 0;
+      border-bottom: 1px solid yellow;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 16pt;
+      label {
+        display: inline-block;
+        padding: 0 0.7rem 0 0;
+        width: 20%;
+      }
+    }
+    .body {
+      width: 100%;
+      padding: 0 5px 5px;
+      margin: 10px 0 0 0;
+      border-bottom: 1px solid yellow;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 16pt;
+      label {
+        display: block;
+      }
+      .text {
+        width: 95%;
+        margin: 10px auto;
+        height: 12rem;
+      }
+    }
+    .edit-btn {
+      margin: 15px 0;
+      text-align: center;
+      button {
+        width: 150px;
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #fff;
+        border: 1px solid yellow;
+        box-sizing: border-box;
+        background-color: rgb(32, 30, 30);
+      }
+    }
+    .send-btn {
+      margin: 15px 0;
+      text-align: center;
+      button {
+        width: 150px;
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #fff;
+        border: 1px solid yellow;
+        box-sizing: border-box;
+        background-color: rgb(32, 30, 30);
+      }
+    }
+  }
+}

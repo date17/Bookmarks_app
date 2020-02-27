@@ -1,0 +1,13 @@
+.content {
+  border-top: 1px solid gray;
+}
+
+.content .after {
+  padding: 20px 0;
+  margin: 5% 10%;
+  width: 80%;
+  color: #fff;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
