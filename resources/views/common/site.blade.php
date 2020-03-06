@@ -20,7 +20,7 @@
             </div>
             <div class="detail">
                 <div class="title">
-                    <a href="{{ $bookmark->url }}">
+                    <a href="{{ $bookmark->url }}" target="_blank">
                         <span>{{$bookmark->title}}</span>
                     </a>
                 </div>

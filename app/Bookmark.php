@@ -41,6 +41,12 @@ class Bookmark extends Model
         return $query->where('tag_id', $tag_id);
     }
 
+    //共有サイトに表示するブックマークを取得
+    public function scopeCommonBookmarks($query)
+    {
+        return $query->where("isOpen", true);
+    }
+
     //フォームから受け取ったtag_idのレコードが存在しているかの確認
     public static function existTag($tag_id)
     {

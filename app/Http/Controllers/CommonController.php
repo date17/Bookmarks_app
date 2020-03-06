@@ -16,7 +16,7 @@ class CommonController extends Controller
     function __invoke()
     {
         //一度に表示する数は5にする
-        $bookmarks = Bookmark::paginate(5);
+        $bookmarks = Bookmark::commonBookmarks()->paginate(5);
 
         return view("common.Site", [
             "bookmarks" => $bookmarks

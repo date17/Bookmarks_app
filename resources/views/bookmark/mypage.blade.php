@@ -15,7 +15,13 @@
     <div class="title-open"><i class="fas fa-angle-down"></i><span>{{$bookmark->title}}</span></div>
     <div class="detail">
         <div class="first-tag">{</div>
-        <div class="url">url:<span><i class="fas fa-link"></i><a href="{{$bookmark->url}}">{{$bookmark->url}}</a></span>
+        <div class="url">url:
+            <span>
+                <i class="fas fa-link"></i>
+                <a href="{{$bookmark->url}}" target="_blank">
+                    {{$bookmark->url}}
+                </a>
+            </span>
         </div>
         <div class="tag">tag:<span>{{$bookmark->tag->name}}</span></div>
         <div class="publish">Publish:

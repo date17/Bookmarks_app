@@ -3,14 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Bookmark;
 
 class Common extends Model
 {
-    protected $guard = array('id');
-
-    //バリデーションルール
-    public static $rules = array(
-        'bookmark_id' => 'require|number',
-        'comment' => 'require',
-    );
 }
