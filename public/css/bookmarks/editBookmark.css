@@ -28,6 +28,7 @@
 }
 
 .content .edit-form .form {
+  width: 80%;
   margin: 1rem 2rem;
 }
 
@@ -51,6 +52,8 @@
 }
 
 .content .edit-form .form .title span {
+  display: inline-block;
+  width: 10%;
   padding: 0 1.5rem 0 0;
   text-align: left;
 }
@@ -62,6 +65,8 @@
   border-bottom: 2px solid yellow;
   background-color: #201e1e;
   color: #a2c2e6;
+  font-size: 16pt;
+  padding: 0 0 0 0.7rem;
 }
 
 .content .edit-form .form .url {
@@ -71,6 +76,8 @@
 }
 
 .content .edit-form .form .url span {
+  display: inline-block;
+  width: 10%;
   padding: 0 1.5rem 0 0;
   text-align: left;
 }
@@ -82,6 +89,8 @@
   border-bottom: 2px solid yellow;
   background-color: #201e1e;
   color: #a2c2e6;
+  font-size: 16pt;
+  padding: 0 0 0 0.7rem;
 }
 
 .content .edit-form .form .tag {
@@ -91,6 +100,8 @@
 }
 
 .content .edit-form .form .tag span {
+  display: inline-block;
+  width: 10%;
   padding: 0 1.5rem 0 0;
   text-align: left;
 }
@@ -103,10 +114,32 @@
   background-color: #201e1e;
   color: #a2c2e6;
   text-align: center;
+  font-size: 16pt;
 }
 
 .content .edit-form .form .tag select option {
   font-size: 18pt;
+}
+
+.content .edit-form .form .publish {
+  font-size: 18pt;
+  padding: 3rem 0 0 3rem;
+  color: #a2c2e6;
+}
+
+.content .edit-form .form .publish span {
+  padding: 0 0 0 1.5rem;
+  text-align: left;
+}
+
+.content .edit-form .form .publish input {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-bottom: 2px solid yellow;
+  background-color: #201e1e;
+  color: #a2c2e6;
+  padding: 0 1.5rem 0 0;
 }
 
 .content .edit-form .form .send-btn {

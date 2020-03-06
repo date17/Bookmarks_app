@@ -90,7 +90,8 @@ class BookmarkController extends Controller
             'title' => $request->title,
             'url' => $request->url,
             'user_id' => $request->user_id,
-            'tag_id' => $tag_id
+            'tag_id' => $tag_id,
+            "isOpen" => false
         ];
 
         //値をセットして保存

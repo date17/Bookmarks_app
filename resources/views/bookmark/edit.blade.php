@@ -50,6 +50,15 @@
                 @else
                 @endif
             </div>
+            <div class="publish">
+                <input type="hidden" name="isOpen" value="0">
+                @if ($bookmark->isOpen)
+                <input type="checkbox" name="isOpen" value="1" checked>
+                @else
+                <input type="checkbox" name="isOpen" value="1">
+                @endif
+                <span>公開する場合はチェックを入れてください</span>
+            </div>
             <div class="end-tag">}</div>
             <div class="send-btn"><input type="submit" value="UPDATE"></div>
         </form>

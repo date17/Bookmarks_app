@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //全ての処理で適応したいミドルウェアs
     protected $middleware = [
         \App\Http\Middleware\TrustProxies::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
@@ -26,6 +27,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //複数のミドルウェアをグループとしてまとめておくことでまとめて適応できる
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -50,6 +52,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //個々にミドルウェアを登録する
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -61,6 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'booleanCheck' => \App\Http\Middleware\CheckBoolean::class,
     ];
 
     /**
@@ -70,6 +74,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //ミドルウェア優先順位をつける
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,

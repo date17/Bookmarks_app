@@ -15,6 +15,7 @@ class Bookmark extends Model
         'url' => 'url',
         'tag_id' => 'integer',
         'user_id' => 'required|integer',
+        "isOpen" => "boolean"
     );
 
     //日付のフォーマットを替える

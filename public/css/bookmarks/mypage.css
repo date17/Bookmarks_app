@@ -86,6 +86,16 @@
   padding: 0 0 0 0.7rem;
 }
 
+.content #all-bookmarks .detail .publish {
+  margin: 0 0 0.8rem 2rem;
+  color: #a2c2e6;
+  text-align: left;
+}
+
+.content #all-bookmarks .detail .publish span {
+  padding: 0 0 0 0.7rem;
+}
+
 .content #all-bookmarks .detail .end-tag {
   text-align: left;
   color: yellow;

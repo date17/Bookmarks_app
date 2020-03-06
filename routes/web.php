@@ -34,7 +34,7 @@ Route::get('/mypage/bookmark/add', 'BookmarkController@add');
 Route::post('/mypage/bookmark/add', 'BookmarkController@create');
 //ブックマークの編集
 Route::get('/mypage/bookmark/edit/{id}', 'BookmarkController@edit');
-Route::post('/mypage/bookmark/edit/{id}', 'BookmarkController@update');
+Route::post('/mypage/bookmark/edit/{id}', 'BookmarkController@update')->middleware("booleanCheck");
 //ブックマークの削除
 Route::get('/mypage/bookmark/delete/{id}', 'BookmarkController@delete');
 //ログインしているユーザのブックマーク一覧

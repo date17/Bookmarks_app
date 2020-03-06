@@ -29,6 +29,15 @@
         <div class="url">url:<span><i class="fas fa-link"></i><a href="{{$bookmark->url}}">{{$bookmark->url}}</a></span>
         </div>
         <div class="tag">tag:<span>{{$bookmark->tag->name}}</span></div>
+        <div class="publish">Publish:
+            <span>
+                @if ($bookmark->isOpen)
+                TRUE
+                @else
+                FALSE
+                @endif
+            </span>
+        </div>
         <div class="end-tag">}</div>
         <div class="btn">
             <button class="edit-bookmark" value="{{$bookmark->id}}">編集</button>
