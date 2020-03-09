@@ -72,6 +72,10 @@
                     {{ csrf_field() }}
                 </form>
                 <div id="user-retire"><i class="fas fa-link"></i><span>RETIRE</span></div>
+                {{-- ritireform javascriptで使うため、常に非表示-- --}}
+                <form id="retireForm" action="/user/delete" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </div>
             <div id="label-other">
                 <div class="name" id="other-close"><i class="fas fa-angle-right"></i>

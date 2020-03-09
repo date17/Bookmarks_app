@@ -114,6 +114,25 @@ detail.user[1].logout.onclick = function() {
         window.alert("キャンセルされました");
     }
 };
+
+//ユーザーの退会処理
+detail.user[1].retire.onclick = () => {
+    if (
+        window.confirm(
+            "退会するとブックマーク、タグの情報が全てなくなりますがよろしいでしょうか？"
+        )
+    ) {
+        if (window.confirm("本当によろしいでしょうか？")) {
+            let retireForm = document.getElementById("retireForm");
+            retireForm.submit();
+        } else {
+            window.alert("キャンセルされました");
+        }
+    } else {
+        window.alert("キャンセルされました");
+    }
+};
+
 //非表示にする関数
 function displayNone(tag) {
     tag.style.display = "none";

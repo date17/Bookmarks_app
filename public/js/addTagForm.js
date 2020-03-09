@@ -288,22 +288,22 @@ document.getElementById("cancel").onclick = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/js/addTagForm.js */"./resources/js/addTagForm.js");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/bookmarks.scss */"./resources/sass/bookmarks.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/mypage.scss */"./resources/sass/mypage.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/editBookmark.scss */"./resources/sass/editBookmark.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/addBookmark.scss */"./resources/sass/addBookmark.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/addTag.scss */"./resources/sass/addTag.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/selectTag.scss */"./resources/sass/selectTag.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/login.scss */"./resources/sass/login.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/register.scss */"./resources/sass/register.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/detail.scss */"./resources/sass/detail.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/commonSite.scss */"./resources/sass/commonSite.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/index.scss */"./resources/sass/index.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/confirm.scss */"./resources/sass/confirm.scss");
-__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/thanks.scss */"./resources/sass/thanks.scss");
-module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/lp.scss */"./resources/sass/lp.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/js/addTagForm.js */"./resources/js/addTagForm.js");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/bookmarks.scss */"./resources/sass/bookmarks.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/mypage.scss */"./resources/sass/mypage.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/editBookmark.scss */"./resources/sass/editBookmark.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/addBookmark.scss */"./resources/sass/addBookmark.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/addTag.scss */"./resources/sass/addTag.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/selectTag.scss */"./resources/sass/selectTag.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/login.scss */"./resources/sass/login.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/register.scss */"./resources/sass/register.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/detail.scss */"./resources/sass/detail.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/commonSite.scss */"./resources/sass/commonSite.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/index.scss */"./resources/sass/index.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/confirm.scss */"./resources/sass/confirm.scss");
+__webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/thanks.scss */"./resources/sass/thanks.scss");
+module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/sass/lp.scss */"./resources/sass/lp.scss");
 
 
 /***/ })

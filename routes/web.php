@@ -58,6 +58,8 @@ Route::post("/contact/confirm", "ContactController@confirm")->name("contact.conf
 Route::post("/contact/send", "ContactController@send")->name("contact.send");
 
 Auth::routes();
+//ユーザーの削除
+Route::post("/user/delete", "UserController");
 
 //Reactを使ったSPAとなるため、全ルートをひとつにする
 // Route::get('/{any}', function () {

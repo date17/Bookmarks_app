@@ -199,6 +199,20 @@ detail.user[1].logout.onclick = function () {
   } else {
     window.alert("キャンセルされました");
   }
+}; //ユーザーの退会処理
+
+
+detail.user[1].retire.onclick = function () {
+  if (window.confirm("退会するとブックマーク、タグの情報が全てなくなりますがよろしいでしょうか？")) {
+    if (window.confirm("本当によろしいでしょうか？")) {
+      var retireForm = document.getElementById("retireForm");
+      retireForm.submit();
+    } else {
+      window.alert("キャンセルされました");
+    }
+  } else {
+    window.alert("キャンセルされました");
+  }
 }; //非表示にする関数
 
 
@@ -225,7 +239,7 @@ function rotateTag(tag, deg) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/js/layout.js */"./resources/js/layout.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/Bookmarks_app/resources/js/layout.js */"./resources/js/layout.js");
 
 
 /***/ })
