@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', "BookmarkController@mypage");
+Route::get('/', function () {
+    return view("LP.lp");
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -226,6 +226,17 @@ document.getElementById("cancel").onclick = function () {
 
 /***/ }),
 
+/***/ "./resources/sass/lp.scss":
+/*!********************************!*\
+  !*** ./resources/sass/lp.scss ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/mypage.scss":
 /*!************************************!*\
   !*** ./resources/sass/mypage.scss ***!
@@ -271,9 +282,9 @@ document.getElementById("cancel").onclick = function () {
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/addTagForm.js ./resources/sass/app.scss ./resources/sass/bookmarks.scss ./resources/sass/mypage.scss ./resources/sass/editBookmark.scss ./resources/sass/addBookmark.scss ./resources/sass/addTag.scss ./resources/sass/selectTag.scss ./resources/sass/login.scss ./resources/sass/register.scss ./resources/sass/detail.scss ./resources/sass/commonSite.scss ./resources/sass/index.scss ./resources/sass/confirm.scss ./resources/sass/thanks.scss ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/addTagForm.js ./resources/sass/app.scss ./resources/sass/bookmarks.scss ./resources/sass/mypage.scss ./resources/sass/editBookmark.scss ./resources/sass/addBookmark.scss ./resources/sass/addTag.scss ./resources/sass/selectTag.scss ./resources/sass/login.scss ./resources/sass/register.scss ./resources/sass/detail.scss ./resources/sass/commonSite.scss ./resources/sass/index.scss ./resources/sass/confirm.scss ./resources/sass/thanks.scss ./resources/sass/lp.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -291,7 +302,8 @@ __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sas
 __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/commonSite.scss */"./resources/sass/commonSite.scss");
 __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/index.scss */"./resources/sass/index.scss");
 __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/confirm.scss */"./resources/sass/confirm.scss");
-module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/thanks.scss */"./resources/sass/thanks.scss");
+__webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/thanks.scss */"./resources/sass/thanks.scss");
+module.exports = __webpack_require__(/*! /Users/minamidatetakuya/code/Bookmarks_app/resources/sass/lp.scss */"./resources/sass/lp.scss");
 
 
 /***/ })

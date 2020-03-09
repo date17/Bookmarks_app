@@ -1,0 +1,124 @@
+html {
+    margin: 0;
+    font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4",
+        "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+    body {
+        margin: 0;
+        background-color: rgb(32, 30, 30);
+        color: #fff;
+        header {
+            padding: 60px 0 0;
+            font-size: 35pt;
+            text-align: center;
+            .icon {
+                margin: 20px 0;
+            }
+            .title {
+                font-size: 60pt;
+                font-weight: bold;
+                color: yellow;
+                text-shadow: 3px 3px 1px #fff, -5px -5px 5px gray;
+            }
+            .ja {
+                color: yellow;
+                font-size: 13pt;
+            }
+        }
+        main {
+            margin: 50px 0;
+            .explain {
+                width: 80%;
+                margin: 0 auto 30px;
+                .detail {
+                    font-size: 20pt;
+                    margin: 0 auto;
+                    width: 80%;
+                    .first,
+                    .end {
+                        margin: 20px 0;
+                        text-align: center;
+                        span {
+                            color: yellow;
+                            font-weight: bold;
+                            font-size: 35pt;
+                        }
+                    }
+                    .common {
+                        color: yellow;
+                        font-weight: bold;
+                        text-align: center;
+                        font-size: 35pt;
+                        span {
+                            font-size: 20pt;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .link {
+                width: 50%;
+                margin: 30px auto;
+                text-align: center;
+                display: flex;
+                .register {
+                    width: 40%;
+                    margin: 0 auto;
+                    a {
+                        text-decoration: none;
+                        color: yellow;
+                        font-size: 25pt;
+                        padding: 5px 10px;
+                        border: 1px solid yellow;
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+                .login {
+                    width: 40%;
+                    margin: 0 auto;
+                    a {
+                        text-decoration: none;
+                        color: yellow;
+                        font-size: 25pt;
+                        padding: 5px 10px;
+                        border: 1px solid yellow;
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+        footer {
+            margin: 20px 0;
+            border-top: 1px solid gray;
+            .github {
+                margin: 10px 0;
+                text-align: center;
+                font-size: 15pt;
+                a {
+                    text-decoration: none;
+                    color: gray;
+                    &:hover {
+                        opacity: 0.7;
+                        transition-duration: 0.3ms;
+                    }
+                }
+            }
+            .developer {
+                margin: 0 0 10px;
+                text-align: center;
+                color: gray;
+                a {
+                    text-decoration: underline solid gray;
+                    color: gray;
+                    padding: 0 0 2px;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+}

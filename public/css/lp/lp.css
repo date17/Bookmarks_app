@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+html {
+  margin: 0;
+  font-family: "Lucida Grande", "segoe UI", "\30D2\30E9\30AE\30CE\4E38\30B4   ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+}
+
+html body {
+  margin: 0;
+  background-color: #201e1e;
+  color: #fff;
+}
+
+html body header {
+  padding: 60px 0 0;
+  font-size: 35pt;
+  text-align: center;
+}
+
+html body header .icon {
+  margin: 20px 0;
+}
+
+html body header .title {
+  font-size: 60pt;
+  font-weight: bold;
+  color: yellow;
+  text-shadow: 3px 3px 1px #fff, -5px -5px 5px gray;
+}
+
+html body header .ja {
+  color: yellow;
+  font-size: 13pt;
+}
+
+html body main {
+  margin: 50px 0;
+}
+
+html body main .explain {
+  width: 80%;
+  margin: 0 auto 30px;
+}
+
+html body main .explain .detail {
+  font-size: 20pt;
+  margin: 0 auto;
+  width: 80%;
+}
+
+html body main .explain .detail .first,
+html body main .explain .detail .end {
+  margin: 20px 0;
+  text-align: center;
+}
+
+html body main .explain .detail .first span,
+html body main .explain .detail .end span {
+  color: yellow;
+  font-weight: bold;
+  font-size: 35pt;
+}
+
+html body main .explain .detail .common {
+  color: yellow;
+  font-weight: bold;
+  text-align: center;
+  font-size: 35pt;
+}
+
+html body main .explain .detail .common span {
+  font-size: 20pt;
+  color: #fff;
+}
+
+html body main .link {
+  width: 50%;
+  margin: 30px auto;
+  text-align: center;
+  display: -webkit-box;
+  display: flex;
+}
+
+html body main .link .register {
+  width: 40%;
+  margin: 0 auto;
+}
+
+html body main .link .register a {
+  text-decoration: none;
+  color: yellow;
+  font-size: 25pt;
+  padding: 5px 10px;
+  border: 1px solid yellow;
+}
+
+html body main .link .register a:hover {
+  opacity: 0.7;
+}
+
+html body main .link .login {
+  width: 40%;
+  margin: 0 auto;
+}
+
+html body main .link .login a {
+  text-decoration: none;
+  color: yellow;
+  font-size: 25pt;
+  padding: 5px 10px;
+  border: 1px solid yellow;
+}
+
+html body main .link .login a:hover {
+  opacity: 0.7;
+}
+
+html body footer {
+  margin: 20px 0;
+  border-top: 1px solid gray;
+}
+
+html body footer .github {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 15pt;
+}
+
+html body footer .github a {
+  text-decoration: none;
+  color: gray;
+}
+
+html body footer .github a:hover {
+  opacity: 0.7;
+  -webkit-transition-duration: 0.3ms;
+          transition-duration: 0.3ms;
+}
+
+html body footer .developer {
+  margin: 0 0 10px;
+  text-align: center;
+  color: gray;
+}
+
+html body footer .developer a {
+  -webkit-text-decoration: underline solid gray;
+          text-decoration: underline solid gray;
+  color: gray;
+  padding: 0 0 2px;
+}
+
+html body footer .developer a:hover {
+  opacity: 0.7;
+}
+
