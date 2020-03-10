@@ -1,21 +1,4 @@
 {
-    "/js/addTagForm.js": "/js/addTagForm.js",
-    "/css/app.css": "/css/app.css",
-    "/css/bookmarks/bookmarks.css": "/css/bookmarks/bookmarks.css",
-    "/css/bookmarks/mypage.css": "/css/bookmarks/mypage.css",
-    "/css/bookmarks/editBookmark.css": "/css/bookmarks/editBookmark.css",
-    "/css/bookmarks/addBookmark.css": "/css/bookmarks/addBookmark.css",
-    "/css/bookmarks/addTag.css": "/css/bookmarks/addTag.css",
-    "/css/bookmarks/selectTag.css": "/css/bookmarks/selectTag.css",
-    "/css/user/login.css": "/css/user/login.css",
-    "/css/user/register.css": "/css/user/register.css",
-    "/css/user/detail.css": "/css/user/detail.css",
-    "/css/common/commonSite.css": "/css/common/commonSite.css",
-    "/css/contact/index.css": "/css/contact/index.css",
-    "/css/contact/confirm.css": "/css/contact/confirm.css",
-    "/css/contact/thanks.css": "/css/contact/thanks.css",
-    "/css/lp/lp.css": "/css/lp/lp.css",
-    "/js/layout.js": "/js/layout.js",
-    "/js/mypage.js": "/js/mypage.js",
-    "/js/selectOrCreateTag.js": "/js/selectOrCreateTag.js"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
 }

@@ -4,13 +4,20 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 class Layout extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>
-                <Header title={this.props.title} />
-                {this.props.children}
-                <Footer />
+                <div>{this.props.user.id}</div>
+                <div>{this.props.user.id}</div>
+                <div>{this.props.user.id}</div>
             </div>
         );
     }
 }
+
+Layout = connect()(Layout);
+export default Layout;

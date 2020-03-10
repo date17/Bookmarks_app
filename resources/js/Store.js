@@ -1,37 +1,52 @@
-//ストア関係の作成
 import { createStore } from "redux";
-import { persistStore, persisitReducer } from "redux-persist";
 
-//ステートの初期値
-const initial = {
+//ステート
+const data = {
     login: false,
-    id: "",
-    name: "(click here)"
+    user: {
+        id: 1,
+        name: "takuya",
+        email: "date@ezweb.ne.jp"
+    }
 };
 
 //レデューサー
-export function bookmarkReducer(state = initial, action) {
+function Reducer(state = data, action) {
     switch (action.type) {
-        //reduxでログイン管理
-        case "UPDATE_USER":
-            return action.value;
+        case "LOGIN":
+            return loginReduce(action);
+        case "LOGOUT":
+            return logoutReduce();
         default:
             return state;
     }
 }
 
-//redux-persistの設定
-const persistConfig = {
-    key: "root",
-    storage
+//アクションレデューサー
+
+//ログイン処理
+const loginReduce = action => {
+    return {
+        login: true,
+        user: {
+            id: action.id,
+            name: action.name,
+            email: action.email
+        }
+    };
 };
 
-//パーシストレデューサーの作成
-const persistReducer = persistReducer(persistConfig, bookmarkReducer);
+//ログアウト処理
+const logoutReduce = () => {
+    return {
+        login: false,
+        user: {
+            id: null,
+            name: "",
+            email: ""
+        }
+    };
+};
 
 //ストアの作成
-const store = createStore(bookmarkReducer);
-//パーシスターの作成
-const pStore = persistStore(store);
-
-export default pStore;
+export default createStore(Reducer);

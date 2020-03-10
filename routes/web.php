@@ -16,8 +16,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view("LP.lp");
+    return view("react_welcome");
 });
+
+// Route::get('/', function () {
+//     return view("LP.lp");
+// });
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -11,22 +11,7 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.sass("resources/sass/app.scss", "public/css")
-    .sass("resources/sass/bookmarks.scss", "public/css/bookmarks")
-    .sass("resources/sass/mypage.scss", "public/css/bookmarks")
-    .sass("resources/sass/editBookmark.scss", "public/css/bookmarks")
-    .sass("resources/sass/addBookmark.scss", "public/css/bookmarks")
-    .sass("resources/sass/addTag.scss", "public/css/bookmarks")
-    .sass("resources/sass/selectTag.scss", "public/css/bookmarks")
-    .sass("resources/sass/login.scss", "public/css/user")
-    .sass("resources/sass/register.scss", "public/css/user")
-    .sass("resources/sass/detail.scss", "public/css/user")
-    .sass("resources/sass/commonSite.scss", "public/css/common")
-    .sass("resources/sass/index.scss", "public/css/contact")
-    .sass("resources/sass/confirm.scss", "public/css/contact")
-    .sass("resources/sass/thanks.scss", "public/css/contact")
-    .sass("resources/sass/lp.scss", "public/css/lp")
-    .js("resources/js/addTagForm.js", "public/js")
-    .js("resources/js/selectOrCreateTag.js", "public/js")
-    .js("resources/js/layout.js", "public/js")
-    .js("resources/js/mypage.js", "public/js");
+mix.react("resources/js/app.js", "public/js").sass(
+    "resources/sass/app.scss",
+    "public/css"
+);
