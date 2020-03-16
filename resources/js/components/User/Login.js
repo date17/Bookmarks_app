@@ -45,18 +45,18 @@ class Login extends Component {
             })
             .then(res => {
                 console.log(res.data);
-                // let user = res.data;
-                // //dispatchでログイン処理
-                // this.props.dispatch({
-                //     type: "LOGIN",
-                //     data: user
-                // });
-                // //ステートを空にする
-                // this.setState({
-                //     email: "",
-                //     password: "",
-                //     login: this.props.login
-                // });
+                let userData = res.data;
+                //dispatchでログイン処理
+                this.props.dispatch({
+                    type: "LOGIN",
+                    data: userData
+                });
+                //ステートを空にする
+                this.setState({
+                    email: "",
+                    password: "",
+                    login: this.props.login
+                });
             })
             .catch(e => {
                 console.log(e);

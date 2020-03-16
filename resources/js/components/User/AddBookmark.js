@@ -10,6 +10,7 @@ class AddBookmark extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            user_id: this.props.user.id,
             title: "",
             url: "",
             tag_id: null
@@ -52,6 +53,7 @@ class AddBookmark extends Component {
     }
 
     doAction() {
+        const user_id = this.state.user_id;
         const title = this.state.title;
         const url = this.state.url;
         const tag_id = this.state.tag_id;
@@ -61,29 +63,27 @@ class AddBookmark extends Component {
                 title: title,
                 url: url,
                 tag_id: tag_id,
-                user_id: this.props.user.id,
+                user_id: user_id,
                 isOpen: false
             })
             .then(res => {
                 console.log(res.data);
-                // this.setState({
-                //     title: "",
-                //     url: "",
-                //     tag_id: null,
-                //     tags: res.data.tags
-                // });
+                //ストアのステートを更新
+                this.props.dispatch({
+                    type: "ADDBOOKMARK",
+                    data: res.data
+                });
+                this.setState(state => ({
+                    title: "",
+                    url: "",
+                    tag_id: null,
+                    user_id: state.user_id
+                }));
             })
             .catch(e => {
                 console.log(e);
             });
     }
-
-    //新しいpropsやstateを受け取ったとき
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     this.setState({
-    //         tags: nextProps.tags
-    //     });
-    // }
 
     render() {
         return (

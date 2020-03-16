@@ -75445,6 +75445,9 @@ function reducer() {
     case "LOGOUT":
       return logoutReduce();
 
+    case "ADDBOOKMARK":
+      return addBookmarkReduce(state, action);
+
     default:
       return state;
   }
@@ -75457,9 +75460,9 @@ var loginReduce = function loginReduce(action) {
   return {
     login: true,
     user: {
-      id: action.data.id,
-      name: action.data.name,
-      email: action.data.email,
+      id: action.data.user.id,
+      name: action.data.user.name,
+      email: action.data.user.email,
       bookmarks: action.data.bookmarks,
       tags: action.data.tags
     }
@@ -75476,6 +75479,22 @@ var logoutReduce = function logoutReduce() {
       email: "",
       bookmarks: [],
       tags: []
+    }
+  };
+}; //ブックマークの追加処理
+
+
+var addBookmarkReduce = function addBookmarkReduce(state, action) {
+  console.log(state);
+  console.log(action.data);
+  return {
+    login: true,
+    user: {
+      id: state.user.id,
+      name: state.user.name,
+      email: state.user.email,
+      bookmarks: action.data,
+      tags: state.user.tags
     }
   };
 }; //ストアの作成
@@ -75788,6 +75807,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AddBookmark).call(this, props));
     _this.state = {
+      user_id: _this.props.user.id,
       title: "",
       url: "",
       tag_id: null
@@ -75841,6 +75861,9 @@ function (_Component) {
   }, {
     key: "doAction",
     value: function doAction() {
+      var _this2 = this;
+
+      var user_id = this.state.user_id;
       var title = this.state.title;
       var url = this.state.url;
       var tag_id = this.state.tag_id;
@@ -75848,25 +75871,28 @@ function (_Component) {
         title: title,
         url: url,
         tag_id: tag_id,
-        user_id: this.props.user.id,
+        user_id: user_id,
         isOpen: false
       }).then(function (res) {
-        console.log(res.data); // this.setState({
-        //     title: "",
-        //     url: "",
-        //     tag_id: null,
-        //     tags: res.data.tags
-        // });
+        console.log(res.data); //ストアのステートを更新
+
+        _this2.props.dispatch({
+          type: "ADDBOOKMARK",
+          data: res.data
+        });
+
+        _this2.setState(function (state) {
+          return {
+            title: "",
+            url: "",
+            tag_id: null,
+            user_id: state.user_id
+          };
+        });
       })["catch"](function (e) {
         console.log(e);
       });
-    } //新しいpropsやstateを受け取ったとき
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     this.setState({
-    //         tags: nextProps.tags
-    //     });
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -76049,18 +76075,20 @@ function (_Component) {
         email: this.state.email,
         password: this.state.password
       }).then(function (res) {
-        console.log(res.data); // let user = res.data;
-        // //dispatchでログイン処理
-        // this.props.dispatch({
-        //     type: "LOGIN",
-        //     data: user
-        // });
-        // //ステートを空にする
-        // this.setState({
-        //     email: "",
-        //     password: "",
-        //     login: this.props.login
-        // });
+        console.log(res.data);
+        var userData = res.data; //dispatchでログイン処理
+
+        _this2.props.dispatch({
+          type: "LOGIN",
+          data: userData
+        }); //ステートを空にする
+
+
+        _this2.setState({
+          email: "",
+          password: "",
+          login: _this2.props.login
+        });
       })["catch"](function (e) {
         console.log(e);
 
@@ -76222,14 +76250,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -76270,51 +76290,43 @@ function (_Component) {
     _classCallCheck(this, Mypage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Mypage).call(this, props));
-    _this.state = {
-      bookmarks: [],
-      tags: [],
-      user_id: _this.props.user.id
-    };
     _this.getBookmark = _this.getBookmark.bind(_assertThisInitialized(_this));
     _this.getTag = _this.getTag.bind(_assertThisInitialized(_this));
     _this.getAddBookmark = _this.getAddBookmark.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentDidMount() {
+  // console.log(this.props.user.id);
+  // const api = axios.create();
+  // //複数のAPIを叩く
+  // axios
+  //     .all([
+  //         api.get("/api/bookmark", {
+  //             params: {
+  //                 id: this.props.user.id
+  //             }
+  //         }),
+  //         api.get("/api/tag", {
+  //             params: {
+  //                 id: this.props.user.id
+  //             }
+  //         })
+  //     ])
+  //     .then(([res1, res2]) => {
+  //         //配列で受け取る（res1--bookmark, res2--tag）
+  //         console.log(res1.data);
+  //         console.log(res2.data);
+  //         this.setState({
+  //             bookmarks: res1.data,
+  //             tags: res2.data
+  //         });
+  //     })
+  //     .catch(e => {
+  //         console.log(e);
+  //     });
+  // }
+
 
   _createClass(Mypage, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      console.log(this.props.user.id);
-      var api = axios__WEBPACK_IMPORTED_MODULE_7___default.a.create(); //複数のAPIを叩く
-
-      axios__WEBPACK_IMPORTED_MODULE_7___default.a.all([api.get("/api/bookmark", {
-        params: {
-          id: this.props.user.id
-        }
-      }), api.get("/api/tag", {
-        params: {
-          id: this.props.user.id
-        }
-      })]).then(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2),
-            res1 = _ref2[0],
-            res2 = _ref2[1];
-
-        //配列で受け取る（res1--bookmark, res2--tag）
-        console.log(res1.data);
-        console.log(res2.data);
-
-        _this2.setState({
-          bookmarks: res1.data,
-          tags: res2.data
-        });
-      })["catch"](function (e) {
-        console.log(e);
-      });
-    }
-  }, {
     key: "getBookmark",
     value: function getBookmark(bookmarks) {
       var key = 0;
@@ -76355,7 +76367,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Mypage"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/login"
-      }, "\u30ED\u30B0\u30A4\u30F3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "LOGIN USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.email)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logout__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--BOOKMARK--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getBookmark(this.state.bookmarks)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--ADD BOOKMARK--"), this.getAddBookmark(this.state.tags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--TAG--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getTag(this.state.tags)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+      }, "\u30ED\u30B0\u30A4\u30F3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "LOGIN USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.email)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logout__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--BOOKMARK--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getBookmark(this.props.user.bookmarks)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--ADD BOOKMARK--"), this.getAddBookmark(this.props.user.tags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--TAG--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getTag(this.props.user.tags)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
     }
   }]);
 

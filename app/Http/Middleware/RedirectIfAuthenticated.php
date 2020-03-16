@@ -6,9 +6,11 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
+use App\Http\Traits\User\UserTrait;
 
 class RedirectIfAuthenticated
 {
+    use UserTrait;
     /**
      * Handle an incoming request.
      *
@@ -21,7 +23,8 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             //もうすでにログインしていた場合、responseを作成して、ログインしているユーザを返す
-            return response()->json(Auth::user(), 200);
+            $userData = $this->loginUserData();
+            return response()->json($userData, 200);
         }
 
         return $next($request);

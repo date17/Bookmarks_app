@@ -19,6 +19,8 @@ function reducer(state = data, action) {
             return loginReduce(action);
         case "LOGOUT":
             return logoutReduce();
+        case "ADDBOOKMARK":
+            return addBookmarkReduce(state, action);
         default:
             return state;
     }
@@ -32,9 +34,9 @@ const loginReduce = action => {
     return {
         login: true,
         user: {
-            id: action.data.id,
-            name: action.data.name,
-            email: action.data.email,
+            id: action.data.user.id,
+            name: action.data.user.name,
+            email: action.data.user.email,
             bookmarks: action.data.bookmarks,
             tags: action.data.tags
         }
@@ -51,6 +53,22 @@ const logoutReduce = () => {
             email: "",
             bookmarks: [],
             tags: []
+        }
+    };
+};
+
+//ブックマークの追加処理
+const addBookmarkReduce = (state, action) => {
+    console.log(state);
+    console.log(action.data);
+    return {
+        login: true,
+        user: {
+            id: state.user.id,
+            name: state.user.name,
+            email: state.user.email,
+            bookmarks: action.data,
+            tags: state.user.tags
         }
     };
 };

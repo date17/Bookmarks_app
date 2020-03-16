@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Traits\User;
+namespace App\Http\Traits\User;
 
 use Illuminate\Support\Facades\Auth;
 use App\Bookmark;
