@@ -75448,6 +75448,9 @@ function reducer() {
     case "ADDBOOKMARK":
       return addBookmarkReduce(state, action);
 
+    case "DELETEBOOKMARK":
+      return deleteBookmarkReduce(state, action);
+
     case "ADDTAG":
       return addTagReduce(state, action);
 
@@ -75491,7 +75494,7 @@ var addBookmarkReduce = function addBookmarkReduce(state, action) {
   console.log(state);
   console.log(action.data);
   return {
-    login: true,
+    login: state.login,
     user: {
       id: state.user.id,
       name: state.user.name,
@@ -75500,13 +75503,28 @@ var addBookmarkReduce = function addBookmarkReduce(state, action) {
       tags: state.user.tags
     }
   };
-};
+}; //ブックマークの削除処理
+
+
+var deleteBookmarkReduce = function deleteBookmarkReduce(state, action) {
+  return {
+    login: state.login,
+    user: {
+      id: state.user.id,
+      name: state.user.name,
+      email: state.user.email,
+      bookmarks: action.data,
+      tags: state.user.tags
+    }
+  };
+}; //タグの追加処理
+
 
 var addTagReduce = function addTagReduce(state, action) {
   console.log(state);
   console.log(action.data);
   return {
-    login: true,
+    login: state.login,
     user: {
       id: state.user.id,
       name: state.user.name,
@@ -76072,6 +76090,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _DeleteBookmark__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteBookmark */ "./resources/js/components/User/DeleteBookmark.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76093,6 +76112,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+var mapState = function mapState(state) {
+  return state;
+};
+
 var Bookmark =
 /*#__PURE__*/
 function (_Component) {
@@ -76107,14 +76131,191 @@ function (_Component) {
   _createClass(Bookmark, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "TITLE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "URL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.url)));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "TITLE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "URL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.url)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteBookmark__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: this.props.id
+      }));
     }
   }]);
 
   return Bookmark;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Bookmark));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapState)(Bookmark));
+
+/***/ }),
+
+/***/ "./resources/js/components/User/DeleteBookmark.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/User/DeleteBookmark.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var mapStateUserId = function mapStateUserId(state) {
+  return state;
+};
+
+var DeleteBookmark =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DeleteBookmark, _Component);
+
+  function DeleteBookmark(props) {
+    var _this;
+
+    _classCallCheck(this, DeleteBookmark);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DeleteBookmark).call(this, props));
+    _this.state = {
+      id: _this.props.id,
+      user_id: _this.props.user.id
+    };
+    _this.doAction = _this.doAction.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(DeleteBookmark, [{
+    key: "doAction",
+    value: function doAction() {
+      var _this2 = this;
+
+      if (window.confirm("このブックマークを削除してもよろしいでしょうか？")) {
+        console.log("ブックマークを削除します");
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("/api/bookmark", {
+          data: {
+            id: this.state.id,
+            user_id: this.state.user_id
+          }
+        }).then(function (res) {
+          console.log(res.data);
+
+          _this2.props.dispatch({
+            type: "DELETEBOOKMARK",
+            data: res.data
+          });
+        })["catch"](function (e) {
+          console.log(e);
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.doAction
+      }, "\u524A\u9664"));
+    }
+  }]);
+
+  return DeleteBookmark;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateUserId)(DeleteBookmark));
+
+/***/ }),
+
+/***/ "./resources/js/components/User/DeleteTag.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/User/DeleteTag.js ***!
+  \***************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var mapState = function mapState(state) {
+  return state;
+};
+
+var DeleteTag =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DeleteTag, _Component);
+
+  function DeleteTag(props) {
+    var _this;
+
+    _classCallCheck(this, DeleteTag);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DeleteTag).call(this, props));
+    _this.state = {
+      id: _this.props.id,
+      user_id: _this.props.user.id
+    };
+    return _this;
+  }
+
+  _createClass(DeleteTag, [{
+    key: "doAction",
+    value: function doAction() {
+      if (window.confirm("このタグを削除すると関連するブックマークも削除されますがよろしいでしょうか？")) {
+        console.log("タグを削除します");
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.doAction
+      }, "\u524A\u9664"));
+    }
+  }]);
+
+  return DeleteTag;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /***/ }),
 
@@ -76469,6 +76670,7 @@ function (_Component) {
       return bookmarks.map(function (bookmark) {
         key += 1;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bookmark__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          id: bookmark.id,
           title: bookmark.title,
           url: bookmark.url,
           tag: bookmark.tag,
@@ -76683,6 +76885,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _DeleteTag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteTag */ "./resources/js/components/User/DeleteTag.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76704,6 +76907,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+var mapState = function mapState(state) {
+  return state;
+};
+
 var Tag =
 /*#__PURE__*/
 function (_Component) {
@@ -76718,14 +76926,16 @@ function (_Component) {
   _createClass(Tag, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "Tag id:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "Tag name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.name));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "Tag id:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "Tag name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteTag__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: this.props.id
+      }));
     }
   }]);
 
   return Tag;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])()(Tag));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapState)(Tag));
 
 /***/ }),
 

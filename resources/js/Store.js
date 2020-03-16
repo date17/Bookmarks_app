@@ -21,6 +21,8 @@ function reducer(state = data, action) {
             return logoutReduce();
         case "ADDBOOKMARK":
             return addBookmarkReduce(state, action);
+        case "DELETEBOOKMARK":
+            return deleteBookmarkReduce(state, action);
         case "ADDTAG":
             return addTagReduce(state, action);
         default:
@@ -64,7 +66,7 @@ const addBookmarkReduce = (state, action) => {
     console.log(state);
     console.log(action.data);
     return {
-        login: true,
+        login: state.login,
         user: {
             id: state.user.id,
             name: state.user.name,
@@ -75,11 +77,26 @@ const addBookmarkReduce = (state, action) => {
     };
 };
 
+//ブックマークの削除処理
+const deleteBookmarkReduce = (state, action) => {
+    return {
+        login: state.login,
+        user: {
+            id: state.user.id,
+            name: state.user.name,
+            email: state.user.email,
+            bookmarks: action.data,
+            tags: state.user.tags
+        }
+    };
+};
+
+//タグの追加処理
 const addTagReduce = (state, action) => {
     console.log(state);
     console.log(action.data);
     return {
-        login: true,
+        login: state.login,
         user: {
             id: state.user.id,
             name: state.user.name,

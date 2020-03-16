@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'api'], function () {
     Route::get("/bookmark", "api\BookmarkController@index");
     Route::post("/bookmark", "api\BookmarkController@create");
+    Route::delete('/bookmark', "api\BookmarkController@delete");
     Route::get("/tag", "api\TagController@index");
     Route::post("/tag", "api\TagController@create");
 });

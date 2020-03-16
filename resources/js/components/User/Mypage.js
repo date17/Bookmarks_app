@@ -57,6 +57,7 @@ class Mypage extends Component {
             key += 1;
             return (
                 <Bookmark
+                    id={bookmark.id}
                     title={bookmark.title}
                     url={bookmark.url}
                     tag={bookmark.tag}

@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import DeleteBookmark from "./DeleteBookmark";
+
+const mapState = state => {
+    return state;
+};
 
 class Bookmark extends Component {
     constructor(props) {
@@ -15,9 +20,10 @@ class Bookmark extends Component {
                     <dt>URL</dt>
                     <dd>{this.props.url}</dd>
                 </dl>
+                <DeleteBookmark id={this.props.id} />
             </div>
         );
     }
 }
 
-export default connect()(Bookmark);
+export default connect(mapState)(Bookmark);
