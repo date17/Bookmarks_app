@@ -5,6 +5,7 @@ import Logout from "./Logout";
 import Bookmark from "./Bookmark";
 import AddBookmark from "./AddBookmark";
 import Tag from "./Tag";
+import AddTag from "./AddTag";
 import axios from "axios";
 
 function mapState(state) {
@@ -79,6 +80,10 @@ class Mypage extends Component {
         return <AddBookmark tags={tags} />;
     }
 
+    getAddTag() {
+        return <AddTag />;
+    }
+
     render() {
         return (
             <div>
@@ -101,6 +106,8 @@ class Mypage extends Component {
                 <h2>--TAG--</h2>
                 <div>{this.getTag(this.props.user.tags)}</div>
                 <hr />
+                <h2>--ADD TAG--</h2>
+                <div>{this.getAddTag()}</div>
             </div>
         );
     }

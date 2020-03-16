@@ -14,8 +14,6 @@ class Bookmark extends Component {
                     <dd>{this.props.title}</dd>
                     <dt>URL</dt>
                     <dd>{this.props.url}</dd>
-                    <dt>TAG</dt>
-                    <dd>{this.props.tag}</dd>
                 </dl>
             </div>
         );

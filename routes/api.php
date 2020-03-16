@@ -22,4 +22,5 @@ Route::group(['middleware' => 'api'], function () {
     Route::get("/bookmark", "api\BookmarkController@index");
     Route::post("/bookmark", "api\BookmarkController@create");
     Route::get("/tag", "api\TagController@index");
+    Route::post("/tag", "api\TagController@create");
 });

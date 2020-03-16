@@ -75448,6 +75448,9 @@ function reducer() {
     case "ADDBOOKMARK":
       return addBookmarkReduce(state, action);
 
+    case "ADDTAG":
+      return addTagReduce(state, action);
+
     default:
       return state;
   }
@@ -75495,6 +75498,21 @@ var addBookmarkReduce = function addBookmarkReduce(state, action) {
       email: state.user.email,
       bookmarks: action.data,
       tags: state.user.tags
+    }
+  };
+};
+
+var addTagReduce = function addTagReduce(state, action) {
+  console.log(state);
+  console.log(action.data);
+  return {
+    login: true,
+    user: {
+      id: state.user.id,
+      name: state.user.name,
+      email: state.user.email,
+      bookmarks: state.user.bookmarks,
+      tags: action.data
     }
   };
 }; //ストアの作成
@@ -75926,6 +75944,122 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/User/AddTag.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/User/AddTag.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+function mapState(state) {
+  return state;
+}
+
+var AddTag =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AddTag, _Component);
+
+  function AddTag(props) {
+    var _this;
+
+    _classCallCheck(this, AddTag);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddTag).call(this, props));
+    _this.state = {
+      user_id: _this.props.user.id,
+      name: ""
+    };
+    _this.doChangeName = _this.doChangeName.bind(_assertThisInitialized(_this));
+    _this.doAction = _this.doAction.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(AddTag, [{
+    key: "doChangeName",
+    value: function doChangeName(e) {
+      console.log(e.target.value);
+      this.setState({
+        name: e.target.value
+      });
+    }
+  }, {
+    key: "doAction",
+    value: function doAction() {
+      var _this2 = this;
+
+      var user_id = this.state.user_id;
+      var name = this.state.name;
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/tag", {
+        user_id: user_id,
+        name: name
+      }).then(function (res) {
+        console.log(res.data);
+
+        _this2.props.dispatch({
+          type: "ADDTAG",
+          data: res.data
+        });
+
+        _this2.setState(function (state) {
+          return {
+            user_id: state.user_id,
+            name: ""
+          };
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "AddTag"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.doChangeName,
+        value: this.state.name
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.doAction
+      }, "\u8FFD\u52A0")));
+    }
+  }]);
+
+  return AddTag;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapState)(AddTag));
+
+/***/ }),
+
 /***/ "./resources/js/components/User/Bookmark.js":
 /*!**************************************************!*\
   !*** ./resources/js/components/User/Bookmark.js ***!
@@ -75973,7 +76107,7 @@ function (_Component) {
   _createClass(Bookmark, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "TITLE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "URL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.url), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "TAG"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.tag)));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "TITLE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "URL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.url)));
     }
   }]);
 
@@ -76246,8 +76380,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Bookmark__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Bookmark */ "./resources/js/components/User/Bookmark.js");
 /* harmony import */ var _AddBookmark__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddBookmark */ "./resources/js/components/User/AddBookmark.js");
 /* harmony import */ var _Tag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Tag */ "./resources/js/components/User/Tag.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _AddTag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AddTag */ "./resources/js/components/User/AddTag.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_8__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76265,6 +76400,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -76363,11 +76499,16 @@ function (_Component) {
       });
     }
   }, {
+    key: "getAddTag",
+    value: function getAddTag() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddTag__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Mypage"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/login"
-      }, "\u30ED\u30B0\u30A4\u30F3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "LOGIN USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.email)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logout__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--BOOKMARK--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getBookmark(this.props.user.bookmarks)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--ADD BOOKMARK--"), this.getAddBookmark(this.props.user.tags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--TAG--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getTag(this.props.user.tags)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+      }, "\u30ED\u30B0\u30A4\u30F3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "LOGIN USER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user.email)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Logout__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--BOOKMARK--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getBookmark(this.props.user.bookmarks)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--ADD BOOKMARK--"), this.getAddBookmark(this.props.user.tags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--TAG--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getTag(this.props.user.tags)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "--ADD TAG--"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getAddTag()));
     }
   }]);
 
