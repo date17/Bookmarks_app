@@ -75428,7 +75428,9 @@ var data = {
   user: {
     id: "",
     name: "",
-    email: ""
+    email: "",
+    bookmarks: [],
+    tags: []
   }
 }; //レデューサー
 
@@ -75457,7 +75459,9 @@ var loginReduce = function loginReduce(action) {
     user: {
       id: action.data.id,
       name: action.data.name,
-      email: action.data.email
+      email: action.data.email,
+      bookmarks: action.data.bookmarks,
+      tags: action.data.tags
     }
   };
 }; //ログアウト処理
@@ -75469,7 +75473,9 @@ var logoutReduce = function logoutReduce() {
     user: {
       id: null,
       name: "",
-      email: ""
+      email: "",
+      bookmarks: [],
+      tags: []
     }
   };
 }; //ストアの作成
@@ -76043,20 +76049,18 @@ function (_Component) {
         email: this.state.email,
         password: this.state.password
       }).then(function (res) {
-        console.log(res.data);
-        var user = res.data; //dispatchでログイン処理
-
-        _this2.props.dispatch({
-          type: "LOGIN",
-          data: user
-        }); //ステートを空にする
-
-
-        _this2.setState({
-          email: "",
-          password: "",
-          login: _this2.props.login
-        });
+        console.log(res.data); // let user = res.data;
+        // //dispatchでログイン処理
+        // this.props.dispatch({
+        //     type: "LOGIN",
+        //     data: user
+        // });
+        // //ステートを空にする
+        // this.setState({
+        //     email: "",
+        //     password: "",
+        //     login: this.props.login
+        // });
       })["catch"](function (e) {
         console.log(e);
 
