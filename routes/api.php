@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 // });
 
 // React用api
-// Route::group(['middleware' => 'api'], function () {
-//     Route::get('get', 'BookmarkController@index');
-//     Route::post('post', 'BookmarkController@add');
-//     Route::post('del', 'BookmarkController@delete');
-// });
+Route::group(['middleware' => 'api'], function () {
+    Route::get("/bookmark", "api\BookmarkController@index");
+    Route::post("/bookmark", "api\BookmarkController@create");
+    Route::get("/tag", "api\TagController@index");
+});

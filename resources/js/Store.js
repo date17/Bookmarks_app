@@ -4,14 +4,16 @@ import { createStore } from "redux";
 const data = {
     login: false,
     user: {
-        id: 1,
-        name: "takuya",
-        email: "date@ezweb.ne.jp"
+        id: "",
+        name: "",
+        email: "",
+        bookmarks: [],
+        tags: []
     }
 };
 
 //レデューサー
-function Reducer(state = data, action) {
+function reducer(state = data, action) {
     switch (action.type) {
         case "LOGIN":
             return loginReduce(action);
@@ -26,12 +28,15 @@ function Reducer(state = data, action) {
 
 //ログイン処理
 const loginReduce = action => {
+    console.log(action);
     return {
         login: true,
         user: {
-            id: action.id,
-            name: action.name,
-            email: action.email
+            id: action.data.id,
+            name: action.data.name,
+            email: action.data.email,
+            bookmarks: action.data.bookmarks,
+            tags: action.data.tags
         }
     };
 };
@@ -43,10 +48,12 @@ const logoutReduce = () => {
         user: {
             id: null,
             name: "",
-            email: ""
+            email: "",
+            bookmarks: [],
+            tags: []
         }
     };
 };
 
 //ストアの作成
-export default createStore(Reducer);
+export default createStore(reducer);
