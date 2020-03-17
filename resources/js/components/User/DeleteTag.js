@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 
 const mapState = state => {
     return state;
@@ -12,6 +13,7 @@ class DeleteTag extends Component {
             id: this.props.id,
             user_id: this.props.user.id
         };
+        this.doAction = this.doAction.bind(this);
     }
 
     doAction() {
@@ -21,6 +23,23 @@ class DeleteTag extends Component {
             )
         ) {
             console.log("タグを削除します");
+            axios
+                .delete("/api/tag", {
+                    data: {
+                        id: this.state.id,
+                        user_id: this.state.user_id
+                    }
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.props.dispatch({
+                        type: "DELETETAG",
+                        data: res.data
+                    });
+                })
+                .catch(e => {
+                    console.log(e);
+                });
         }
     }
 
@@ -32,3 +51,5 @@ class DeleteTag extends Component {
         );
     }
 }
+
+export default connect(mapState)(DeleteTag);

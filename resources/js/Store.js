@@ -25,6 +25,8 @@ function reducer(state = data, action) {
             return deleteBookmarkReduce(state, action);
         case "ADDTAG":
             return addTagReduce(state, action);
+        case "DELETETAG":
+            return deleteTagReduce(state, action);
         default:
             return state;
     }
@@ -103,6 +105,21 @@ const addTagReduce = (state, action) => {
             email: state.user.email,
             bookmarks: state.user.bookmarks,
             tags: action.data
+        }
+    };
+};
+
+const deleteTagReduce = (state, action) => {
+    console.log(state);
+    console.log(action.data);
+    return {
+        login: state.login,
+        user: {
+            id: state.user.id,
+            name: state.user.name,
+            email: state.user.email,
+            bookmarks: action.data.bookmarks,
+            tags: action.data.tags
         }
     };
 };

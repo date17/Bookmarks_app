@@ -9,18 +9,41 @@ const mapState = state => {
 class Bookmark extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            detail: false
+        };
+        this.doChangeDetail = this.doChangeDetail.bind(this);
+    }
+
+    doChangeDetail() {
+        const detail = !this.state.detail;
+
+        this.setState({
+            detail: detail
+        });
     }
 
     render() {
         return (
             <div>
-                <dl>
-                    <dt>TITLE</dt>
-                    <dd>{this.props.title}</dd>
-                    <dt>URL</dt>
-                    <dd>{this.props.url}</dd>
-                </dl>
-                <DeleteBookmark id={this.props.id} />
+                <div>
+                    TITLE:
+                    <span onClick={this.doChangeDetail}>
+                        {this.props.title}
+                    </span>
+                </div>
+                {this.state.detail ? (
+                    <div>
+                        <div>
+                            URL:<span>{this.props.url}</span>
+                        </div>
+                        <div>
+                            <DeleteBookmark id={this.props.id} />
+                        </div>
+                    </div>
+                ) : (
+                    <div></div>
+                )}
             </div>
         );
     }

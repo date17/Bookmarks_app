@@ -75454,6 +75454,9 @@ function reducer() {
     case "ADDTAG":
       return addTagReduce(state, action);
 
+    case "DELETETAG":
+      return deleteTagReduce(state, action);
+
     default:
       return state;
   }
@@ -75531,6 +75534,21 @@ var addTagReduce = function addTagReduce(state, action) {
       email: state.user.email,
       bookmarks: state.user.bookmarks,
       tags: action.data
+    }
+  };
+};
+
+var deleteTagReduce = function deleteTagReduce(state, action) {
+  console.log(state);
+  console.log(action.data);
+  return {
+    login: state.login,
+    user: {
+      id: state.user.id,
+      name: state.user.name,
+      email: state.user.email,
+      bookmarks: action.data.bookmarks,
+      tags: action.data.tags
     }
   };
 }; //ストアの作成
@@ -76101,9 +76119,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -76123,17 +76141,34 @@ function (_Component) {
   _inherits(Bookmark, _Component);
 
   function Bookmark(props) {
+    var _this;
+
     _classCallCheck(this, Bookmark);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Bookmark).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Bookmark).call(this, props));
+    _this.state = {
+      detail: false
+    };
+    _this.doChangeDetail = _this.doChangeDetail.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Bookmark, [{
+    key: "doChangeDetail",
+    value: function doChangeDetail() {
+      var detail = !this.state.detail;
+      this.setState({
+        detail: detail
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "TITLE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", null, "URL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", null, this.props.url)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteBookmark__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "TITLE:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        onClick: this.doChangeDetail
+      }, this.props.title)), this.state.detail ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "URL:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.url)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteBookmark__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: this.props.id
-      }));
+      }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
     }
   }]);
 
@@ -76247,7 +76282,7 @@ function (_Component) {
 /*!***************************************************!*\
   !*** ./resources/js/components/User/DeleteTag.js ***!
   \***************************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76255,6 +76290,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -76265,13 +76302,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -76295,14 +76333,32 @@ function (_Component) {
       id: _this.props.id,
       user_id: _this.props.user.id
     };
+    _this.doAction = _this.doAction.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(DeleteTag, [{
     key: "doAction",
     value: function doAction() {
+      var _this2 = this;
+
       if (window.confirm("このタグを削除すると関連するブックマークも削除されますがよろしいでしょうか？")) {
         console.log("タグを削除します");
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("/api/tag", {
+          data: {
+            id: this.state.id,
+            user_id: this.state.user_id
+          }
+        }).then(function (res) {
+          console.log(res.data);
+
+          _this2.props.dispatch({
+            type: "DELETETAG",
+            data: res.data
+          });
+        })["catch"](function (e) {
+          console.log(e);
+        });
       }
     }
   }, {
@@ -76316,6 +76372,8 @@ function (_Component) {
 
   return DeleteTag;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapState)(DeleteTag));
 
 /***/ }),
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Bookmark;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Tag;
@@ -20,6 +21,7 @@ class TagController extends Controller
         }
     }
 
+    //タグの新規作成
     public function create(Request $request, Tag $tag)
     {
         return DB::transaction(function () use ($request, $tag) {
@@ -36,6 +38,34 @@ class TagController extends Controller
             $tags = Tag::userTags($request->user_id)->get();
 
             return response($tags, 200);
+        });
+    }
+
+    //タグの削除
+    public function delete(Request $request)
+    {
+        return DB::transaction(function () use ($request) {
+            //　タグを取得する
+            $tag = Tag::find($request->id);
+
+            //タグのuse_idとリクエストのuse_idが一致するかどうかを確認
+            if ($tag->user_id !== $request->user_id) {
+                return response("not match user_id", 400);
+            }
+
+            //タグに関連するブックマーク情報を取得し削除
+            $bookmarks = Bookmark::selectTag($tag->id)->delete();
+
+            //タグの削除
+            $tag->delete();
+
+            //削除後のブックマーク情報とタグ情報を取得し連想配列にして返す
+            $userData = [
+                "bookmarks" => Bookmark::loginUser($request->user_id)->get(),
+                "tags" => Tag::userTags($request->user_id)->get()
+            ];
+
+            return response($userData, 200);
         });
     }
 }

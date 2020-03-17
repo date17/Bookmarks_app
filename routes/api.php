@@ -24,4 +24,5 @@ Route::group(['middleware' => 'api'], function () {
     Route::delete('/bookmark', "api\BookmarkController@delete");
     Route::get("/tag", "api\TagController@index");
     Route::post("/tag", "api\TagController@create");
+    Route::delete("/tag", "api\TagController@delete");
 });
