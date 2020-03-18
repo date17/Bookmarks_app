@@ -57,4 +57,9 @@ class BookmarkController extends Controller
             return response($bookmarks, 200);
         });
     }
+
+    public function userIndex(Request $request)
+    {
+        $bookmarks = Bookmark::with("tag:id,name")->loginUser($request->user_id)->get();
+    }
 }

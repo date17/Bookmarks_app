@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Logout from "./Logout";
 import Bookmark from "./Bookmark";
 import AddBookmark from "./AddBookmark";
 import Tag from "./Tag";
 import AddTag from "./AddTag";
 import axios from "axios";
+import NaviTag from "./NaviTag";
+import Header from "../Layout/Header";
 
 function mapState(state) {
     return state;
@@ -19,37 +21,6 @@ class Mypage extends Component {
         this.getTag = this.getTag.bind(this);
         this.getAddBookmark = this.getAddBookmark.bind(this);
     }
-
-    // componentDidMount() {
-    // console.log(this.props.user.id);
-    // const api = axios.create();
-    // //複数のAPIを叩く
-    // axios
-    //     .all([
-    //         api.get("/api/bookmark", {
-    //             params: {
-    //                 id: this.props.user.id
-    //             }
-    //         }),
-    //         api.get("/api/tag", {
-    //             params: {
-    //                 id: this.props.user.id
-    //             }
-    //         })
-    //     ])
-    //     .then(([res1, res2]) => {
-    //         //配列で受け取る（res1--bookmark, res2--tag）
-    //         console.log(res1.data);
-    //         console.log(res2.data);
-    //         this.setState({
-    //             bookmarks: res1.data,
-    //             tags: res2.data
-    //         });
-    //     })
-    //     .catch(e => {
-    //         console.log(e);
-    //     });
-    // }
 
     getBookmark(bookmarks) {
         let key = 0;
@@ -86,9 +57,12 @@ class Mypage extends Component {
     }
 
     render() {
+        if (!this.props.login) {
+            return <Redirect to="/login" />;
+        }
         return (
             <div>
-                <h1>Mypage</h1>
+                {/* <h1>Mypage</h1>
                 <div>
                     <Link to="/login">ログイン</Link>
                     <h2>LOGIN USER</h2>
@@ -97,8 +71,8 @@ class Mypage extends Component {
                     <div>{this.props.user.email}</div>
                 </div>
                 <Logout />
-                <hr />
-                <h2>--BOOKMARK--</h2>
+                <hr /> */}
+                {/* <h2>--BOOKMARK--</h2>
                 <div>{this.getBookmark(this.props.user.bookmarks)}</div>
                 <hr />
                 <h2>--ADD BOOKMARK--</h2>
@@ -108,7 +82,9 @@ class Mypage extends Component {
                 <div>{this.getTag(this.props.user.tags)}</div>
                 <hr />
                 <h2>--ADD TAG--</h2>
-                <div>{this.getAddTag()}</div>
+                <div>{this.getAddTag()}</div> */}
+                <Header user_name={this.props.user.name} />
+                <NaviTag />
             </div>
         );
     }

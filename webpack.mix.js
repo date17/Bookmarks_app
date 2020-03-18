@@ -15,3 +15,4 @@ mix.react("resources/js/app.js", "public/js").sass(
     "resources/sass/app.scss",
     "public/css"
 );
+// .sass("resources/sass/react/header.scss", "public/css/react");

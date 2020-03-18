@@ -13,7 +13,7 @@ trait UserTrait
         //ログインしているユーザの情報を取得
         $user = Auth::user();
         //ログインしているユーザのブックマークを取得
-        $bookmarks = Bookmark::loginUser($user->id)->get();
+        $bookmarks = Bookmark::with("tag:id,name")->loginUser($user->id)->get();
         //ログインしているユーザのタグを取得
         $tags = Tag::userTags($user->id)->get();
 

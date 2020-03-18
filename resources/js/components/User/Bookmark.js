@@ -38,6 +38,9 @@ class Bookmark extends Component {
                             URL:<span>{this.props.url}</span>
                         </div>
                         <div>
+                            TAG:<span>{this.props.tag.name}</span>
+                        </div>
+                        <div>
                             <DeleteBookmark id={this.props.id} />
                         </div>
                     </div>

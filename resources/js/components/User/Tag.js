@@ -12,17 +12,7 @@ class Tag extends Component {
     }
 
     render() {
-        return (
-            <>
-                <dl>
-                    <dt>Tag id:</dt>
-                    <dd>{this.props.id}</dd>
-                    <dt>Tag name:</dt>
-                    <dd>{this.props.name}</dd>
-                </dl>
-                <DeleteTag id={this.props.id} />
-            </>
-        );
+        return <div className="tag">{this.props.tag.name}</div>;
     }
 }
 
