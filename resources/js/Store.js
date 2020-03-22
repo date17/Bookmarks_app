@@ -8,7 +8,8 @@ const data = {
         name: "",
         email: "",
         bookmarks: [],
-        tags: []
+        tags: [],
+        select: []
     }
 };
 
@@ -27,6 +28,8 @@ function reducer(state = data, action) {
             return addTagReduce(state, action);
         case "DELETETAG":
             return deleteTagReduce(state, action);
+        case "CHANGESELECT":
+            return changeSelect(state, action);
         default:
             return state;
     }
@@ -44,7 +47,8 @@ const loginReduce = action => {
             name: action.data.user.name,
             email: action.data.user.email,
             bookmarks: action.data.bookmarks,
-            tags: action.data.tags
+            tags: action.data.tags,
+            select: action.data.select //ログインした時はブックマーク一覧にする
         }
     };
 };
@@ -58,7 +62,8 @@ const logoutReduce = () => {
             name: "",
             email: "",
             bookmarks: [],
-            tags: []
+            tags: [],
+            select: []
         }
     };
 };
@@ -74,7 +79,8 @@ const addBookmarkReduce = (state, action) => {
             name: state.user.name,
             email: state.user.email,
             bookmarks: action.data,
-            tags: state.user.tags
+            tags: state.user.tags,
+            select: []
         }
     };
 };
@@ -88,7 +94,8 @@ const deleteBookmarkReduce = (state, action) => {
             name: state.user.name,
             email: state.user.email,
             bookmarks: action.data,
-            tags: state.user.tags
+            tags: state.user.tags,
+            select: []
         }
     };
 };
@@ -104,11 +111,13 @@ const addTagReduce = (state, action) => {
             name: state.user.name,
             email: state.user.email,
             bookmarks: state.user.bookmarks,
-            tags: action.data
+            tags: action.data,
+            select: []
         }
     };
 };
 
+//タグの削除
 const deleteTagReduce = (state, action) => {
     console.log(state);
     console.log(action.data);
@@ -119,7 +128,25 @@ const deleteTagReduce = (state, action) => {
             name: state.user.name,
             email: state.user.email,
             bookmarks: action.data.bookmarks,
-            tags: action.data.tags
+            tags: action.data.tags,
+            select: []
+        }
+    };
+};
+
+//selectを変更
+const changeSelect = (state, action) => {
+    console.log("Change Select");
+    console.log(action.data);
+    return {
+        login: state.login,
+        user: {
+            id: state.user.id,
+            name: state.user.name,
+            email: state.user.email,
+            bookmarks: state.user.bookmarks,
+            tags: state.user.tags,
+            select: action.data
         }
     };
 };

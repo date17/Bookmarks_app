@@ -1,35 +1,34 @@
-header {
+.mypage-header {
   display: -webkit-box;
   display: flex;
   width: 100%;
   height: 70px;
+  border-bottom: 1px solid #000;
 }
 
-header .title {
+.mypage-header .title {
   width: 60%;
   font-size: 25pt;
   font-weight: bold;
   height: 70px;
+  line-height: 70px;
+  padding: 0 0 0 10px;
 }
 
-header .user {
+.mypage-header .user {
   width: 40%;
   height: 70px;
   text-align: center;
 }
 
-header .user .login-user {
-  font-size: 16pt;
+.mypage-header .user .login-user {
+  font-size: 20pt;
   height: 50px;
-  margin: 10px 0;
-  box-sizing: border-box;
-  border: 1px solid #000;
+  line-height: 70px;
 }
 
-header .user .user-action {
+.mypage-header .user .user-action {
   font-size: 16pt;
-  height: 50px;
   box-sizing: border-box;
-  border: 1px solid #000;
 }
 

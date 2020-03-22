@@ -1,0 +1,72 @@
+.mypage-main {
+    display: flex;
+    margin: 10px 0 0 0;
+    position: relative;
+    .navi {
+        width: 200px;
+        position: relative;
+        .newNavi {
+            padding: 5px 0 5px 5px;
+            border-bottom: 1px solid #000;
+        }
+        .newInput {
+            padding: 5px 0 5px 5px;
+            border-bottom: 1px solid #000;
+        }
+        .bookmark-all {
+            padding: 5px 0 5px 5px;
+            border-bottom: 1px solid #000;
+        }
+        .tags {
+            width: 200px;
+            .label {
+                padding: 5px 0 5px 5px;
+                background-color: #000;
+                color: #fff;
+            }
+            .tag {
+                padding: 5px 0 5px 4px;
+                border-bottom: 1px solid #000;
+                border-left: 1px solid #000;
+                margin: 0 0 0 30px;
+                &:hover {
+                    background-color: rgb(182, 178, 178);
+                }
+            }
+        }
+    }
+    .bookmarks {
+        width: 600px;
+        margin: 0 0 0 30px;
+        border-left: 1px solid #000;
+        .select {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 15px;
+            padding: 0 0 0 10px;
+        }
+        .bookmark {
+            margin: 10px 0 0 0;
+            padding: 10px 0 10px 30px;
+            border: 1px solid #000;
+            .bookmark-title {
+                font-size: 18px;
+                color: gray;
+            }
+            .detail {
+                margin: 5px 0 0 0;
+                .url {
+                    font-size: 16px;
+                    span {
+                        color: gray;
+                        padding: 0 0 0 10px;
+                    }
+                }
+            }
+        }
+        .not-bookmark {
+            font-size: 20px;
+            color: red;
+        }
+    }
+}

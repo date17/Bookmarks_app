@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tag from "./Tag";
 import AddTag from "./AddTag";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const mappingState = state => {
     return state;
@@ -20,9 +21,10 @@ class NaviTag extends Component {
     getTag() {
         //ストアのタグ情報を代入
         const tags = this.props.user.tags;
+        let i = 0;
         //mapで回す
         return tags.map(tag => {
-            return <Tag tag={tag} />;
+            return <Tag tag={tag} key={i++} />;
         });
     }
 
@@ -37,11 +39,15 @@ class NaviTag extends Component {
         return (
             <div className="navi">
                 <div className="newNavi">
-                    <i className="fas fa-plus"></i>
+                    {/* <FontAwesomeIcon icon={["fas", "plus"]} /> */}
                     <span onClick={this.showNewTagInput}>タグの追加</span>
                 </div>
                 {this.state.newInput ? <AddTag /> : <></>}
-                <div className="tags">{this.getTag()}</div>
+                <div className="bookmark-all">ブックマーク一覧</div>
+                <div className="tags">
+                    <div className="label">タグ一覧</div>
+                    {this.getTag()}
+                </div>
             </div>
         );
     }

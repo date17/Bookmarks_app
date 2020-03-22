@@ -34,10 +34,6 @@ class Login extends Component {
     }
 
     doAction() {
-        const param = {
-            email: this.state.email,
-            password: this.state.password
-        };
         axios
             .post("/login", {
                 email: this.state.email,

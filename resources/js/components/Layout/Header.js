@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logout from "../User/Logout";
-import "../../../../public/css/react/header.css";
+// import "../../../../public/css/react/header.css";
 
 class Header extends Component {
     constructor(props) {
@@ -21,22 +22,24 @@ class Header extends Component {
     }
 
     render() {
-        <header>
-            <div className="title">SHEREs</div>
-            <div className="user">
-                <div className="login-user" onClick={this.userAction}>
-                    {/* ここにユーザのアイコンを入れたい(font-awesome) */}
-                    {this.state.user_name}
-                </div>
-                {this.state.user_action ? (
-                    <div className="user-action">
-                        <Logout />
+        return (
+            <header className="mypage-header">
+                <div className="title">SHEREs</div>
+                <div className="user">
+                    <div className="login-user" onClick={this.userAction}>
+                        {/* <FontAwesomeIcon icon={["fas", "user-circle"]} /> */}
+                        <span>{this.state.user_name}</span>
                     </div>
-                ) : (
-                    <div></div>
-                )}
-            </div>
-        </header>;
+                    {this.state.user_action ? (
+                        <div className="user-action">
+                            <Logout />
+                        </div>
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
+            </header>
+        );
     }
 }
 

@@ -50,7 +50,7 @@ class AddTag extends Component {
 
     render() {
         return (
-            <div>
+            <div className="newInput">
                 <input
                     type="text"
                     onChange={this.doChangeName}

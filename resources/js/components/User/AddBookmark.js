@@ -24,7 +24,7 @@ class AddBookmark extends Component {
 
     //Tag_idのoptionを作成する
     optionTag() {
-        const tags = this.props.tags;
+        const tags = this.props.user.tags;
         return tags.map(tag => {
             return <option value={tag.id}>{tag.name}</option>;
         });

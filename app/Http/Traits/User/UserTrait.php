@@ -15,13 +15,17 @@ trait UserTrait
         //ログインしているユーザのブックマークを取得
         $bookmarks = Bookmark::with("tag:id,name")->loginUser($user->id)->get();
         //ログインしているユーザのタグを取得
-        $tags = Tag::userTags($user->id)->get();
+        $tags = Tag::with("bookmark")->userTags($user->id)->get();
 
         //上記情報をひとまとまりにする
         $userData = [
             "user" => $user,
             "bookmarks" => $bookmarks,
-            "tags" => $tags
+            "tags" => $tags,
+            "select" => [
+                "name" => "ブックマーク一覧",
+                "bookmark" => $bookmarks
+            ]
         ];
 
         return $userData;

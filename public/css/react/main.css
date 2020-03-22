@@ -1,0 +1,90 @@
+.mypage-main {
+  display: -webkit-box;
+  display: flex;
+  margin: 10px 0 0 0;
+  position: relative;
+}
+
+.mypage-main .navi {
+  width: 200px;
+  position: relative;
+}
+
+.mypage-main .navi .newNavi {
+  padding: 5px 0 5px 5px;
+  border-bottom: 1px solid #000;
+}
+
+.mypage-main .navi .newInput {
+  padding: 5px 0 5px 5px;
+  border-bottom: 1px solid #000;
+}
+
+.mypage-main .navi .bookmark-all {
+  padding: 5px 0 5px 5px;
+  border-bottom: 1px solid #000;
+}
+
+.mypage-main .navi .tags {
+  width: 200px;
+}
+
+.mypage-main .navi .tags .label {
+  padding: 5px 0 5px 5px;
+  background-color: #000;
+  color: #fff;
+}
+
+.mypage-main .navi .tags .tag {
+  padding: 5px 0 5px 4px;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  margin: 0 0 0 30px;
+}
+
+.mypage-main .navi .tags .tag:hover {
+  background-color: #b6b2b2;
+}
+
+.mypage-main .bookmarks {
+  width: 600px;
+  margin: 0 0 0 30px;
+  border-left: 1px solid #000;
+}
+
+.mypage-main .bookmarks .select {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 15px;
+  padding: 0 0 0 10px;
+}
+
+.mypage-main .bookmarks .bookmark {
+  margin: 10px 0 0 0;
+  padding: 10px 0 10px 30px;
+  border: 1px solid #000;
+}
+
+.mypage-main .bookmarks .bookmark .bookmark-title {
+  font-size: 18px;
+  color: gray;
+}
+
+.mypage-main .bookmarks .bookmark .detail {
+  margin: 5px 0 0 0;
+}
+
+.mypage-main .bookmarks .bookmark .detail .url {
+  font-size: 16px;
+}
+
+.mypage-main .bookmarks .bookmark .detail .url span {
+  color: gray;
+  padding: 0 0 0 10px;
+}
+
+.mypage-main .bookmarks .not-bookmark {
+  font-size: 20px;
+  color: red;
+}
+
