@@ -90712,7 +90712,8 @@ function (_Component) {
     };
     _this.doAction = _this.doAction.bind(_assertThisInitialized(_this));
     _this.doChangeEmail = _this.doChangeEmail.bind(_assertThisInitialized(_this));
-    _this.doChangePassword = _this.doChangePassword.bind(_assertThisInitialized(_this));
+    _this.doChangePassword = _this.doChangePassword.bind(_assertThisInitialized(_this)); // this.onSubmit = this.onSubmit.bind(this);
+
     return _this;
   }
 
@@ -90760,7 +90761,10 @@ function (_Component) {
           password: ""
         });
       });
-    }
+    } // onSubmit() {
+    //     this.props.history.push("/");
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -90781,7 +90785,9 @@ function (_Component) {
           value: this.state.password
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.doAction
-        }, "\u30ED\u30B0\u30A4\u30F3"))));
+        }, "\u30ED\u30B0\u30A4\u30F3"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.onSubmit
+        }, "LP\u3078"));
       }
     }
   }]);

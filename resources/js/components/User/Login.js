@@ -19,6 +19,7 @@ class Login extends Component {
         this.doAction = this.doAction.bind(this);
         this.doChangeEmail = this.doChangeEmail.bind(this);
         this.doChangePassword = this.doChangePassword.bind(this);
+        // this.onSubmit = this.onSubmit.bind(this);
     }
 
     doChangeEmail(e) {
@@ -62,6 +63,10 @@ class Login extends Component {
             });
     }
 
+    // onSubmit() {
+    //     this.props.history.push("/");
+    // }
+
     render() {
         if (this.state.login) {
             return <Redirect to="/mypage" />;
@@ -95,6 +100,7 @@ class Login extends Component {
                             <button onClick={this.doAction}>ログイン</button>
                         </div>
                     </div>
+                    <button onClick={this.onSubmit}>LPへ</button>
                 </div>
             );
         }

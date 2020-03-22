@@ -19,10 +19,12 @@ use Illuminate\Http\Request;
 
 // React用api
 Route::group(['middleware' => 'api'], function () {
-    Route::get("/bookmark", "api\BookmarkController@userIndex");
-    Route::post("/bookmark", "api\BookmarkController@create");
-    Route::delete('/bookmark', "api\BookmarkController@delete");
-    Route::get("/tag", "api\TagController@index");
-    Route::post("/tag", "api\TagController@create");
-    Route::delete("/tag", "api\TagController@delete");
+    Route::middleware("auth:api")->post("/login", "Auth\LoginController@login");
+    Route::middleware("auth:api")->post("/register", "Auth\RegisterController@register");
+    Route::middleware("auth:api")->get("/bookmark", "api\BookmarkController@userIndex");
+    Route::middleware("auth:api")->post("/bookmark", "api\BookmarkController@create");
+    Route::middleware("auth:api")->delete('/bookmark', "api\BookmarkController@delete");
+    Route::middleware("auth:api")->get("/tag", "api\TagController@index");
+    Route::middleware("auth:api")->post("/tag", "api\TagController@create");
+    Route::middleware("auth:api")->delete("/tag", "api\TagController@delete");
 });

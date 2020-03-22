@@ -60,7 +60,7 @@ Route::get('/{any}', function () {
 // //送信
 // Route::post("/contact/send", "ContactController@send")->name("contact.send");
 
-Auth::routes();
+// Auth::routes();
 // //ユーザーの削除
 // Route::post("/user/delete", "UserController");
 
