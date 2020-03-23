@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
 
 class Register extends Component {
     constructor(props) {
@@ -42,22 +42,22 @@ class Register extends Component {
     }
 
     doAction() {
-        // Axios.post("/api/register", {
-        //     name: this.state.name,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        //     passwordConfirm: this.state.passwordConfirm
-        // })
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(e => {
-        //         console.log(e);
-        //     });
-        this.setState({
-            login: true
-        });
-        console.log(this.state);
+        axios
+            .post("/api/register", {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                password_confirmation: this.state.passwordConfirm
+            })
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    login: true
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     render() {

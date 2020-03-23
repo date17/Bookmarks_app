@@ -91218,22 +91218,22 @@ function (_Component) {
   }, {
     key: "doAction",
     value: function doAction() {
-      // Axios.post("/api/register", {
-      //     name: this.state.name,
-      //     email: this.state.email,
-      //     password: this.state.password,
-      //     passwordConfirm: this.state.passwordConfirm
-      // })
-      //     .then(res => {
-      //         console.log(res);
-      //     })
-      //     .catch(e => {
-      //         console.log(e);
-      //     });
-      this.setState({
-        login: true
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("/api/register", {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        password_confirmation: this.state.passwordConfirm
+      }).then(function (res) {
+        console.log(res);
+
+        _this2.setState({
+          login: true
+        });
+      })["catch"](function (e) {
+        console.log(e);
       });
-      console.log(this.state);
     }
   }, {
     key: "render",

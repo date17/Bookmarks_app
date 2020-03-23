@@ -18,6 +18,7 @@ Route::get('/{any}', function () {
     return view("react_welcome");
 })->where("any", ".*");
 
+Route::post("/login", "Auth\LoginController@login")->middleware("guest");
 
 // Route::get('/', function () {
 //     return view("LP.lp");

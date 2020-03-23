@@ -23,8 +23,9 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             //もうすでにログインしていた場合、responseを作成して、ログインしているユーザを返す
-            $userData = $this->loginUserData();
-            return response()->json($userData, 200);
+            // $userData = $this->loginUserData();
+            // return response()->json($userData, 200);
+            return response()->json(Auth::user(), 200);
         }
 
         return $next($request);

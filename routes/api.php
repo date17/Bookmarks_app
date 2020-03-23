@@ -19,8 +19,8 @@ use Illuminate\Http\Request;
 
 // React用api
 Route::group(['middleware' => 'api'], function () {
-    Route::middleware("auth:api")->post("/login", "Auth\LoginController@login");
-    Route::middleware("auth:api")->post("/register", "Auth\RegisterController@register");
+    Route::post("/login", "Auth\LoginController@login");
+    Route::post("/register", "Auth\RegisterController@register");
     Route::middleware("auth:api")->get("/bookmark", "api\BookmarkController@userIndex");
     Route::middleware("auth:api")->post("/bookmark", "api\BookmarkController@create");
     Route::middleware("auth:api")->delete('/bookmark', "api\BookmarkController@delete");
