@@ -22,10 +22,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            //もうすでにログインしていた場合、responseを作成して、ログインしているユーザを返す
-            // $userData = $this->loginUserData();
-            // return response()->json($userData, 200);
-            return response()->json(Auth::user(), 200);
+            //ログインしていた場合、ユーザーの情報を返すため、起動時にユーザー情報を返す/api/userにリダイレクトする
+            return redirect("/api/user");
         }
 
         return $next($request);

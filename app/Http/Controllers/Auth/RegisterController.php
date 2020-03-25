@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -72,5 +73,12 @@ class RegisterController extends Controller
             //api_tokenを追加する
             'api_token' => Str::random(60),
         ]);
+    }
+
+    //registerdをオーバーライド
+    public function registerd(Request $request, $user)
+    {
+        //SPAであるため、リダイレクトではなく、ログインしているユーザを返してあげる
+        return $user;
     }
 }

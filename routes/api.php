@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,21 @@ use Illuminate\Http\Request;
 
 // React用api
 Route::group(['middleware' => 'api'], function () {
+    //アプリケーション起動時に必ずアクセスして、ログインしているかどうかをチェックする
+    Route::get("/user", function () {
+        return Auth::user();
+    });
+    //ログイン処理
     Route::post("/login", "Auth\LoginController@login");
+    //ログアウト処理
+    Route::post("/logout", "Auth\LoginController@logout");
+    //新規登録処理
     Route::post("/register", "Auth\RegisterController@register");
-    Route::middleware("auth:api")->get("/bookmark", "api\BookmarkController@userIndex");
-    Route::middleware("auth:api")->post("/bookmark", "api\BookmarkController@create");
-    Route::middleware("auth:api")->delete('/bookmark', "api\BookmarkController@delete");
-    Route::middleware("auth:api")->get("/tag", "api\TagController@index");
-    Route::middleware("auth:api")->post("/tag", "api\TagController@create");
-    Route::middleware("auth:api")->delete("/tag", "api\TagController@delete");
+
+    // Route::get("/bookmark", "api\BookmarkController@userIndex");
+    // Route::post("/bookmark", "api\BookmarkController@create");
+    // Route::delete('/bookmark', "api\BookmarkController@delete");
+    // Route::get("/tag", "api\TagController@index");
+    // Route::post("/tag", "api\TagController@create");
+    // Route::delete("/tag", "api\TagController@delete");
 });

@@ -26,7 +26,6 @@ class Logout extends Component {
                         type: "LOGOUT"
                     });
                     localStorage.removeItem("data");
-                    <Redirect to="/" />;
                 })
                 .catch(e => {
                     console.log(e);

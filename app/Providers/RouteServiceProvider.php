@@ -71,10 +71,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    //今回はAPIを内部からのみ呼び出すため、middlewareをwebと同じにする
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-            ->middleware('api')
+            ->middleware('web') //api→web
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
