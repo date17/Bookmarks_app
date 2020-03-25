@@ -5,6 +5,7 @@ import Login from "./User/Login";
 import Register from "./User/Register";
 import Mypage from "./User/Mypage";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import Auth from "./User/Auth";
 
 class App extends Component {
     constructor(props) {
@@ -17,7 +18,9 @@ class App extends Component {
                 <Route exact path="/" component={Lp} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/mypage" component={Mypage} />
+                <Auth>
+                    <Route exact path="/mypage" component={Mypage} />
+                </Auth>
             </BrowserRouter>
         );
     }

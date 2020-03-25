@@ -25,6 +25,7 @@ class Logout extends Component {
                     this.props.dispatch({
                         type: "LOGOUT"
                     });
+                    localStorage.removeItem("data");
                     <Redirect to="/" />;
                 })
                 .catch(e => {

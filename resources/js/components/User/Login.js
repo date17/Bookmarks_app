@@ -54,6 +54,7 @@ class Login extends Component {
                     password: "",
                     login: this.props.login
                 });
+                this.setLocalStorage(userData);
             })
             .catch(e => {
                 console.log(e);
@@ -63,6 +64,13 @@ class Login extends Component {
             });
     }
 
+    setLocalStorage(userData) {
+        const data = {
+            login: true,
+            user: userData
+        };
+        localStorage.setItem("data", JSON.stringify(data));
+    }
     // onSubmit() {
     //     this.props.history.push("/");
     // }

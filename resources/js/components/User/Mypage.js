@@ -52,15 +52,13 @@ class Mypage extends Component {
     // }
 
     render() {
-        if (!this.props.login) {
-            return <Redirect to="/login" />;
-        }
         return (
             <div>
                 <Header user_name={this.props.user.name} />
                 <div className="mypage-main">
-                    <NaviTag />
-                    <Bookmark data={this.props.user.select} />
+                    {/* <NaviTag />
+                    <Bookmark data={this.props.user.select} /> */}
+                    Hello
                 </div>
             </div>
         );
