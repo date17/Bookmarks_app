@@ -9,6 +9,7 @@ class Lp extends Component {
     }
 
     render() {
+        console.log("lp");
         return (
             <body>
                 <header>

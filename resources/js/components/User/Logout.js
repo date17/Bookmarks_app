@@ -15,7 +15,7 @@ class Logout extends Component {
     doAction() {
         if (this.props.login) {
             axios
-                .post("/logout", {
+                .post("/api/logout", {
                     id: this.props.user.id,
                     name: this.props.user.name,
                     email: this.props.email
@@ -25,7 +25,6 @@ class Logout extends Component {
                     this.props.dispatch({
                         type: "LOGOUT"
                     });
-                    localStorage.removeItem("data");
                 })
                 .catch(e => {
                     console.log(e);

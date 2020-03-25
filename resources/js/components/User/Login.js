@@ -13,13 +13,11 @@ class Login extends Component {
         super(props);
         this.state = {
             email: "date17@ezweb.ne.jp",
-            password: "b4z8nqas",
-            login: this.props.login
+            password: "b4z8nqas"
         };
         this.doAction = this.doAction.bind(this);
         this.doChangeEmail = this.doChangeEmail.bind(this);
         this.doChangePassword = this.doChangePassword.bind(this);
-        // this.onSubmit = this.onSubmit.bind(this);
     }
 
     doChangeEmail(e) {
@@ -36,7 +34,7 @@ class Login extends Component {
 
     doAction() {
         axios
-            .post("/login", {
+            .post("/api/login", {
                 email: this.state.email,
                 password: this.state.password
             })
@@ -54,29 +52,18 @@ class Login extends Component {
                     password: "",
                     login: this.props.login
                 });
-                this.setLocalStorage(userData);
             })
             .catch(e => {
                 console.log(e);
+                console.log("miss login");
                 this.setState({
                     password: ""
                 });
             });
     }
 
-    setLocalStorage(userData) {
-        const data = {
-            login: true,
-            user: userData
-        };
-        localStorage.setItem("data", JSON.stringify(data));
-    }
-    // onSubmit() {
-    //     this.props.history.push("/");
-    // }
-
     render() {
-        if (this.state.login) {
+        if (this.props.login) {
             return <Redirect to="/mypage" />;
         } else {
             return (
@@ -108,7 +95,6 @@ class Login extends Component {
                             <button onClick={this.doAction}>ログイン</button>
                         </div>
                     </div>
-                    <button onClick={this.onSubmit}>LPへ</button>
                 </div>
             );
         }

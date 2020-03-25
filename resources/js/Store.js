@@ -6,25 +6,12 @@ const initdata = {
     user: {
         id: "",
         name: "",
-        email: "",
-        api_token: ""
-    }
-};
-
-//localstorageから取得したものを初期データにする
-const dataLocalStorage = JSON.parse(localStorage.getItem("data")) || initdata;
-const data = {
-    login: dataLocalStorage.login,
-    user: {
-        id: dataLocalStorage.user.id,
-        name: dataLocalStorage.user.name,
-        email: dataLocalStorage.user.email,
-        api_token: dataLocalStorage.user_api_token
+        email: ""
     }
 };
 
 //レデューサー
-function reducer(state = data, action) {
+function reducer(state = initdata, action) {
     switch (action.type) {
         case "LOGIN":
             return loginReduce(action);
@@ -45,8 +32,7 @@ const loginReduce = action => {
         user: {
             id: action.data.id,
             name: action.data.name,
-            email: action.data.email,
-            api_token: action.data.api_token
+            email: action.data.email
         }
     };
 };
@@ -58,8 +44,7 @@ const logoutReduce = () => {
         user: {
             id: null,
             name: "",
-            email: "",
-            api_token: ""
+            email: ""
         }
     };
 };

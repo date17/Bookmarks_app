@@ -6,10 +6,29 @@ import Register from "./User/Register";
 import Mypage from "./User/Mypage";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Auth from "./User/Auth";
+import axios from "axios";
 
 class App extends Component {
     constructor(props) {
         super(props);
+        this.firstLogin = this.firstLogin.bind(this);
+        // loginしているかをチェックする
+        this.firstLogin();
+    }
+
+    //起動時にログインしているかどうかを確認する
+    async firstLogin() {
+        console.log("firstLogin");
+        const response = await axios.get("/api/user");
+        const data = response.data || null;
+        //レスポンスにログインユーザのデータが入っていたら、
+        if (data) {
+            console.log("data has");
+            this.props.dispatch({
+                type: "LOGIN",
+                data: data
+            });
+        }
     }
 
     render() {
