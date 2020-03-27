@@ -20,14 +20,14 @@ class AddBookmark extends Component {
         this.doChangeUrl = this.doChangeUrl.bind(this);
         this.doChangeTag = this.doChangeTag.bind(this);
         this.doAction = this.doAction.bind(this);
+        this.afterAdd = this.afterAdd.bind(this);
     }
 
     //Tag_idのoptionを作成する
     optionTag() {
-        const tags = this.props.user.tags;
-        return tags.map(tag => {
-            return <option value={tag.id}>{tag.name}</option>;
-        });
+        const tag_id = this.props.tag_id;
+        const tag_name = this.props.tag_name;
+        return <option value={tag_id}>{tag_name}</option>;
     }
 
     doChangeTitle(e) {
@@ -68,21 +68,21 @@ class AddBookmark extends Component {
             })
             .then(res => {
                 console.log(res.data);
-                //ストアのステートを更新
-                this.props.dispatch({
-                    type: "ADDBOOKMARK",
-                    data: res.data
-                });
                 this.setState(state => ({
                     title: "",
                     url: "",
                     tag_id: null,
                     user_id: state.user_id
                 }));
+                this.afterAdd(res.data);
             })
             .catch(e => {
                 console.log(e);
             });
+    }
+
+    afterAdd(bookmarks) {
+        this.props.afterAdd(bookmarks);
     }
 
     render() {

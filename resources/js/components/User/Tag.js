@@ -13,18 +13,14 @@ class Tag extends Component {
     }
 
     selectBookmarks() {
-        const tag = this.props.tag;
-        //dispatchでselectの中にクリックしたタグとそのブックマークの情報を入れる
-        this.props.dispatch({
-            type: "CHANGESELECT",
-            data: tag
-        });
+        //親の関数をpropsで受け取りこの関数内で実行する
+        this.props.doClick(this.props.id);
     }
 
     render() {
         return (
             <div className="tag" onClick={this.selectBookmarks}>
-                {this.props.tag.name}
+                {this.props.name}
             </div>
         );
     }

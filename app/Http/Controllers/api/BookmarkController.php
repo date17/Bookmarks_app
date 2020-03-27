@@ -31,7 +31,8 @@ class BookmarkController extends Controller
 
             $bookmark->fill($form)->save();
 
-            $bookmarks = Bookmark::loginUser($request->user_id)->get();
+            //追加した後のユーザーの選択したタグのブックマークを取得
+            $bookmarks = Bookmark::selectTag($request->tag_id)->get();
 
             return response($bookmarks, 200);
         });

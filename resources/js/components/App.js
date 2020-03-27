@@ -4,7 +4,7 @@ import Lp from "./Lp";
 import Login from "./User/Login";
 import Register from "./User/Register";
 import Mypage from "./User/Mypage";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Auth from "./User/Auth";
 import axios from "axios";
 
@@ -20,6 +20,7 @@ class App extends Component {
     async firstLogin() {
         console.log("firstLogin");
         const response = await axios.get("/api/user");
+        console.log(response.data);
         const data = response.data || null;
         //レスポンスにログインユーザのデータが入っていたら、
         if (data) {
@@ -34,12 +35,14 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Route exact path="/" component={Lp} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
-                <Auth>
-                    <Route exact path="/mypage" component={Mypage} />
-                </Auth>
+                <Switch>
+                    <Route exact path="/" component={Lp} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+                    <Auth>
+                        <Route exact path="/mypage" component={Mypage} />
+                    </Auth>
+                </Switch>
             </BrowserRouter>
         );
     }

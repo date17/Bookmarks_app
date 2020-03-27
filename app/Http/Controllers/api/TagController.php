@@ -41,6 +41,18 @@ class TagController extends Controller
         });
     }
 
+    //タグを選択してそのブックマークを返す
+    public function selectTag(Request $request)
+    {
+        if (!$request->tag_id || !$request->user_id) {
+            return response("not tag_id or user_id", 400);
+        }
+
+        $data = Tag::with("bookmark")->find($request->tag_id);
+
+        return response($data, 200);
+    }
+
     //タグの削除
     public function delete(Request $request)
     {
