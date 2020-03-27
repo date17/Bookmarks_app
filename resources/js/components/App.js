@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Lp from "./Lp";
 import Login from "./User/Login";
 import Register from "./User/Register";
-import Mypage from "./User/Mypage";
+import Mypage from "./Mypage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Auth from "./User/Auth";
 import axios from "axios";

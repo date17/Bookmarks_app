@@ -15,6 +15,7 @@ class AddTag extends Component {
         };
         this.doChangeName = this.doChangeName.bind(this);
         this.doAction = this.doAction.bind(this);
+        this.afterAdd = this.afterAdd.bind(this);
     }
 
     doChangeName(e) {
@@ -34,10 +35,7 @@ class AddTag extends Component {
             })
             .then(res => {
                 console.log(res.data);
-                this.props.dispatch({
-                    type: "ADDTAG",
-                    data: res.data
-                });
+                this.afterAdd(res.data);
                 this.setState(state => ({
                     user_id: state.user_id,
                     name: ""
@@ -46,6 +44,10 @@ class AddTag extends Component {
             .catch(e => {
                 console.log(e);
             });
+    }
+
+    afterAdd(tags) {
+        this.props.after(tags);
     }
 
     render() {

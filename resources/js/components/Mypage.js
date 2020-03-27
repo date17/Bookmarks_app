@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import Bookmark from "./Bookmark";
-import Tag from "./Tag";
-// import NaviTag from "./NaviTag";
-import Header from "../Layout/Header";
+import Bookmarks from "./Bookmarks/Bookmarks";
+import Tag from "./Tags/Tag";
+import AddTag from "./Tags/AddTag";
+import Header from "./Layout/Header";
 import axios from "axios";
 
 function mapState(state) {
@@ -25,6 +25,7 @@ class Mypage extends Component {
         this.showNewTagInput = this.showNewTagInput.bind(this);
         this.selectBookmarks = this.selectBookmarks.bind(this);
         this.doChangeBookmarks = this.doChangeBookmarks.bind(this);
+        this.doChangeTags = this.doChangeTags.bind(this);
     }
 
     getTag() {
@@ -44,6 +45,13 @@ class Mypage extends Component {
                 );
             });
         }
+    }
+
+    showNewTagInput() {
+        const newInput = !this.state.newInput;
+        this.setState({
+            newInput: newInput
+        });
     }
 
     selectBookmarks(id, name) {
@@ -77,13 +85,6 @@ class Mypage extends Component {
             });
     }
 
-    showNewTagInput() {
-        const newInput = !this.state.newInput;
-        this.setState({
-            newInput: newInput
-        });
-    }
-
     doChangeBookmarks(tag_id, bookmarks) {
         if (this.state.select_id == tag_id) {
             console.log("doChangeBookmarks state select_id === tag_id");
@@ -91,6 +92,13 @@ class Mypage extends Component {
                 bookmarks: bookmarks
             });
         }
+    }
+
+    doChangeTags(tags) {
+        this.setState({
+            tags: tags,
+            newInput: false
+        });
     }
 
     componentDidMount() {
@@ -125,14 +133,18 @@ class Mypage extends Component {
                                 タグの追加
                             </span>
                         </div>
-                        {this.state.newInput ? <AddTag /> : <></>}
+                        {this.state.newInput ? (
+                            <AddTag after={this.doChangeTags} />
+                        ) : (
+                            <></>
+                        )}
                         <div className="bookmark-all">ブックマーク一覧</div>
                         <div className="tags">
                             <div className="label">タグ一覧</div>
                             {this.getTag()}
                         </div>
                     </div>
-                    <Bookmark
+                    <Bookmarks
                         tag_id={this.state.select_id}
                         tag_name={this.state.select_name}
                         bookmarks={this.state.bookmarks}

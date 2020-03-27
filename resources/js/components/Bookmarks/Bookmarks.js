@@ -57,28 +57,28 @@ class Bookmark extends Component {
         } else {
             let i = 0;
             return bookmarks.map(value => {
-                return (
-                    <div className="bookmark" key={i++}>
-                        <div
-                            className="bookmark-title"
-                            onClick={this.doChangeDetail}
-                        >
-                            {value.title}
-                        </div>
-                        {this.state.detail ? (
-                            <div className="detail">
-                                <div className="url">
-                                    URL:<span>{value.url}</span>
-                                </div>
-                                <div>
-                                    <DeleteBookmark id={value.id} />
-                                </div>
-                            </div>
-                        ) : (
-                            <div></div>
-                        )}
-                    </div>
-                );
+                // return (
+                //     <div className="bookmark" key={i++}>
+                //         <div
+                //             className="bookmark-title"
+                //             onClick={this.doChangeDetail}
+                //         >
+                //             {value.title}
+                //         </div>
+                //         {this.state.detail ? (
+                //             <div className="detail">
+                //                 <div className="url">
+                //                     URL:<span>{value.url}</span>
+                //                 </div>
+                //                 <div>
+                //                     <DeleteBookmark id={value.id} />
+                //                 </div>
+                //             </div>
+                //         ) : (
+                //             <div></div>
+                //         )}
+                //     </div>
+                // );
             });
         }
     }

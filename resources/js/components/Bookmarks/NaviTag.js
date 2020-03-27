@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Tag from "./Tag";
+import Tag from "../User/Tag";
 import AddTag from "./AddTag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
