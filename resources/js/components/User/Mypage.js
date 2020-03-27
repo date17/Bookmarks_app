@@ -17,11 +17,14 @@ class Mypage extends Component {
         this.state = {
             tags: [],
             newInput: false,
-            select: []
+            select_id: null,
+            select_name: "",
+            bookmarks: []
         };
         this.getTag = this.getTag.bind(this);
         this.showNewTagInput = this.showNewTagInput.bind(this);
         this.selectBookmarks = this.selectBookmarks.bind(this);
+        this.doChangeBookmarks = this.doChangeBookmarks.bind(this);
     }
 
     getTag() {
@@ -36,31 +39,41 @@ class Mypage extends Component {
                         id={tag.id}
                         name={tag.name}
                         doClick={this.selectBookmarks}
+                        key={tag.id}
                     />
                 );
             });
         }
     }
 
-    selectBookmarks(id) {
-        const tag_id = id;
-        console.log(tag_id);
+    selectBookmarks(id, name) {
+        console.log("selectBookmarks");
+        const select_id = id;
+        const select_name = name;
+        console.log(select_id);
+        console.log(select_name);
         axios
             .get("/api/selectTag", {
                 params: {
                     user_id: this.props.user.id,
-                    tag_id: tag_id
+                    tag_id: select_id
                 }
             })
             .then(res => {
                 console.log("Mypage selectBookmarks res data");
                 console.log(res.data);
                 this.setState({
-                    select: res.data
+                    bookmarks: res.data.bookmark,
+                    select_id: select_id,
+                    select_name: select_name
                 });
             })
             .catch(e => {
                 console.log(e);
+                this.setState({
+                    select_id: select_id,
+                    select_name: select_name
+                });
             });
     }
 
@@ -69,6 +82,15 @@ class Mypage extends Component {
         this.setState({
             newInput: newInput
         });
+    }
+
+    doChangeBookmarks(tag_id, bookmarks) {
+        if (this.state.select_id == tag_id) {
+            console.log("doChangeBookmarks state select_id === tag_id");
+            this.setState({
+                bookmarks: bookmarks
+            });
+        }
     }
 
     componentDidMount() {
@@ -110,7 +132,12 @@ class Mypage extends Component {
                             {this.getTag()}
                         </div>
                     </div>
-                    <Bookmark data={this.state.select} />
+                    <Bookmark
+                        tag_id={this.state.select_id}
+                        tag_name={this.state.select_name}
+                        bookmarks={this.state.bookmarks}
+                        changeBookmarks={this.doChangeBookmarks}
+                    />
                 </div>
             </div>
         );

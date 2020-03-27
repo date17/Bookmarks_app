@@ -74,15 +74,18 @@ class AddBookmark extends Component {
                     tag_id: null,
                     user_id: state.user_id
                 }));
-                this.afterAdd(res.data);
+                this.afterAdd(tag_id, res.data);
             })
             .catch(e => {
                 console.log(e);
             });
     }
 
-    afterAdd(bookmarks) {
-        this.props.afterAdd(bookmarks);
+    afterAdd(tag_id, bookmarks) {
+        console.log("after add");
+        console.log(tag_id);
+        console.log(bookmarks);
+        this.props.after(tag_id, bookmarks);
     }
 
     render() {

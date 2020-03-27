@@ -91521,15 +91521,18 @@ function (_Component) {
           };
         });
 
-        _this2.afterAdd(res.data);
+        _this2.afterAdd(tag_id, res.data);
       })["catch"](function (e) {
         console.log(e);
       });
     }
   }, {
     key: "afterAdd",
-    value: function afterAdd(bookmarks) {
-      this.props.afterAdd(bookmarks);
+    value: function afterAdd(tag_id, bookmarks) {
+      console.log("after add");
+      console.log(tag_id);
+      console.log(bookmarks);
+      this.props.after(tag_id, bookmarks);
     }
   }, {
     key: "render",
@@ -91698,8 +91701,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Bookmark).call(this, props));
     _this.state = {
       detail: false,
-      add: false,
-      bookmarks: []
+      add: false
     };
     _this.doChangeDetail = _this.doChangeDetail.bind(_assertThisInitialized(_this));
     _this.showBookmark = _this.showBookmark.bind(_assertThisInitialized(_this));
@@ -91728,7 +91730,7 @@ function (_Component) {
   }, {
     key: "selectTitle",
     value: function selectTitle() {
-      var title = this.props.data.name;
+      var title = this.props.tag_name;
 
       if (title == undefined || title == "") {
         console.log("select title false");
@@ -91748,7 +91750,7 @@ function (_Component) {
     value: function showBookmark() {
       var _this2 = this;
 
-      var bookmarks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props.data.bookmark;
+      var bookmarks = this.props.bookmarks;
 
       if (!bookmarks || bookmarks.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -91775,10 +91777,10 @@ function (_Component) {
     }
   }, {
     key: "afterAdd",
-    value: function afterAdd(bookmarks) {
-      var add = false;
+    value: function afterAdd(id, bookmarks) {
+      //Mypageコンポーネントのbookmarksステートを変更することで表示するブックマークを更新する
+      this.props.changeBookmarks(id, bookmarks);
       this.setState({
-        bookmarks: bookmarks,
         add: false
       });
     }
@@ -91791,8 +91793,8 @@ function (_Component) {
         className: "add",
         onClick: this.doChangeAdd
       }, "\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u306E\u8FFD\u52A0"), this.state.add ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddBookmark__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        tag_id: this.props.data.id,
-        tag_name: this.props.data.name,
+        tag_id: this.props.tag_id,
+        tag_name: this.props.tag_name,
         after: this.afterAdd
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), this.showBookmark());
     }
@@ -92303,11 +92305,14 @@ function (_Component) {
     _this.state = {
       tags: [],
       newInput: false,
-      select: []
+      select_id: null,
+      select_name: "",
+      bookmarks: []
     };
     _this.getTag = _this.getTag.bind(_assertThisInitialized(_this));
     _this.showNewTagInput = _this.showNewTagInput.bind(_assertThisInitialized(_this));
     _this.selectBookmarks = _this.selectBookmarks.bind(_assertThisInitialized(_this));
+    _this.doChangeBookmarks = _this.doChangeBookmarks.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -92326,32 +92331,43 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tag__WEBPACK_IMPORTED_MODULE_4__["default"], {
             id: tag.id,
             name: tag.name,
-            doClick: _this2.selectBookmarks
+            doClick: _this2.selectBookmarks,
+            key: tag.id
           });
         });
       }
     }
   }, {
     key: "selectBookmarks",
-    value: function selectBookmarks(id) {
+    value: function selectBookmarks(id, name) {
       var _this3 = this;
 
-      var tag_id = id;
-      console.log(tag_id);
+      console.log("selectBookmarks");
+      var select_id = id;
+      var select_name = name;
+      console.log(select_id);
+      console.log(select_name);
       axios__WEBPACK_IMPORTED_MODULE_6___default.a.get("/api/selectTag", {
         params: {
           user_id: this.props.user.id,
-          tag_id: tag_id
+          tag_id: select_id
         }
       }).then(function (res) {
         console.log("Mypage selectBookmarks res data");
         console.log(res.data);
 
         _this3.setState({
-          select: res.data
+          bookmarks: res.data.bookmark,
+          select_id: select_id,
+          select_name: select_name
         });
       })["catch"](function (e) {
         console.log(e);
+
+        _this3.setState({
+          select_id: select_id,
+          select_name: select_name
+        });
       });
     }
   }, {
@@ -92361,6 +92377,16 @@ function (_Component) {
       this.setState({
         newInput: newInput
       });
+    }
+  }, {
+    key: "doChangeBookmarks",
+    value: function doChangeBookmarks(tag_id, bookmarks) {
+      if (this.state.select_id == tag_id) {
+        console.log("doChangeBookmarks state select_id === tag_id");
+        this.setState({
+          bookmarks: bookmarks
+        });
+      }
     }
   }, {
     key: "componentDidMount",
@@ -92402,7 +92428,10 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label"
       }, "\u30BF\u30B0\u4E00\u89A7"), this.getTag())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bookmark__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        data: this.state.select
+        tag_id: this.state.select_id,
+        tag_name: this.state.select_name,
+        bookmarks: this.state.bookmarks,
+        changeBookmarks: this.doChangeBookmarks
       })));
     }
   }]);
@@ -92624,7 +92653,7 @@ function (_Component) {
     key: "selectBookmarks",
     value: function selectBookmarks() {
       //親の関数をpropsで受け取りこの関数内で実行する
-      this.props.doClick(this.props.id);
+      this.props.doClick(this.props.id, this.props.name);
     }
   }, {
     key: "render",

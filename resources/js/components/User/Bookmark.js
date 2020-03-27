@@ -12,8 +12,7 @@ class Bookmark extends Component {
         super(props);
         this.state = {
             detail: false,
-            add: false,
-            bookmarks: []
+            add: false
         };
         this.doChangeDetail = this.doChangeDetail.bind(this);
         this.showBookmark = this.showBookmark.bind(this);
@@ -38,7 +37,7 @@ class Bookmark extends Component {
     }
 
     selectTitle() {
-        const title = this.props.data.name;
+        const title = this.props.tag_name;
         if (title == undefined || title == "") {
             console.log("select title false");
             return <div className="select">からです</div>;
@@ -49,7 +48,8 @@ class Bookmark extends Component {
     }
 
     //デフォルトでpropsを使う
-    showBookmark(bookmarks = this.props.data.bookmark) {
+    showBookmark() {
+        const bookmarks = this.props.bookmarks;
         if (!bookmarks || bookmarks.length === 0) {
             return (
                 <div className="not-bookmark">ブックマークはございません</div>
@@ -83,10 +83,10 @@ class Bookmark extends Component {
         }
     }
 
-    afterAdd(bookmarks) {
-        const add = false;
+    afterAdd(id, bookmarks) {
+        //Mypageコンポーネントのbookmarksステートを変更することで表示するブックマークを更新する
+        this.props.changeBookmarks(id, bookmarks);
         this.setState({
-            bookmarks: bookmarks,
             add: false
         });
     }
@@ -100,8 +100,8 @@ class Bookmark extends Component {
                 </div>
                 {this.state.add ? (
                     <AddBookmark
-                        tag_id={this.props.data.id}
-                        tag_name={this.props.data.name}
+                        tag_id={this.props.tag_id}
+                        tag_name={this.props.tag_name}
                         after={this.afterAdd}
                     />
                 ) : (

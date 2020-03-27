@@ -14,7 +14,7 @@ class Tag extends Component {
 
     selectBookmarks() {
         //親の関数をpropsで受け取りこの関数内で実行する
-        this.props.doClick(this.props.id);
+        this.props.doClick(this.props.id, this.props.name);
     }
 
     render() {
