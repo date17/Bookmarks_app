@@ -1,32 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DeleteBookmark from "./DeleteBookmark";
+import Bookmark from "./Bookmark";
 import AddBookmark from "./AddBookmark";
 
 const mapState = state => {
     return state;
 };
 
-class Bookmark extends Component {
+class Bookmarks extends Component {
     constructor(props) {
         super(props);
         this.state = {
             detail: false,
             add: false
         };
-        this.doChangeDetail = this.doChangeDetail.bind(this);
         this.showBookmark = this.showBookmark.bind(this);
         this.selectTitle = this.selectTitle.bind(this);
         this.doChangeAdd = this.doChangeAdd.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
-    }
-
-    doChangeDetail() {
-        const detail = !this.state.detail;
-
-        this.setState({
-            detail: detail
-        });
     }
 
     doChangeAdd() {
@@ -57,28 +49,16 @@ class Bookmark extends Component {
         } else {
             let i = 0;
             return bookmarks.map(value => {
-                // return (
-                //     <div className="bookmark" key={i++}>
-                //         <div
-                //             className="bookmark-title"
-                //             onClick={this.doChangeDetail}
-                //         >
-                //             {value.title}
-                //         </div>
-                //         {this.state.detail ? (
-                //             <div className="detail">
-                //                 <div className="url">
-                //                     URL:<span>{value.url}</span>
-                //                 </div>
-                //                 <div>
-                //                     <DeleteBookmark id={value.id} />
-                //                 </div>
-                //             </div>
-                //         ) : (
-                //             <div></div>
-                //         )}
-                //     </div>
-                // );
+                return (
+                    <Bookmark
+                        id={value.id}
+                        title={value.title}
+                        url={value.url}
+                        tag_id={this.props.tag_id}
+                        key={value.id}
+                        after={this.afterAdd}
+                    />
+                );
             });
         }
     }
@@ -113,4 +93,4 @@ class Bookmark extends Component {
     }
 }
 
-export default connect(mapState)(Bookmark);
+export default connect(mapState)(Bookmarks);

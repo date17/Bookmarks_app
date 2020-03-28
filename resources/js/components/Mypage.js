@@ -26,6 +26,7 @@ class Mypage extends Component {
         this.selectBookmarks = this.selectBookmarks.bind(this);
         this.doChangeBookmarks = this.doChangeBookmarks.bind(this);
         this.doChangeTags = this.doChangeTags.bind(this);
+        this.afterDeleteTag = this.afterDeleteTag(this);
     }
 
     getTag() {
@@ -40,6 +41,7 @@ class Mypage extends Component {
                         id={tag.id}
                         name={tag.name}
                         doClick={this.selectBookmarks}
+                        delete={this.afterDeleteTag}
                         key={tag.id}
                     />
                 );
@@ -98,6 +100,15 @@ class Mypage extends Component {
         this.setState({
             tags: tags,
             newInput: false
+        });
+    }
+
+    afterDeleteTag(tags) {
+        this.setState({
+            tags: tags,
+            select_id: null,
+            select_name: "",
+            bookmarks: []
         });
     }
 

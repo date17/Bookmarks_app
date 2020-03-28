@@ -53,7 +53,7 @@ class BookmarkController extends Controller
             $bookmark->delete();
 
             //削除後のブックマークを取得して返す
-            $bookmarks = Bookmark::loginUser($request->user_id)->get();
+            $bookmarks = Bookmark::selectTag($request->tag_id)->get();
 
             return response($bookmarks, 200);
         });

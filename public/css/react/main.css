@@ -25,6 +25,10 @@
   border-bottom: 1px solid #000;
 }
 
+.mypage-main .navi .bookmark-all:hover {
+  background-color: #b6b2b2;
+}
+
 .mypage-main .navi .tags {
   width: 200px;
 }
@@ -40,10 +44,24 @@
   border-bottom: 1px solid #000;
   border-left: 1px solid #000;
   margin: 0 0 0 30px;
+  display: -webkit-box;
+  display: flex;
 }
 
 .mypage-main .navi .tags .tag:hover {
   background-color: #b6b2b2;
+}
+
+.mypage-main .navi .tags .tag .tag-name {
+  width: 70%;
+}
+
+.mypage-main .navi .tags .tag .btn-deleteTag {
+  width: 30%;
+}
+
+.mypage-main .navi .tags .tag .btn-deleteTag button {
+  font-size: 13px;
 }
 
 .mypage-main .bookmarks {

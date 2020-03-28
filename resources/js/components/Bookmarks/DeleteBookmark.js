@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 
-const mapStateUserId = state => {
+const mapState = state => {
     return state;
 };
 
@@ -25,15 +25,14 @@ class DeleteBookmark extends Component {
                 .delete("/api/bookmark", {
                     data: {
                         id: this.state.id,
-                        user_id: this.state.user_id
+                        user_id: this.state.user_id,
+                        tag_id: this.props.tag_id
                     }
                 })
                 .then(res => {
                     console.log(res.data);
-                    this.props.dispatch({
-                        type: "DELETEBOOKMARK",
-                        data: res.data
-                    });
+                    console.log("削除しました");
+                    this.props.afterDelete(this.props.tag_id, res.data);
                 })
                 .catch(e => {
                     console.log(e);
@@ -50,4 +49,4 @@ class DeleteBookmark extends Component {
     }
 }
 
-export default connect(mapStateUserId)(DeleteBookmark);
+export default connect(mapState)(DeleteBookmark);

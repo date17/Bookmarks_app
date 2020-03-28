@@ -32,10 +32,7 @@ class DeleteTag extends Component {
                 })
                 .then(res => {
                     console.log(res.data);
-                    this.props.dispatch({
-                        type: "DELETETAG",
-                        data: res.data
-                    });
+                    this.props.delete(res.data.tags);
                 })
                 .catch(e => {
                     console.log(e);
@@ -45,7 +42,7 @@ class DeleteTag extends Component {
 
     render() {
         return (
-            <div>
+            <div className="btn-deleteTag">
                 <button onClick={this.doAction}>削除</button>
             </div>
         );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import DeleteTag from "./DeleteTag";
 const mapState = state => {
     return state;
 };
@@ -19,7 +19,8 @@ class Tag extends Component {
     render() {
         return (
             <div className="tag" onClick={this.selectBookmarks}>
-                {this.props.name}
+                <div className="tag-name">{this.props.name}</div>
+                <DeleteTag id={this.props.id} delete={this.props.delete} />
             </div>
         );
     }
