@@ -91978,7 +91978,6 @@ function (_Component) {
     _this.selectBookmarks = _this.selectBookmarks.bind(_assertThisInitialized(_this));
     _this.doChangeBookmarks = _this.doChangeBookmarks.bind(_assertThisInitialized(_this));
     _this.doChangeTags = _this.doChangeTags.bind(_assertThisInitialized(_this));
-    _this.afterDeleteTag = _this.afterDeleteTag(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -91995,11 +91994,13 @@ function (_Component) {
 
         return tags.map(function (tag) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Tags_Tag__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            key: tag.id,
             id: tag.id,
             name: tag.name,
             doClick: _this2.selectBookmarks,
-            "delete": _this2.afterDeleteTag,
-            key: tag.id
+            after: function after(tags) {
+              _this2.afterDeleteTag(tags);
+            }
           });
         });
       }
@@ -92066,6 +92067,7 @@ function (_Component) {
   }, {
     key: "afterDeleteTag",
     value: function afterDeleteTag(tags) {
+      console.log("mypage afterDeleteTag");
       this.setState({
         tags: tags,
         select_id: null,
@@ -92307,6 +92309,7 @@ function (_Component) {
       user_id: _this.props.user.id
     };
     _this.doAction = _this.doAction.bind(_assertThisInitialized(_this));
+    _this.afterDelete = _this.afterDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -92325,11 +92328,17 @@ function (_Component) {
         }).then(function (res) {
           console.log(res.data);
 
-          _this2.props["delete"](res.data.tags);
+          _this2.afterDelete(res.data.tags);
         })["catch"](function (e) {
           console.log(e);
         });
       }
+    }
+  }, {
+    key: "afterDelete",
+    value: function afterDelete(tags) {
+      console.log("deleteTag afterDelete");
+      this.props.after(tags);
     }
   }, {
     key: "render",
@@ -92400,6 +92409,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Tag).call(this, props));
     _this.selectBookmarks = _this.selectBookmarks.bind(_assertThisInitialized(_this));
+    _this.afterDelete = _this.afterDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -92410,16 +92420,26 @@ function (_Component) {
       this.props.doClick(this.props.id, this.props.name);
     }
   }, {
+    key: "afterDelete",
+    value: function afterDelete(tags) {
+      console.log("tag afterDelete");
+      this.props.after(tags);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tag",
-        onClick: this.selectBookmarks
+        className: "tag"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tag-name"
+        className: "tag-name",
+        onClick: this.selectBookmarks
       }, this.props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DeleteTag__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: this.props.id,
-        "delete": this.props["delete"]
+        after: function after(tags) {
+          _this2.afterDelete(tags);
+        }
       }));
     }
   }]);

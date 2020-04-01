@@ -14,6 +14,7 @@ class DeleteTag extends Component {
             user_id: this.props.user.id
         };
         this.doAction = this.doAction.bind(this);
+        this.afterDelete = this.afterDelete.bind(this);
     }
 
     doAction() {
@@ -32,12 +33,17 @@ class DeleteTag extends Component {
                 })
                 .then(res => {
                     console.log(res.data);
-                    this.props.delete(res.data.tags);
+                    this.afterDelete(res.data.tags);
                 })
                 .catch(e => {
                     console.log(e);
                 });
         }
+    }
+
+    afterDelete(tags) {
+        console.log("deleteTag afterDelete");
+        this.props.after(tags);
     }
 
     render() {

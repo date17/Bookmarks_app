@@ -26,7 +26,6 @@ class Mypage extends Component {
         this.selectBookmarks = this.selectBookmarks.bind(this);
         this.doChangeBookmarks = this.doChangeBookmarks.bind(this);
         this.doChangeTags = this.doChangeTags.bind(this);
-        this.afterDeleteTag = this.afterDeleteTag(this);
     }
 
     getTag() {
@@ -38,11 +37,13 @@ class Mypage extends Component {
             return tags.map(tag => {
                 return (
                     <Tag
+                        key={tag.id}
                         id={tag.id}
                         name={tag.name}
                         doClick={this.selectBookmarks}
-                        delete={this.afterDeleteTag}
-                        key={tag.id}
+                        after={tags => {
+                            this.afterDeleteTag(tags);
+                        }}
                     />
                 );
             });
@@ -104,6 +105,7 @@ class Mypage extends Component {
     }
 
     afterDeleteTag(tags) {
+        console.log("mypage afterDeleteTag");
         this.setState({
             tags: tags,
             select_id: null,
