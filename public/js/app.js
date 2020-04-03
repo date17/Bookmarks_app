@@ -91392,6 +91392,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _DeleteBookmark__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteBookmark */ "./resources/js/components/Bookmarks/DeleteBookmark.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -91414,6 +91416,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var mapState = function mapState(state) {
   return state;
 };
@@ -91430,9 +91433,20 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Bookmark).call(this, props));
     _this.state = {
-      detail: false
+      fixed: false,
+      detail: false,
+      fixTitle: _this.props.title,
+      fixUrl: _this.props.url,
+      fixTag: _this.props.tag_id
     };
     _this.doChangeDetail = _this.doChangeDetail.bind(_assertThisInitialized(_this));
+    _this.doChangeFixForm = _this.doChangeFixForm.bind(_assertThisInitialized(_this));
+    _this.doChangeFixTitle = _this.doChangeFixTitle.bind(_assertThisInitialized(_this));
+    _this.doChangeFixUrl = _this.doChangeFixUrl.bind(_assertThisInitialized(_this));
+    _this.doChangeFixTag = _this.doChangeFixTitle.bind(_assertThisInitialized(_this));
+    _this.doFixAction = _this.doFixAction.bind(_assertThisInitialized(_this));
+    _this.fixedForm = _this.fixedForm.bind(_assertThisInitialized(_this));
+    _this.detailForm = _this.detailForm.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -91445,11 +91459,49 @@ function (_Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bookmark"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    key: "doChangeFixForm",
+    value: function doChangeFixForm() {
+      console.log("Bookmark doChangeFixForm");
+      var fixed = this.state.fixed;
+
+      if (fixed === true) {
+        console.log("change false");
+        this.setState({
+          fixed: false,
+          fixTitle: this.props.title,
+          fixUrl: this.props.url,
+          fixTag: this.props.tag_id
+        });
+      } else if (fixed === false) {
+        console.log("change true");
+        this.setState({
+          fixed: true
+        });
+      }
+    }
+  }, {
+    key: "fixedForm",
+    value: function fixedForm() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.fixTitle,
+        onChange: this.doChangeFixTitle
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.fixUrl,
+        onChange: this.doChangeFixUrl
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.doChangeFixTag
+      }, this.props.optionTag(this.props.tag_id))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.doChangeFixForm
+      }, "\u30AD\u30E3\u30F3\u30BB\u30EB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.doFixAction
+      }, "\u5909\u66F4")));
+    }
+  }, {
+    key: "detailForm",
+    value: function detailForm() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bookmark-title",
         onClick: this.doChangeDetail
       }, this.props.title), this.state.detail ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -91460,7 +91512,64 @@ function (_Component) {
         id: this.props.id,
         tag_id: this.props.tag_id,
         afterDelete: this.props.after
-      }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.doChangeFixForm
+      }, "\u7DE8\u96C6")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+    }
+  }, {
+    key: "doChangeFixTitle",
+    value: function doChangeFixTitle(e) {
+      console.log(e.target.value);
+      this.setState({
+        fixTitle: e.target.value
+      });
+    }
+  }, {
+    key: "doChangeFixUrl",
+    value: function doChangeFixUrl(e) {
+      console.log(e.target.value);
+      this.setState({
+        fixUrl: e.target.value
+      });
+    }
+  }, {
+    key: "doChangeFixTag",
+    value: function doChangeFixTag(e) {
+      console.log(e.target.value);
+      this.setState({
+        fixTag: e.target.value
+      });
+    }
+  }, {
+    key: "doFixAction",
+    value: function doFixAction() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("/api/bookmark", {
+        id: this.props.id,
+        title: this.state.fixTitle,
+        url: this.state.fixUrl,
+        tag_id: this.state.fixTag,
+        user_id: this.props.user.id
+      }).then(function (res) {
+        console.log(res.data);
+        var bookmarks = res.data;
+        var tag_id = _this2.props.tag_id; //ステートのfixedをfalseにして、表示を変える
+
+        _this2.doChangeFixForm(); //ブックマークを更新
+
+
+        _this2.props.change(tag_id, bookmarks);
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bookmark"
+      }, this.state.fixed ? this.fixedForm() : this.detailForm());
     }
   }]);
 
@@ -91533,6 +91642,7 @@ function (_Component) {
     _this.selectTitle = _this.selectTitle.bind(_assertThisInitialized(_this));
     _this.doChangeAdd = _this.doChangeAdd.bind(_assertThisInitialized(_this));
     _this.afterAdd = _this.afterAdd.bind(_assertThisInitialized(_this));
+    _this.optionTag = _this.optionTag.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -91543,6 +91653,14 @@ function (_Component) {
       this.setState({
         add: add
       });
+    }
+  }, {
+    key: "doChangeBookmarks",
+    value: function doChangeBookmarks() {
+      var tag_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var bookmarks = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      console.log("Bookmarks doChangeBookmarks");
+      this.props.changeBookmarks(tag_id, bookmarks);
     }
   }, {
     key: "selectTitle",
@@ -91581,8 +91699,11 @@ function (_Component) {
             title: value.title,
             url: value.url,
             tag_id: _this2.props.tag_id,
-            key: value.id,
-            after: _this2.afterAdd
+            key: i++,
+            change: function change(tag_id, bookmarks) {
+              _this2.doChangeBookmarks(tag_id, bookmarks);
+            },
+            optionTag: _this2.optionTag
           });
         });
       }
@@ -91595,6 +91716,31 @@ function (_Component) {
       this.setState({
         add: false
       });
+    } //編集時のタグのselectのoptionを作成する
+
+  }, {
+    key: "optionTag",
+    value: function optionTag() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var tags = this.props.allTags;
+
+      if (id === null) {
+        return tags.map(function (tag) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: tag.id
+          }, tag.name);
+        });
+      } else {
+        //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
+        return tags.map(function (tag) {
+          return id === tag.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: tag.id,
+            selected: true
+          }, tag.name) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+            value: tag.id
+          }, tag.name);
+        });
+      }
     }
   }, {
     key: "render",
@@ -92098,6 +92244,8 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this5 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Layout_Header__WEBPACK_IMPORTED_MODULE_6__["default"], {
         user_name: this.props.user.name
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -92117,10 +92265,13 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label"
       }, "\u30BF\u30B0\u4E00\u89A7"), this.getTag())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Bookmarks_Bookmarks__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        allTags: this.state.tags,
         tag_id: this.state.select_id,
         tag_name: this.state.select_name,
         bookmarks: this.state.bookmarks,
-        changeBookmarks: this.doChangeBookmarks
+        changeBookmarks: function changeBookmarks(tag_id, bookmarks) {
+          _this5.doChangeBookmarks(tag_id, bookmarks);
+        }
       })));
     }
   }]);

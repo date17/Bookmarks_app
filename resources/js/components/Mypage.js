@@ -158,10 +158,13 @@ class Mypage extends Component {
                         </div>
                     </div>
                     <Bookmarks
+                        allTags={this.state.tags}
                         tag_id={this.state.select_id}
                         tag_name={this.state.select_name}
                         bookmarks={this.state.bookmarks}
-                        changeBookmarks={this.doChangeBookmarks}
+                        changeBookmarks={(tag_id, bookmarks) => {
+                            this.doChangeBookmarks(tag_id, bookmarks);
+                        }}
                     />
                 </div>
             </div>

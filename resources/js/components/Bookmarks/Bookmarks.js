@@ -19,6 +19,7 @@ class Bookmarks extends Component {
         this.selectTitle = this.selectTitle.bind(this);
         this.doChangeAdd = this.doChangeAdd.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
+        this.optionTag = this.optionTag.bind(this);
     }
 
     doChangeAdd() {
@@ -26,6 +27,11 @@ class Bookmarks extends Component {
         this.setState({
             add: add
         });
+    }
+
+    doChangeBookmarks(tag_id = null, bookmarks = []) {
+        console.log("Bookmarks doChangeBookmarks");
+        this.props.changeBookmarks(tag_id, bookmarks);
     }
 
     selectTitle() {
@@ -55,8 +61,11 @@ class Bookmarks extends Component {
                         title={value.title}
                         url={value.url}
                         tag_id={this.props.tag_id}
-                        key={value.id}
-                        after={this.afterAdd}
+                        key={i++}
+                        change={(tag_id, bookmarks) => {
+                            this.doChangeBookmarks(tag_id, bookmarks);
+                        }}
+                        optionTag={this.optionTag}
                     />
                 );
             });
@@ -69,6 +78,27 @@ class Bookmarks extends Component {
         this.setState({
             add: false
         });
+    }
+
+    //編集時のタグのselectのoptionを作成する
+    optionTag(id = null) {
+        const tags = this.props.allTags;
+        if (id === null) {
+            return tags.map(tag => {
+                return <option value={tag.id}>{tag.name}</option>;
+            });
+        } else {
+            //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
+            return tags.map(tag => {
+                return id === tag.id ? (
+                    <option value={tag.id} selected>
+                        {tag.name}
+                    </option>
+                ) : (
+                    <option value={tag.id}>{tag.name}</option>
+                );
+            });
+        }
     }
 
     render() {

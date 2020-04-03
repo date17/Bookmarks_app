@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class BookmarkController extends Controller
 {
+
+    public function __construct()
+    {
+        //ログインしているか確認
+        $this->middleware("auth");
+    }
+
     //ユーザのブックマーク情報を取得
     public function index(Request $request)
     {
@@ -55,6 +62,31 @@ class BookmarkController extends Controller
             //削除後のブックマークを取得して返す
             $bookmarks = Bookmark::selectTag($request->tag_id)->get();
 
+            return response($bookmarks, 200);
+        });
+    }
+
+    //ブックマークの編集
+    public function update(Request $request)
+    {
+        return DB::transaction(function () use ($request) {
+
+            //バリデーション
+            $this->validate($request, Bookmark::$rules);
+
+            //編集するブックマークの取得
+            $bookmark = Bookmark::find($request->id);
+
+            //更新するデータの用意
+            $form = $request->all();
+
+            //値をセットして、更新
+            $bookmark->fill($form)->save();
+
+            //選択しているタグのブックマークを取得する
+            $bookmarks = Bookmark::loginUser($request->user_id)->selectTag($request->tag_id)->get();
+
+            //ブックマークを返す
             return response($bookmarks, 200);
         });
     }

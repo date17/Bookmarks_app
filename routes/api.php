@@ -38,10 +38,11 @@ Route::group(['middleware' => 'api'], function () {
     Route::post("/bookmark", "api\BookmarkController@create");
     //ブックマークの削除
     Route::delete('/bookmark', "api\BookmarkController@delete");
+    //ブックマークの更新
+    Route::put("/bookmark", "api\BookmarkController@update");
     //タグの新規登録
     Route::post("/tag", "api\TagController@create");
     //タグとそのタグに関連するブックマークの削除
     Route::delete("/tag", "api\TagController@delete");
-    // Route::get("/bookmark", "api\BookmarkController@userIndex");
     // Route::get("/tag", "api\TagController@index");
 });
