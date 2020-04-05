@@ -150,8 +150,14 @@ class Bookmark extends Component {
                 console.log(res.data);
                 const bookmarks = res.data;
                 const tag_id = this.props.tag_id;
-                //ステートのfixedをfalseにして、表示を変える
-                this.doChangeFixForm();
+                //ステートの更新
+                this.setState({
+                    detail: false,
+                    fixed: false,
+                    fixTitle: this.props.title,
+                    fixUrl: this.props.url,
+                    fixTag: this.props.tag_id
+                });
                 //ブックマークを更新
                 this.props.change(tag_id, bookmarks);
             })

@@ -91554,9 +91554,15 @@ function (_Component) {
       }).then(function (res) {
         console.log(res.data);
         var bookmarks = res.data;
-        var tag_id = _this2.props.tag_id; //ステートのfixedをfalseにして、表示を変える
+        var tag_id = _this2.props.tag_id; //ステートの更新
 
-        _this2.doChangeFixForm(); //ブックマークを更新
+        _this2.setState({
+          detail: false,
+          fixed: false,
+          fixTitle: _this2.props.title,
+          fixUrl: _this2.props.url,
+          fixTag: _this2.props.tag_id
+        }); //ブックマークを更新
 
 
         _this2.props.change(tag_id, bookmarks);
