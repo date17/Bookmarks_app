@@ -112,6 +112,7 @@ class Bookmarks extends Component {
                     <AddBookmark
                         tag_id={this.props.tag_id}
                         tag_name={this.props.tag_name}
+                        optionTag={this.optionTag}
                         after={this.afterAdd}
                     />
                 ) : (

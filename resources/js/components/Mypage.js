@@ -56,23 +56,27 @@ class Mypage extends Component {
     }
 
     getBookmarks() {
-        axios
-            .get("/api/bookmark", {
-                params: {
-                    user_id: this.props.user_id
-                }
-            })
-            .then(res => {
-                console.log(res.data);
-                this.setState({
-                    select_id: null,
-                    select_name: "ブックマーク一覧",
-                    bookmarks: res.data
+        if (this.state.select_name === "ブックマーク一覧") {
+            console.log("show now all your bookmarks");
+        } else {
+            axios
+                .get("/api/bookmark", {
+                    params: {
+                        user_id: this.props.user_id
+                    }
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState({
+                        select_id: null,
+                        select_name: "ブックマーク一覧",
+                        bookmarks: res.data
+                    });
+                })
+                .catch(e => {
+                    console.log(e);
                 });
-            })
-            .catch(e => {
-                console.log(e);
-            });
+        }
     }
 
     showNewTagInput() {

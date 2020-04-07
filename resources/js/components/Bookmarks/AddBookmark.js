@@ -15,19 +15,11 @@ class AddBookmark extends Component {
             url: "",
             tag_id: null
         };
-        this.optionTag = this.optionTag.bind(this);
         this.doChangeTitle = this.doChangeTitle.bind(this);
         this.doChangeUrl = this.doChangeUrl.bind(this);
         this.doChangeTag = this.doChangeTag.bind(this);
         this.doAction = this.doAction.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
-    }
-
-    //Tag_idのoptionを作成する
-    optionTag() {
-        const tag_id = this.props.tag_id;
-        const tag_name = this.props.tag_name;
-        return <option value={tag_id}>{tag_name}</option>;
     }
 
     doChangeTitle(e) {
@@ -114,10 +106,7 @@ class AddBookmark extends Component {
                     <dt>TAG</dt>
                     <dd>
                         <select onChange={this.doChangeTag} required>
-                            <option value="" disabled selected>
-                                選択してください
-                            </option>
-                            {this.optionTag()}
+                            {this.props.optionTag(this.props.tag_id)}
                         </select>
                     </dd>
                 </dl>
