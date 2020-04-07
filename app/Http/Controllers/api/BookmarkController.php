@@ -20,7 +20,7 @@ class BookmarkController extends Controller
     public function index(Request $request)
     {
         if (isset($request->id)) {
-            $bookmarks = Bookmark::loginUser($request->id)->get();
+            $bookmarks = Bookmark::loginUser($request->id)->orderBy("created_at", "asc")->get();
             return $bookmarks;
         } else {
             return response("not id data", 200);
@@ -39,7 +39,7 @@ class BookmarkController extends Controller
             $bookmark->fill($form)->save();
 
             //追加した後のユーザーの選択したタグのブックマークを取得
-            $bookmarks = Bookmark::selectTag($request->tag_id)->get();
+            $bookmarks = Bookmark::selectTag($request->tag_id)->orderBy("created_at", "asc")->get();
 
             return response($bookmarks, 200);
         });
@@ -60,7 +60,7 @@ class BookmarkController extends Controller
             $bookmark->delete();
 
             //削除後のブックマークを取得して返す
-            $bookmarks = Bookmark::selectTag($request->tag_id)->get();
+            $bookmarks = Bookmark::selectTag($request->tag_id)->orderBy("created_at", "asc")->get();
 
             return response($bookmarks, 200);
         });
@@ -84,7 +84,7 @@ class BookmarkController extends Controller
             $bookmark->fill($form)->save();
 
             //選択しているタグのブックマークを取得する
-            $bookmarks = Bookmark::loginUser($request->user_id)->selectTag($request->tag_id)->get();
+            $bookmarks = Bookmark::loginUser($request->user_id)->selectTag($request->tag_id)->orderBy("created_at", "asc")->get();
 
             //ブックマークを返す
             return response($bookmarks, 200);

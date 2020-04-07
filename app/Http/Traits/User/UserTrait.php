@@ -30,4 +30,14 @@ trait UserTrait
 
         return $userData;
     }
+
+    //ログインしているユーザとリクエストで送られてきたユーザのidが等しいかどうかを確認
+    public function checkUser($loginUserId, $requestId)
+    {
+        if ($loginUserId === $requestId) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const mapState = state => {
     return state;
@@ -49,7 +50,10 @@ class DeleteTag extends Component {
     render() {
         return (
             <div className="btn-deleteTag">
-                <button onClick={this.doAction}>削除</button>
+                <FontAwesomeIcon
+                    icon={["fas", "trash-alt"]}
+                    onClick={this.doAction}
+                />
             </div>
         );
     }

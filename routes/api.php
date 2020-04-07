@@ -42,7 +42,8 @@ Route::group(['middleware' => 'api'], function () {
     Route::put("/bookmark", "api\BookmarkController@update");
     //タグの新規登録
     Route::post("/tag", "api\TagController@create");
+    //タグの更新
+    Route::put("/tag", "api\TagController@update");
     //タグとそのタグに関連するブックマークの削除
     Route::delete("/tag", "api\TagController@delete");
-    // Route::get("/tag", "api\TagController@index");
 });

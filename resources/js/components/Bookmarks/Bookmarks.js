@@ -105,8 +105,8 @@ class Bookmarks extends Component {
         return (
             <div className="bookmarks">
                 {this.selectTitle()}
-                <div className="add" onClick={this.doChangeAdd}>
-                    ブックマークの追加
+                <div className="add">
+                    <span onClick={this.doChangeAdd}>ブックマークの追加</span>
                 </div>
                 {this.state.add ? (
                     <AddBookmark

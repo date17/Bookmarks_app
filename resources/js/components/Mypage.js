@@ -26,6 +26,7 @@ class Mypage extends Component {
         this.selectBookmarks = this.selectBookmarks.bind(this);
         this.doChangeBookmarks = this.doChangeBookmarks.bind(this);
         this.doChangeTags = this.doChangeTags.bind(this);
+        this.doFixedTags = this.doFixedTags.bind(this);
     }
 
     getTag() {
@@ -41,6 +42,9 @@ class Mypage extends Component {
                         id={tag.id}
                         name={tag.name}
                         doClick={this.selectBookmarks}
+                        doChange={(id = null, tags) => {
+                            this.doFixedTags(id, tags);
+                        }}
                         after={tags => {
                             this.afterDeleteTag(tags);
                         }}
@@ -59,33 +63,38 @@ class Mypage extends Component {
 
     selectBookmarks(id, name) {
         console.log("selectBookmarks");
-        const select_id = id;
-        const select_name = name;
-        console.log(select_id);
-        console.log(select_name);
-        axios
-            .get("/api/selectTag", {
-                params: {
-                    user_id: this.props.user.id,
-                    tag_id: select_id
-                }
-            })
-            .then(res => {
-                console.log("Mypage selectBookmarks res data");
-                console.log(res.data);
-                this.setState({
-                    bookmarks: res.data.bookmark,
-                    select_id: select_id,
-                    select_name: select_name
+        if (id === this.state.select_id) {
+            console.log("select_id is common!");
+        } else {
+            console.log("select_id is change so get bookmark data");
+            const select_id = id;
+            const select_name = name;
+            console.log(select_id);
+            console.log(select_name);
+            axios
+                .get("/api/selectTag", {
+                    params: {
+                        user_id: this.props.user.id,
+                        tag_id: select_id
+                    }
+                })
+                .then(res => {
+                    console.log("Mypage selectBookmarks res data");
+                    console.log(res.data);
+                    this.setState({
+                        bookmarks: res.data.bookmark,
+                        select_id: select_id,
+                        select_name: select_name
+                    });
+                })
+                .catch(e => {
+                    console.log(e);
+                    this.setState({
+                        select_id: select_id,
+                        select_name: select_name
+                    });
                 });
-            })
-            .catch(e => {
-                console.log(e);
-                this.setState({
-                    select_id: select_id,
-                    select_name: select_name
-                });
-            });
+        }
     }
 
     doChangeBookmarks(tag_id, bookmarks) {
@@ -102,6 +111,23 @@ class Mypage extends Component {
             tags: tags,
             newInput: false
         });
+    }
+
+    doFixedTags(id, tags) {
+        if (this.state.select_id === id) {
+            const select_tag = tags.filter(tag => {
+                return tag.id === id;
+            });
+            console.log(select_tag[0].name);
+            this.setState({
+                tags: tags,
+                select_name: select_tag[0].name
+            });
+        } else {
+            this.setState({
+                tags: tags
+            });
+        }
     }
 
     afterDeleteTag(tags) {

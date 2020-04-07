@@ -56,11 +56,13 @@
   width: 70%;
 }
 
-.mypage-main .navi .tags .tag .btn-deleteTag {
-  width: 30%;
+.mypage-main .navi .tags .tag .btn-editTag {
+  width: 15%;
+  font-size: 13px;
 }
 
-.mypage-main .navi .tags .tag .btn-deleteTag button {
+.mypage-main .navi .tags .tag .btn-deleteTag {
+  width: 15%;
   font-size: 13px;
 }
 
