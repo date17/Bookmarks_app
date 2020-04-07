@@ -30,6 +30,8 @@ Route::group(['middleware' => 'api'], function () {
     Route::post("/logout", "Auth\LoginController@logout");
     //新規登録処理
     Route::post("/register", "Auth\RegisterController@register");
+    //ユーザーのブックマーク一覧を取得
+    Route::get("/bookmark", "BookmarkController@index");
     //タグの情報を取得
     Route::get("/tag", "api\TagController@index");
     //選択したタグに関連するブックマークを取得

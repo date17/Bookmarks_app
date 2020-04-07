@@ -21,6 +21,7 @@ class Mypage extends Component {
             select_name: "",
             bookmarks: []
         };
+        this.getBookmarks = this.getBookmarks.bind(this);
         this.getTag = this.getTag.bind(this);
         this.showNewTagInput = this.showNewTagInput.bind(this);
         this.selectBookmarks = this.selectBookmarks.bind(this);
@@ -52,6 +53,26 @@ class Mypage extends Component {
                 );
             });
         }
+    }
+
+    getBookmarks() {
+        axios
+            .get("/api/bookmark", {
+                params: {
+                    user_id: this.props.user_id
+                }
+            })
+            .then(res => {
+                console.log(res.data);
+                this.setState({
+                    select_id: null,
+                    select_name: "ブックマーク一覧",
+                    bookmarks: res.data
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     showNewTagInput() {
@@ -142,6 +163,7 @@ class Mypage extends Component {
 
     componentDidMount() {
         const user_id = this.props.user.id;
+        this.getBookmarks();
         axios
             .get("/api/tag", {
                 params: {
@@ -177,7 +199,12 @@ class Mypage extends Component {
                         ) : (
                             <></>
                         )}
-                        <div className="bookmark-all">ブックマーク一覧</div>
+                        <div
+                            className="bookmark-all"
+                            onClick={this.getBookmarks}
+                        >
+                            ブックマーク一覧
+                        </div>
                         <div className="tags">
                             <div className="label">タグ一覧</div>
                             {this.getTag()}

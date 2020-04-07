@@ -19,9 +19,9 @@ class BookmarkController extends Controller
     //ユーザのブックマーク情報を取得
     public function index(Request $request)
     {
-        if (isset($request->id)) {
+        if (isset($request->user_id)) {
             $bookmarks = Bookmark::loginUser($request->id)->orderBy("created_at", "asc")->get();
-            return $bookmarks;
+            return response($bookmarks, 200);
         } else {
             return response("not id data", 200);
         }
