@@ -6,6 +6,7 @@ import Tag from "./Tags/Tag";
 import AddTag from "./Tags/AddTag";
 import Header from "./Layout/Header";
 import axios from "axios";
+import "../../sass/main.scss";
 
 function mapState(state) {
     return state;

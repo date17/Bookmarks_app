@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-// import "../../../public/css/lp/lp.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Lp extends Component {
     constructor(props) {
@@ -13,7 +13,6 @@ class Lp extends Component {
         return (
             <body>
                 <header>
-                    <div className="icon"></div>
                     <div className="title">SHEREs</div>
                     <div className="ja">
                         ----専有と共有のブックマークアプリ----
@@ -21,34 +20,27 @@ class Lp extends Component {
                 </header>
                 <main>
                     <div className="explain">
-                        <div className="detail">
-                            <div className="first">
-                                通常のブックマーク機能に加え
-                            </div>
-                            <div className="common">
-                                共有ブックマーク機能<span>により、</span>
-                            </div>
-                            <div className="end">
-                                ユーザー間で有益な情報を<span>Shere</span>
-                                することができます。
-                            </div>
-                        </div>
+                        このWEBアプリは
+                        <span className="user">ユーザー間で</span>
+                        <br />
+                        <span className="bookmark">
+                            ブックマークを共有することができます
+                        </span>
                     </div>
-                    <div>
+                    <div className="link">
                         <div className="register">
                             <Link to="/register">新規登録</Link>
                         </div>
                         <div className="login">
                             <Link to="/login">ログイン</Link>
                         </div>
-                        <div className="mypage">
-                            <Link to="/mypage">マイページ</Link>
-                        </div>
                     </div>
                 </main>
                 <footer>
                     <div className="github">
-                        <a href="https://github.com/date17" target="_blank"></a>
+                        <a href="https://github.com/date17" target="_blank">
+                            <FontAwesomeIcon icon={["fab", "github"]} />
+                        </a>
                     </div>
                     <div className="developer">
                         DEVELOPER

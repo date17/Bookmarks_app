@@ -3,32 +3,55 @@
   display: flex;
   width: 100%;
   height: 70px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid yellowgreen;
+  background-color: yellowgreen;
 }
 
-.mypage-header .title {
-  width: 60%;
-  font-size: 25pt;
+.mypage-header .mypage-title {
+  color: white;
+  width: 50%;
+  font-size: 20pt;
   font-weight: bold;
   height: 70px;
   line-height: 70px;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 30px;
 }
 
 .mypage-header .user {
   width: 40%;
   height: 70px;
-  text-align: center;
-}
-
-.mypage-header .user .login-user {
-  font-size: 20pt;
-  height: 50px;
+  margin: 0 0 0 10%;
   line-height: 70px;
+  display: -webkit-box;
+  display: flex;
+  margin: 0 0 0 30%;
 }
 
-.mypage-header .user .user-action {
-  font-size: 16pt;
+.mypage-header .user .btn-logout {
+  width: 30%;
+  margin: 0 5% 0 10%;
+}
+
+.mypage-header .user .btn-logout .logout {
+  border: 2px solid white;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
   box-sizing: border-box;
+  padding: 5px;
+}
+
+.mypage-header .user .link-common {
+  width: 30%;
+  margin: 0 5% 0 10%;
+}
+
+.mypage-header .user .link-common .common {
+  border: 2px solid white;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
+  box-sizing: border-box;
+  padding: 5px;
 }
 

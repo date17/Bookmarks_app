@@ -36,8 +36,10 @@ class Logout extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.doAction}>ログアウト</button>
+            <div className="btn-logout">
+                <span className="logout" onClick={this.doAction}>
+                    ログアウト
+                </span>
             </div>
         );
     }
