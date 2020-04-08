@@ -128,6 +128,31 @@ class Mypage extends Component {
             this.setState({
                 bookmarks: bookmarks
             });
+        } else if (
+            this.state.select_id !== tag_id &&
+            this.state.select_id === null
+        ) {
+            console.log(
+                "doChangeBookmarks state select_id is not common tag_id and select_id is null"
+            );
+
+            axios
+                .get("/api/bookmark", {
+                    params: {
+                        user_id: this.props.user_id
+                    }
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState({
+                        select_id: null,
+                        select_name: "ブックマーク一覧",
+                        bookmarks: res.data
+                    });
+                })
+                .catch(e => {
+                    console.log(e);
+                });
         }
     }
 

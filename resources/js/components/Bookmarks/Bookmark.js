@@ -21,7 +21,7 @@ class Bookmark extends Component {
         this.doChangeFixForm = this.doChangeFixForm.bind(this);
         this.doChangeFixTitle = this.doChangeFixTitle.bind(this);
         this.doChangeFixUrl = this.doChangeFixUrl.bind(this);
-        this.doChangeFixTag = this.doChangeFixTitle.bind(this);
+        this.doChangeFixTag = this.doChangeFixTag.bind(this);
         this.doFixAction = this.doFixAction.bind(this);
         this.fixedForm = this.fixedForm.bind(this);
         this.detailForm = this.detailForm.bind(this);
@@ -117,6 +117,7 @@ class Bookmark extends Component {
     }
 
     doChangeFixTitle(e) {
+        console.log("doChangeFixTitle");
         console.log(e.target.value);
         this.setState({
             fixTitle: e.target.value
@@ -124,6 +125,7 @@ class Bookmark extends Component {
     }
 
     doChangeFixUrl(e) {
+        console.log("doChangeFixUrl");
         console.log(e.target.value);
         this.setState({
             fixUrl: e.target.value
@@ -131,6 +133,7 @@ class Bookmark extends Component {
     }
 
     doChangeFixTag(e) {
+        console.log("doChangeFixTag");
         console.log(e.target.value);
         this.setState({
             fixTag: e.target.value
