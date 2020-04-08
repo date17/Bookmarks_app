@@ -1,0 +1,16 @@
+html {
+  margin: 0;
+}
+
+html body {
+  margin: 0;
+}
+
+html body .title {
+  font-size: 25pt;
+  color: green;
+  margin: 40px 0;
+  text-align: center;
+  text-shadow: 5px 5px gray;
+}
+
