@@ -1,95 +1,95 @@
 html {
-  margin: 0;
-  body {
     margin: 0;
-    header {
-      .title {
-        font-size: 40pt;
-        font-weight: bold;
-        color: yellowgreen;
-        margin: 120px 0 0;
-        text-align: center;
-        text-shadow: 5px 5px green;
-      }
-      .ja {
-        text-align: center;
-        font-size: 20pt;
-        color: yellowgreen;
-        font-weight: bold;
-        margin: 0 0 40px;
-        text-shadow: 2px 2px green;
-      }
+    body {
+        margin: 0 0 30px 0;
+        header {
+            .title {
+                font-size: 40pt;
+                font-weight: bold;
+                color: yellowgreen;
+                margin: 120px 0 0;
+                text-align: center;
+                text-shadow: 5px 5px green;
+            }
+            .ja {
+                text-align: center;
+                font-size: 20pt;
+                color: yellowgreen;
+                font-weight: bold;
+                margin: 0 0 40px;
+                text-shadow: 2px 2px green;
+            }
+        }
+        main {
+            .explain {
+                font-size: 20pt;
+                text-align: center;
+                .user {
+                    font-size: 25pt;
+                    font-weight: bold;
+                    color: green;
+                    text-shadow: 5px 5px yellowgreen;
+                }
+                .bookmark {
+                    color: yellowgreen;
+                    font-size: 25pt;
+                }
+            }
+            .link {
+                display: flex;
+                margin: 40px 0;
+                font-size: 20pt;
+                font-weight: bold;
+                .register {
+                    width: 45%;
+                    margin: 0 10% 0 0;
+                    text-align: right;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        border: 2px solid black;
+                        padding: 5px;
+                    }
+                }
+                .login {
+                    width: 45%;
+                    margin: 0 0 0 5%;
+                    text-align: left;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        border: 2px solid black;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+        footer {
+            text-align: center;
+            .github {
+                color: yellowgreen;
+                font-size: 20pt;
+                margin: 10px 0 5px;
+                a {
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+            .developer {
+                font-size: 15pt;
+                color: gray;
+                a {
+                    font-size: 20pt;
+                    text-decoration: none;
+                    border-bottom: 1px dashed gray;
+                    color: gray;
+                    margin: 0 0 0 1rem;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
     }
-    main {
-      .explain {
-        font-size: 20pt;
-        text-align: center;
-        .user {
-          font-size: 25pt;
-          font-weight: bold;
-          color: green;
-          text-shadow: 5px 5px yellowgreen;
-        }
-        .bookmark {
-          color: yellowgreen;
-          font-size: 25pt;
-        }
-      }
-      .link {
-        display: flex;
-        margin: 40px 0;
-        font-size: 20pt;
-        font-weight: bold;
-        .register {
-          width: 45%;
-          margin: 0 10% 0 0;
-          text-align: right;
-          a {
-            text-decoration: none;
-            color: black;
-            border: 2px solid black;
-            padding: 5px;
-          }
-        }
-        .login {
-          width: 45%;
-          margin: 0 0 0 5%;
-          text-align: left;
-          a {
-            text-decoration: none;
-            color: black;
-            border: 2px solid black;
-            padding: 5px;
-          }
-        }
-      }
-    }
-    footer {
-      text-align: center;
-      .github {
-        color: yellowgreen;
-        font-size: 20pt;
-        margin: 10px 0 5px;
-        a {
-          &:hover {
-            opacity: 0.7;
-          }
-        }
-      }
-      .developer {
-        font-size: 15pt;
-        color: gray;
-        a {
-          font-size: 20pt;
-          text-decoration: none;
-          border-bottom: 1px dashed gray;
-          color: gray;
-          margin: 0 0 0 1rem;
-          &:hover {
-            opacity: 0.7;
-          }
-        }
-      }
-    }
-  }
 }

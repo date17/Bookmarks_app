@@ -3,86 +3,110 @@
   display: flex;
   margin: 10px 0 0 0;
   position: relative;
+  top: 80px;
 }
 
 .mypage-main .navi {
-  width: 200px;
-  position: relative;
-}
-
-.mypage-main .navi .newNavi {
-  padding: 5px 0 5px 5px;
-  border-bottom: 1px solid #000;
-}
-
-.mypage-main .navi .newInput {
-  padding: 5px 0 5px 5px;
-  border-bottom: 1px solid #000;
+  width: 300px;
+  position: fixed;
+  padding: 0 30px 0;
+  top: 80px;
 }
 
 .mypage-main .navi .bookmark-all {
-  padding: 5px 0 5px 5px;
-  border-bottom: 1px solid #000;
+  width: 200px;
+  padding: 5px 0;
+  box-sizing: border-box;
 }
 
 .mypage-main .navi .bookmark-all:hover {
-  background-color: #b6b2b2;
+  border-bottom: 1px solid black;
 }
 
-.mypage-main .navi .tags {
-  width: 200px;
+.mypage-main .navi .bookmark-all span {
+  padding: 0 0 0 5px;
 }
 
 .mypage-main .navi .tags .label {
-  padding: 5px 0 5px 5px;
-  background-color: #000;
-  color: #fff;
+  padding: 5px 0;
+  margin: 0;
+  width: 200px;
+}
+
+.mypage-main .navi .tags .label .lang {
+  padding: 0 0 0 5px;
+}
+
+.mypage-main .navi .tags .label .icon-plus {
+  margin: 0 0 0 50px;
+}
+
+.mypage-main .navi .tags .newInput {
+  padding: 5px 0;
+  margin: 0 0 0 1rem;
+  width: 200px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.mypage-main .navi .tags .newInput input {
+  width: 150px;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.mypage-main .navi .tags .newInput button {
+  background-color: white;
 }
 
 .mypage-main .navi .tags .tag {
-  padding: 5px 0 5px 4px;
-  border-bottom: 1px solid #000;
-  border-left: 1px solid #000;
-  margin: 0 0 0 30px;
+  padding: 5px 0;
+  margin: 0 0 0 1rem;
+  width: 200px;
   display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.mypage-main .navi .tags .tag .name span {
+  padding: 0 0 0 5px;
+}
+
+.mypage-main .navi .tags .tag .btn span {
+  padding: 0 5px;
 }
 
 .mypage-main .navi .tags .tag:hover {
-  background-color: #b6b2b2;
-}
-
-.mypage-main .navi .tags .tag .tag-name {
-  width: 70%;
-}
-
-.mypage-main .navi .tags .tag .btn-editTag {
-  width: 15%;
-  font-size: 13px;
-}
-
-.mypage-main .navi .tags .tag .btn-deleteTag {
-  width: 15%;
-  font-size: 13px;
+  border-bottom: 1px solid black;
 }
 
 .mypage-main .bookmarks {
-  width: 600px;
-  margin: 0 0 0 30px;
-  border-left: 1px solid #000;
+  width: 60%;
+  min-width: 680px;
+  margin: 5px 0 0 300px;
+  padding: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 8px gray;
+  z-index: 1;
 }
 
 .mypage-main .bookmarks .select {
   font-size: 20px;
   font-weight: bold;
-  margin: 0 0 15px;
-  padding: 0 0 0 10px;
+  margin: 15px 0;
+  padding: 10px;
+  text-align: center;
 }
 
 .mypage-main .bookmarks .bookmark {
-  margin: 10px 0 0 0;
+  margin: 10px 10px 0;
   padding: 10px 0 10px 30px;
-  border: 1px solid #000;
+  border-bottom: 1px solid gray;
 }
 
 .mypage-main .bookmarks .bookmark .bookmark-title {

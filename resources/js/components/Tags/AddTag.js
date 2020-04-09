@@ -53,12 +53,16 @@ class AddTag extends Component {
     render() {
         return (
             <div className="newInput">
-                <input
-                    type="text"
-                    onChange={this.doChangeName}
-                    value={this.state.name}
-                />
-                <button onClick={this.doAction}>追加</button>
+                <div>
+                    <input
+                        type="text"
+                        onChange={this.doChangeName}
+                        value={this.state.name}
+                    />
+                </div>
+                <div>
+                    <button onClick={this.doAction}>追加</button>
+                </div>
             </div>
         );
     }

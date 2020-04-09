@@ -49,12 +49,10 @@ class DeleteTag extends Component {
 
     render() {
         return (
-            <div className="btn-deleteTag">
-                <FontAwesomeIcon
-                    icon={["fas", "trash-alt"]}
-                    onClick={this.doAction}
-                />
-            </div>
+            <FontAwesomeIcon
+                icon={["fas", "trash-alt"]}
+                onClick={this.doAction}
+            />
         );
     }
 }

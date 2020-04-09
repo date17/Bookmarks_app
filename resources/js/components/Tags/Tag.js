@@ -94,50 +94,51 @@ class Tag extends Component {
     tagRender() {
         return (
             <div className="tag">
-                <div className="tag-name">
+                <div className="name">
+                    <FontAwesomeIcon icon={["fas", "folder"]} />
                     <span onClick={this.selectBookmarks}>
                         {this.props.name}
                     </span>
                 </div>
-                <div className="btn-editTag">
-                    <FontAwesomeIcon
-                        icon={["fas", "edit"]}
-                        onClick={this.doChangeFixed}
-                    />
+                <div className="btn">
+                    <span>
+                        <FontAwesomeIcon
+                            icon={["fas", "edit"]}
+                            onClick={this.doChangeFixed}
+                        />
+                    </span>
+                    <span>
+                        <DeleteTag
+                            id={this.props.id}
+                            after={tags => {
+                                this.afterDelete(tags);
+                            }}
+                        />
+                    </span>
                 </div>
-                <DeleteTag
-                    id={this.props.id}
-                    after={tags => {
-                        this.afterDelete(tags);
-                    }}
-                />
             </div>
         );
     }
 
     changeTagRender() {
         return (
-            <div className="tag">
-                <div className="tag-name">
-                    <input
-                        type="text"
-                        value={this.state.fixedName}
-                        onChange={this.doChangeTagName}
-                    />
-                </div>
-                <div style={btnStyle}>
+            <li className="tag">
+                <input
+                    type="text"
+                    value={this.state.fixedName}
+                    onChange={this.doChangeTagName}
+                />
+                <span className="btn">
                     <FontAwesomeIcon
                         icon={["fas", "check"]}
                         onClick={this.doFixedAction}
                     />
-                </div>
-                <div style={btnStyle}>
                     <FontAwesomeIcon
                         icon={["far", "window-close"]}
                         onClick={this.doCancelFixed}
                     />
-                </div>
-            </div>
+                </span>
+            </li>
         );
     }
 

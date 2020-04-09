@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Bookmarks from "./Bookmarks/Bookmarks";
 import Tag from "./Tags/Tag";
 import AddTag from "./Tags/AddTag";
@@ -218,25 +219,29 @@ class Mypage extends Component {
                 <Header user_name={this.props.user.name} />
                 <div className="mypage-main">
                     <div className="navi">
-                        <div className="newNavi">
-                            {/* <FontAwesomeIcon icon={["fas", "plus"]} /> */}
-                            <span onClick={this.showNewTagInput}>
-                                タグの追加
-                            </span>
-                        </div>
-                        {this.state.newInput ? (
-                            <AddTag after={this.doChangeTags} />
-                        ) : (
-                            <></>
-                        )}
                         <div
                             className="bookmark-all"
                             onClick={this.getBookmarks}
                         >
-                            ブックマーク一覧
+                            <FontAwesomeIcon icon={["fas", "folder"]} />
+                            <span>ブックマーク一覧</span>
                         </div>
                         <div className="tags">
-                            <div className="label">タグ一覧</div>
+                            <div className="label">
+                                <FontAwesomeIcon icon={["fas", "folder"]} />
+                                <span className="lang">タグ一覧</span>
+                                <span className="icon-plus">
+                                    <FontAwesomeIcon
+                                        icon={["fas", "plus"]}
+                                        onClick={this.showNewTagInput}
+                                    />
+                                </span>
+                            </div>
+                            {this.state.newInput ? (
+                                <AddTag after={this.doChangeTags} />
+                            ) : (
+                                <></>
+                            )}
                             {this.getTag()}
                         </div>
                     </div>

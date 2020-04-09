@@ -38,7 +38,7 @@ class Bookmarks extends Component {
         const title = this.props.tag_name;
         if (title == undefined || title == "") {
             console.log("select title false");
-            return <div className="select">からです</div>;
+            return <div className="select">NO SELECT</div>;
         } else {
             console.log("select title true");
             return <div className="select">{title}</div>;
