@@ -82,34 +82,29 @@ class AddBookmark extends Component {
 
     render() {
         return (
-            <div>
-                ADD BOOKMARK FORM
-                <dl>
-                    <dt>TITLE</dt>
-                    <dd>
-                        <input
-                            type="text"
-                            onChange={this.doChangeTitle}
-                            value={this.state.title}
-                            required
-                        />
-                    </dd>
-                    <dt>URL</dt>
-                    <dd>
-                        <input
-                            type="url"
-                            onChange={this.doChangeUrl}
-                            value={this.state.url}
-                            required
-                        />
-                    </dd>
-                    <dt>TAG</dt>
-                    <dd>
-                        <select onChange={this.doChangeTag} required>
-                            {this.props.optionTag(this.props.tag_id)}
-                        </select>
-                    </dd>
-                </dl>
+            <div className="form-add">
+                <div className="add-title">
+                    <label>TITLE</label>
+                    <input
+                        type="text"
+                        onChange={this.doChangeTitle}
+                        value={this.state.title}
+                    />
+                </div>
+                <div className="add-url">
+                    <label>URL</label>
+                    <input
+                        type="url"
+                        onChange={this.doChangeUrl}
+                        value={this.state.url}
+                    />
+                </div>
+                <div className="add-tag">
+                    <label>TAG</label>
+                    <select onChange={this.doChangeTag} required>
+                        {this.props.optionTag(this.props.tag_id)}
+                    </select>
+                </div>
                 <div>
                     <button onClick={this.doAction}>追加</button>
                 </div>

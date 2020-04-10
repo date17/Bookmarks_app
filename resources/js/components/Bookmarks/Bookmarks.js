@@ -105,20 +105,22 @@ class Bookmarks extends Component {
         return (
             <div className="bookmarks">
                 {this.selectTitle()}
-                <div className="add">
-                    <span onClick={this.doChangeAdd}>ブックマークの追加</span>
+                <div className="bookmark-list">
+                    <div className="add">
+                        <span onClick={this.doChangeAdd}>新規登録</span>
+                    </div>
+                    {this.state.add ? (
+                        <AddBookmark
+                            tag_id={this.props.tag_id}
+                            tag_name={this.props.tag_name}
+                            optionTag={this.optionTag}
+                            after={this.afterAdd}
+                        />
+                    ) : (
+                        <div></div>
+                    )}
+                    {this.showBookmark()}
                 </div>
-                {this.state.add ? (
-                    <AddBookmark
-                        tag_id={this.props.tag_id}
-                        tag_name={this.props.tag_name}
-                        optionTag={this.optionTag}
-                        after={this.afterAdd}
-                    />
-                ) : (
-                    <div></div>
-                )}
-                {this.showBookmark()}
             </div>
         );
     }

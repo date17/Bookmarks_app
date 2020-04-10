@@ -4,7 +4,7 @@
     position: relative;
     top: 80px;
     .navi {
-        width: 300px;
+        width: 240px;
         position: fixed;
         padding: 0 30px 0;
         top: 80px;
@@ -28,7 +28,12 @@
                     padding: 0 0 0 5px;
                 }
                 .icon-plus {
+                    color: gray;
                     margin: 0 0 0 50px;
+                    padding: 2px;
+                    &:hover {
+                        border: 1px solid gray;
+                    }
                 }
             }
             .newInput {
@@ -60,6 +65,7 @@
                     }
                 }
                 .btn {
+                    color: gray;
                     span {
                         padding: 0 5px;
                     }
@@ -74,10 +80,6 @@
         width: 60%;
         min-width: 680px;
         margin: 5px 0 0 300px;
-        padding: 20px 0;
-        border-radius: 5px;
-        box-shadow: 0 0 8px gray;
-        z-index: 1;
         .select {
             font-size: 20px;
             font-weight: bold;
@@ -85,28 +87,48 @@
             padding: 10px;
             text-align: center;
         }
-        .bookmark {
-            margin: 10px 10px 0;
-            padding: 10px 0 10px 30px;
-            border-bottom: 1px solid gray;
-            .bookmark-title {
-                font-size: 18px;
-                color: gray;
+        .bookmark-list {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 8px gray;
+            margin: 0 auto;
+            max-height: 500px;
+            overflow: scroll;
+            .add {
+                span {
+                    padding: 5px;
+                    margin: 10px 10px 0;
+                    border: 1px solid gray;
+                    border-radius: 5px;
+                    color: gray;
+                    font-size: 15pt;
+                }
             }
-            .detail {
-                margin: 5px 0 0 0;
-                .url {
-                    font-size: 16px;
-                    span {
-                        color: gray;
-                        padding: 0 0 0 10px;
+            .form-add {
+            }
+            .bookmark {
+                margin: 10px 10px 0;
+                padding: 10px 0 10px 30px;
+                border-bottom: 1px solid gray;
+                .bookmark-title {
+                    font-size: 18px;
+                    color: gray;
+                }
+                .detail {
+                    margin: 5px 0 0 0;
+                    .url {
+                        font-size: 16px;
+                        span {
+                            color: gray;
+                            padding: 0 0 0 10px;
+                        }
                     }
                 }
             }
-        }
-        .not-bookmark {
-            font-size: 20px;
-            color: red;
+            .not-bookmark {
+                font-size: 20px;
+                color: red;
+            }
         }
     }
 }

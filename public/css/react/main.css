@@ -7,7 +7,7 @@
 }
 
 .mypage-main .navi {
-  width: 300px;
+  width: 240px;
   position: fixed;
   padding: 0 30px 0;
   top: 80px;
@@ -38,7 +38,13 @@
 }
 
 .mypage-main .navi .tags .label .icon-plus {
+  color: gray;
   margin: 0 0 0 50px;
+  padding: 2px;
+}
+
+.mypage-main .navi .tags .label .icon-plus:hover {
+  border: 1px solid gray;
 }
 
 .mypage-main .navi .tags .newInput {
@@ -77,6 +83,10 @@
   padding: 0 0 0 5px;
 }
 
+.mypage-main .navi .tags .tag .btn {
+  color: gray;
+}
+
 .mypage-main .navi .tags .tag .btn span {
   padding: 0 5px;
 }
@@ -89,10 +99,6 @@
   width: 60%;
   min-width: 680px;
   margin: 5px 0 0 300px;
-  padding: 20px 0;
-  border-radius: 5px;
-  box-shadow: 0 0 8px gray;
-  z-index: 1;
 }
 
 .mypage-main .bookmarks .select {
@@ -103,31 +109,49 @@
   text-align: center;
 }
 
-.mypage-main .bookmarks .bookmark {
+.mypage-main .bookmarks .bookmark-list {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px gray;
+  margin: 0 auto;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.mypage-main .bookmarks .bookmark-list .add span {
+  padding: 5px;
+  margin: 10px 10px 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: gray;
+  font-size: 15pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark {
   margin: 10px 10px 0;
   padding: 10px 0 10px 30px;
   border-bottom: 1px solid gray;
 }
 
-.mypage-main .bookmarks .bookmark .bookmark-title {
+.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-title {
   font-size: 18px;
   color: gray;
 }
 
-.mypage-main .bookmarks .bookmark .detail {
+.mypage-main .bookmarks .bookmark-list .bookmark .detail {
   margin: 5px 0 0 0;
 }
 
-.mypage-main .bookmarks .bookmark .detail .url {
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .url {
   font-size: 16px;
 }
 
-.mypage-main .bookmarks .bookmark .detail .url span {
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .url span {
   color: gray;
   padding: 0 0 0 10px;
 }
 
-.mypage-main .bookmarks .not-bookmark {
+.mypage-main .bookmarks .bookmark-list .not-bookmark {
   font-size: 20px;
   color: red;
 }
