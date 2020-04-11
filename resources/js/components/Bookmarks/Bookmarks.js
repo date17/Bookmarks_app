@@ -20,12 +20,19 @@ class Bookmarks extends Component {
         this.doChangeAdd = this.doChangeAdd.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
         this.optionTag = this.optionTag.bind(this);
+        this.doAddCancel = this.doAddCancel.bind(this);
     }
 
     doChangeAdd() {
         const add = !this.state.add;
         this.setState({
             add: add
+        });
+    }
+
+    doAddCancel() {
+        this.setState({
+            add: false
         });
     }
 
@@ -114,6 +121,7 @@ class Bookmarks extends Component {
                             tag_id={this.props.tag_id}
                             tag_name={this.props.tag_name}
                             optionTag={this.optionTag}
+                            cancel={this.doAddCancel}
                             after={this.afterAdd}
                         />
                     ) : (

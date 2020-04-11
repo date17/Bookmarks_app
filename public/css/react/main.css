@@ -127,15 +127,108 @@
   font-size: 15pt;
 }
 
+.mypage-main .bookmarks .bookmark-list .form-add {
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-title {
+  margin: 10px 20px;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-title label {
+  font-size: 13pt;
+  margin: 0 1rem 0 0;
+  color: gray;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-title input {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 13pt;
+  width: 70%;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-url {
+  margin: 10px 20px;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-url label {
+  font-size: 13pt;
+  margin: 0 2rem 0 0;
+  color: gray;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-url input {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 13pt;
+  width: 70%;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-tag {
+  margin: 10px 20px;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-tag label {
+  font-size: 13pt;
+  margin: 0 2rem 0 0;
+  color: gray;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .add-tag select {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 13pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .btn {
+  margin: 10px 20px;
+  text-align: right;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .btn button {
+  color: gray;
+  border: 1px solid gray;
+  padding: 1px 5px;
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
 .mypage-main .bookmarks .bookmark-list .bookmark {
   margin: 10px 10px 0;
-  padding: 10px 0 10px 30px;
+  padding: 10px 0 5px 30px;
   border-bottom: 1px solid gray;
 }
 
-.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-title {
-  font-size: 18px;
+.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-short {
+  display: -webkit-box;
+  display: flex;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-short .bookmark-title {
+  font-size: 13pt;
+  width: 90%;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-short .bookmark-title a {
   color: gray;
+  text-decoration: none;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-short .btn-detail {
+  width: 10%;
+  font-size: 13pt;
+  color: gray;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .bookmark-short .btn-detail:hover {
+  -webkit-transform: scale(1.3);
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .detail {
@@ -143,15 +236,91 @@
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .detail .url {
-  font-size: 16px;
+  margin: 10px 0 0 0;
+  font-size: 10pt;
+  color: gray;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .detail .url span {
-  color: gray;
   padding: 0 0 0 10px;
 }
 
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .btn {
+  display: -webkit-box;
+  display: flex;
+  width: 20%;
+  margin: 10px auto 10px 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .btn div {
+  width: 50%;
+  font-size: 13pt;
+  text-align: left;
+  color: gray;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title {
+  display: -webkit-box;
+  display: flex;
+  margin: 10px 0 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title .label {
+  width: 150px;
+  color: gray;
+  font-size: 13pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title .input {
+  width: 70%;
+  font-size: 13pt;
+  border: none;
+  border: 1px solid gray;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-url {
+  display: -webkit-box;
+  display: flex;
+  margin: 10px 0 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-url .label {
+  width: 150px;
+  color: gray;
+  font-size: 13pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-url .input {
+  width: 70%;
+  font-size: 13pt;
+  border: none;
+  border: 1px solid gray;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag {
+  display: -webkit-box;
+  display: flex;
+  margin: 10px 0 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag .label {
+  width: 150px;
+  color: gray;
+  font-size: 13pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag .select {
+  width: 70%;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag .select select {
+  font-size: 13pt;
+  border: none;
+  border: 1px solid gray;
+}
+
 .mypage-main .bookmarks .bookmark-list .not-bookmark {
+  margin: 20px 0 10px 30px;
   font-size: 20px;
   color: red;
 }

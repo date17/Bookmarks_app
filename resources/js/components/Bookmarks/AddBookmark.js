@@ -19,6 +19,7 @@ class AddBookmark extends Component {
         this.doChangeUrl = this.doChangeUrl.bind(this);
         this.doChangeTag = this.doChangeTag.bind(this);
         this.doAction = this.doAction.bind(this);
+        this.doCancel = this.doCancel.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
     }
 
@@ -73,6 +74,15 @@ class AddBookmark extends Component {
             });
     }
 
+    doCancel() {
+        this.setState({
+            title: "",
+            url: "",
+            tag_id: null
+        });
+        this.props.cancel();
+    }
+
     afterAdd(tag_id, bookmarks) {
         console.log("after add");
         console.log(tag_id);
@@ -105,7 +115,8 @@ class AddBookmark extends Component {
                         {this.props.optionTag(this.props.tag_id)}
                     </select>
                 </div>
-                <div>
+                <div className="btn">
+                    <button onClick={this.doCancel}>キャンセル</button>
                     <button onClick={this.doAction}>追加</button>
                 </div>
             </div>

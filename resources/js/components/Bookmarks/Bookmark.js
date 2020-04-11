@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteBookmark from "./DeleteBookmark";
 import axios from "axios";
 
@@ -57,25 +58,34 @@ class Bookmark extends Component {
 
     fixedForm() {
         return (
-            <div>
-                <div>
-                    <input
-                        type="text"
-                        value={this.state.fixTitle}
-                        onChange={this.doChangeFixTitle}
-                    />
+            <div className="edit-form">
+                <div className="edit-title">
+                    <div className="label">TITLE</div>
+                    <div className="input">
+                        <input
+                            type="text"
+                            value={this.state.fixTitle}
+                            onChange={this.doChangeFixTitle}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <input
-                        type="text"
-                        value={this.state.fixUrl}
-                        onChange={this.doChangeFixUrl}
-                    />
+                <div className="edit-url">
+                    <div className="label">URL</div>
+                    <div className="input">
+                        <input
+                            type="text"
+                            value={this.state.fixUrl}
+                            onChange={this.doChangeFixUrl}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <select onChange={this.doChangeFixTag}>
-                        {this.props.optionTag(this.props.tag_id)}
-                    </select>
+                <div className="edit-tag">
+                    <div className="label">TAG</div>
+                    <div className="select">
+                        <select onChange={this.doChangeFixTag}>
+                            {this.props.optionTag(this.props.tag_id)}
+                        </select>
+                    </div>
                 </div>
                 <div>
                     <button onClick={this.doChangeFixForm}>キャンセル</button>
@@ -88,25 +98,32 @@ class Bookmark extends Component {
     detailForm() {
         return (
             <>
-                <div className="bookmark-title" onClick={this.doChangeDetail}>
-                    {this.props.title}
+                <div className="bookmark-short">
+                    <div className="bookmark-title">
+                        <a href={this.props.url} target="_blank">
+                            {this.props.title}
+                        </a>
+                    </div>
+                    <div className="btn-detail" onClick={this.doChangeDetail}>
+                        :
+                    </div>
                 </div>
                 {this.state.detail ? (
                     <div className="detail">
                         <div className="url">
                             URL:<span>{this.props.url}</span>
                         </div>
-                        <div>
+                        <div className="btn">
+                            <div>
+                                <button onClick={this.doChangeFixForm}>
+                                    <FontAwesomeIcon icon={["fas", "edit"]} />
+                                </button>
+                            </div>
                             <DeleteBookmark
                                 id={this.props.id}
                                 tag_id={this.props.tag_id}
                                 afterDelete={this.props.after}
                             />
-                            <div>
-                                <button onClick={this.doChangeFixForm}>
-                                    編集
-                                </button>
-                            </div>
                         </div>
                     </div>
                 ) : (

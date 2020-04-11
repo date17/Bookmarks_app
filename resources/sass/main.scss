@@ -105,27 +105,163 @@
                 }
             }
             .form-add {
+                width: 80%;
+                margin: 20px auto;
+                border: 1px solid gray;
+                box-sizing: border-box;
+                .add-title {
+                    margin: 10px 20px;
+                    label {
+                        font-size: 13pt;
+                        margin: 0 1rem 0 0;
+                        color: gray;
+                    }
+                    input {
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        font-size: 13pt;
+                        width: 70%;
+                    }
+                }
+                .add-url {
+                    margin: 10px 20px;
+                    label {
+                        font-size: 13pt;
+                        margin: 0 2rem 0 0;
+                        color: gray;
+                    }
+                    input {
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        font-size: 13pt;
+                        width: 70%;
+                    }
+                }
+                .add-tag {
+                    margin: 10px 20px;
+                    label {
+                        font-size: 13pt;
+                        margin: 0 2rem 0 0;
+                        color: gray;
+                    }
+                    select {
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        font-size: 13pt;
+                    }
+                }
+                .btn {
+                    margin: 10px 20px;
+                    text-align: right;
+                    button {
+                        color: gray;
+                        border: 1px solid gray;
+                        padding: 1px 5px;
+                        font-size: 14pt;
+                        font-weight: bold;
+                        margin: 0 5px;
+                    }
+                }
             }
             .bookmark {
                 margin: 10px 10px 0;
-                padding: 10px 0 10px 30px;
+                padding: 10px 0 5px 30px;
                 border-bottom: 1px solid gray;
-                .bookmark-title {
-                    font-size: 18px;
-                    color: gray;
+                .bookmark-short {
+                    display: flex;
+                    .bookmark-title {
+                        font-size: 13pt;
+                        width: 90%;
+                        a {
+                            color: gray;
+                            text-decoration: none;
+                        }
+                    }
+                    .btn-detail {
+                        width: 10%;
+                        font-size: 13pt;
+                        color: gray;
+                        text-align: center;
+                        font-weight: bold;
+                        &:hover {
+                            -webkit-transform: scale(1.3);
+                        }
+                    }
                 }
                 .detail {
                     margin: 5px 0 0 0;
                     .url {
-                        font-size: 16px;
+                        margin: 10px 0 0 0;
+                        font-size: 10pt;
+                        color: gray;
                         span {
-                            color: gray;
                             padding: 0 0 0 10px;
+                        }
+                    }
+                    .btn {
+                        display: flex;
+                        width: 20%;
+                        margin: 10px auto 10px 0;
+                        div {
+                            width: 50%;
+                            font-size: 13pt;
+                            text-align: left;
+                            color: gray;
+                        }
+                    }
+                }
+                .edit-form {
+                    .edit-title {
+                        display: flex;
+                        margin: 10px 0 0;
+                        .label {
+                            width: 150px;
+                            color: gray;
+                            font-size: 13pt;
+                        }
+                        .input {
+                            width: 70%;
+                            font-size: 13pt;
+                            border: none;
+                            border: 1px solid gray;
+                        }
+                    }
+                    .edit-url {
+                        display: flex;
+                        margin: 10px 0 0;
+                        .label {
+                            width: 150px;
+                            color: gray;
+                            font-size: 13pt;
+                        }
+                        .input {
+                            width: 70%;
+                            font-size: 13pt;
+                            border: none;
+                            border: 1px solid gray;
+                        }
+                    }
+                    .edit-tag {
+                        display: flex;
+                        margin: 10px 0 0;
+                        .label {
+                            width: 150px;
+                            color: gray;
+                            font-size: 13pt;
+                        }
+                        .select {
+                            width: 70%;
+                            select {
+                                font-size: 13pt;
+                                border: none;
+                                border: 1px solid gray;
+                            }
                         }
                     }
                 }
             }
             .not-bookmark {
+                margin: 20px 0 10px 30px;
                 font-size: 20px;
                 color: red;
             }

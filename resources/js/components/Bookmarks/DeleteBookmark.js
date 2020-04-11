@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 const mapState = state => {
@@ -43,7 +44,9 @@ class DeleteBookmark extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.doAction}>削除</button>
+                <button onClick={this.doAction}>
+                    <FontAwesomeIcon icon={["fas", "trash-alt"]} />
+                </button>
             </div>
         );
     }
