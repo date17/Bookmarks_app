@@ -1,0 +1,76 @@
+.login {
+    margin: 100px 0;
+    min-width: 530px;
+    header {
+        margin: 20px 0;
+        .header-title {
+            color: gray;
+            font-size: 25pt;
+            text-align: center;
+        }
+    }
+    .login-form {
+        width: 60%;
+        margin: 0 auto;
+        border: 1px solid gray;
+        box-shadow: 0 0 8px;
+        padding: 30px 30px 10px;
+        .error {
+            color: red;
+            font-size: 13pt;
+            .message {
+                margin: 0 0 0 1rem;
+            }
+        }
+        .login-email {
+            display: flex;
+            margin: 15px 0;
+            .label {
+                width: 150px;
+                font-size: 15pt;
+                color: gray;
+            }
+            .input {
+                width: 80%;
+                margin: 0 0 0 30px;
+                input {
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    font-size: 15pt;
+                    width: 100%;
+                }
+            }
+        }
+        .login-pass {
+            display: flex;
+            margin: 15px 0;
+            .label {
+                width: 150px;
+                font-size: 15pt;
+                color: gray;
+            }
+            .input {
+                width: 80%;
+                margin: 0 0 0 30px;
+                input {
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    font-size: 15pt;
+                    width: 100%;
+                }
+            }
+        }
+        .login-btn {
+            margin: 10px 0;
+            text-align: center;
+            button {
+                font-size: 15pt;
+                color: gray;
+                border: none;
+                border: 1px solid gray;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+        }
+    }
+}

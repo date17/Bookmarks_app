@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 //ステートの受け渡し
@@ -13,7 +14,8 @@ class Login extends Component {
         super(props);
         this.state = {
             email: "date17@ezweb.ne.jp",
-            password: "b4z8nqas"
+            password: "b4z8nqas",
+            error: ""
         };
         this.doAction = this.doAction.bind(this);
         this.doChangeEmail = this.doChangeEmail.bind(this);
@@ -50,16 +52,28 @@ class Login extends Component {
                 this.setState({
                     email: "",
                     password: "",
-                    login: this.props.login
+                    error: ""
                 });
             })
             .catch(e => {
                 console.log(e);
                 console.log("miss login");
                 this.setState({
-                    password: ""
+                    password: "",
+                    error: e.message
                 });
             });
+    }
+
+    getErrorMessage() {
+        if (this.state.error) {
+            return (
+                <div className="error">
+                    <FontAwesomeIcon icon={["fas", "exclamation-circle"]} />
+                    <span className="message">{this.state.error}</span>
+                </div>
+            );
+        }
     }
 
     render() {
@@ -67,31 +81,36 @@ class Login extends Component {
             return <Redirect to="/mypage" />;
         } else {
             return (
-                <div>
+                <div className="login">
                     <header>
-                        <h1>ログイン画面</h1>
+                        <div className="header-title">ログイン画面</div>
                         <div>
                             <Link to="/register"></Link>
                         </div>
                     </header>
-                    <div>
-                        <label>
-                            Email:
-                            <input
-                                type="email"
-                                onChange={this.doChangeEmail}
-                                value={this.state.email}
-                            />
-                        </label>
-                        <label>
-                            Password:
-                            <input
-                                type="password"
-                                onChange={this.doChangePassword}
-                                value={this.state.password}
-                            />
-                        </label>
-                        <div>
+                    <div className="login-form">
+                        {this.getErrorMessage()}
+                        <div className="login-email">
+                            <div className="label">Email</div>
+                            <div className="input">
+                                <input
+                                    type="email"
+                                    onChange={this.doChangeEmail}
+                                    value={this.state.email}
+                                />
+                            </div>
+                        </div>
+                        <div className="login-pass">
+                            <div className="label">Password</div>
+                            <div className="input">
+                                <input
+                                    type="password"
+                                    onChange={this.doChangePassword}
+                                    value={this.state.password}
+                                />
+                            </div>
+                        </div>
+                        <div className="login-btn">
                             <button onClick={this.doAction}>ログイン</button>
                         </div>
                     </div>

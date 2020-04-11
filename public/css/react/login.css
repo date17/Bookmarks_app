@@ -1,0 +1,94 @@
+.login {
+  margin: 100px 0;
+  min-width: 530px;
+}
+
+.login header {
+  margin: 20px 0;
+}
+
+.login header .header-title {
+  color: gray;
+  font-size: 25pt;
+  text-align: center;
+}
+
+.login .login-form {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid gray;
+  box-shadow: 0 0 8px;
+  padding: 30px 30px 10px;
+}
+
+.login .login-form .error {
+  color: red;
+  font-size: 13pt;
+}
+
+.login .login-form .error .message {
+  margin: 0 0 0 1rem;
+}
+
+.login .login-form .login-email {
+  display: -webkit-box;
+  display: flex;
+  margin: 15px 0;
+}
+
+.login .login-form .login-email .label {
+  width: 150px;
+  font-size: 15pt;
+  color: gray;
+}
+
+.login .login-form .login-email .input {
+  width: 80%;
+  margin: 0 0 0 30px;
+}
+
+.login .login-form .login-email .input input {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15pt;
+  width: 100%;
+}
+
+.login .login-form .login-pass {
+  display: -webkit-box;
+  display: flex;
+  margin: 15px 0;
+}
+
+.login .login-form .login-pass .label {
+  width: 150px;
+  font-size: 15pt;
+  color: gray;
+}
+
+.login .login-form .login-pass .input {
+  width: 80%;
+  margin: 0 0 0 30px;
+}
+
+.login .login-form .login-pass .input input {
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15pt;
+  width: 100%;
+}
+
+.login .login-form .login-btn {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.login .login-form .login-btn button {
+  font-size: 15pt;
+  color: gray;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-weight: bold;
+}
+

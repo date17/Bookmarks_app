@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset("css/react/lp.css")}}">
     <link rel="stylesheet" href="{{asset("css/react/header.css")}}">
     <link rel="stylesheet" href="{{asset("css/react/main.css")}}">
+    <link rel="stylesheet" href="{{asset("css/react/login.css")}}">
 </head>
 
 <body>
