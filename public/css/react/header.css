@@ -1,8 +1,10 @@
 .mypage-header {
+  min-width: 970px;
   display: -webkit-box;
   display: flex;
   width: 100%;
   height: 70px;
+  top: 0;
   position: fixed;
   background-color: yellowgreen;
 }
@@ -18,17 +20,17 @@
 }
 
 .mypage-header .user {
-  width: 40%;
+  width: 30%;
   height: 70px;
-  margin: 0 0 0 10%;
+  margin: 0 0 0 20%;
   line-height: 70px;
   display: -webkit-box;
   display: flex;
-  margin: 0 0 0 30%;
+  -webkit-box-pack: right;
+          justify-content: right;
 }
 
 .mypage-header .user .btn-logout {
-  width: 30%;
   margin: 0 5% 0 10%;
 }
 
@@ -42,7 +44,6 @@
 }
 
 .mypage-header .user .link-common {
-  width: 30%;
   margin: 0 5% 0 10%;
 }
 
