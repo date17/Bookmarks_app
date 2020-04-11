@@ -87,7 +87,7 @@ class Bookmark extends Component {
                         </select>
                     </div>
                 </div>
-                <div>
+                <div className="btn">
                     <button onClick={this.doChangeFixForm}>キャンセル</button>
                     <button onClick={this.doFixAction}>変更</button>
                 </div>
@@ -111,7 +111,7 @@ class Bookmark extends Component {
                 {this.state.detail ? (
                     <div className="detail">
                         <div className="url">
-                            URL:<span>{this.props.url}</span>
+                            URL<span>{this.props.url}</span>
                         </div>
                         <div className="btn">
                             <div>

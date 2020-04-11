@@ -8,6 +8,7 @@
         position: fixed;
         padding: 0 30px 0;
         top: 80px;
+        margin: 20px 0 0 0;
         .bookmark-all {
             width: 200px;
             padding: 5px 0;
@@ -192,7 +193,7 @@
                     margin: 5px 0 0 0;
                     .url {
                         margin: 10px 0 0 0;
-                        font-size: 10pt;
+                        font-size: 12pt;
                         color: gray;
                         span {
                             padding: 0 0 0 10px;
@@ -203,10 +204,20 @@
                         width: 20%;
                         margin: 10px auto 10px 0;
                         div {
-                            width: 50%;
                             font-size: 13pt;
                             text-align: left;
                             color: gray;
+                            text-align: center;
+                            margin: 0 5px;
+                            button {
+                                width: 30px;
+                                padding: 3px 3px;
+                                font-size: 13pt;
+                                color: gray;
+                                border: 1px solid gray;
+                                border-radius: 5px;
+                                background-color: white;
+                            }
                         }
                     }
                 }
@@ -222,8 +233,12 @@
                         .input {
                             width: 70%;
                             font-size: 13pt;
-                            border: none;
-                            border: 1px solid gray;
+                            input {
+                                width: 80%;
+                                font-size: 13pt;
+                                border: none;
+                                border-bottom: 1px solid gray;
+                            }
                         }
                     }
                     .edit-url {
@@ -237,8 +252,12 @@
                         .input {
                             width: 70%;
                             font-size: 13pt;
-                            border: none;
-                            border: 1px solid gray;
+                            input {
+                                width: 80%;
+                                font-size: 13pt;
+                                border: none;
+                                border-bottom: 1px solid gray;
+                            }
                         }
                     }
                     .edit-tag {
@@ -251,11 +270,33 @@
                         }
                         .select {
                             width: 70%;
+                            font-size: 13pt;
+                            margin: 0;
+                            padding: 0;
+                            text-align: left;
                             select {
+                                width: 80%;
                                 font-size: 13pt;
                                 border: none;
-                                border: 1px solid gray;
+                                border-bottom: 1px solid gray;
+                                background-color: white;
+                                -webkit-appearance: none; //追加
+                                -moz-appearance: none; //追加
+                                appearance: none; //追加
+                                border-radius: 0;
                             }
+                        }
+                    }
+                    .btn {
+                        margin: 10px 0 10px;
+                        button {
+                            color: gray;
+                            border: 1px solid gray;
+                            font-size: 10pt;
+                            font-weight: bold;
+                            margin: 0 5px;
+                            padding: 2px 5px;
+                            border-radius: 5px;
                         }
                     }
                 }

@@ -11,6 +11,7 @@
   position: fixed;
   padding: 0 30px 0;
   top: 80px;
+  margin: 20px 0 0 0;
 }
 
 .mypage-main .navi .bookmark-all {
@@ -237,7 +238,7 @@
 
 .mypage-main .bookmarks .bookmark-list .bookmark .detail .url {
   margin: 10px 0 0 0;
-  font-size: 10pt;
+  font-size: 12pt;
   color: gray;
 }
 
@@ -253,10 +254,21 @@
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .detail .btn div {
-  width: 50%;
   font-size: 13pt;
   text-align: left;
   color: gray;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .btn div button {
+  width: 30px;
+  padding: 3px 3px;
+  font-size: 13pt;
+  color: gray;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title {
@@ -274,8 +286,13 @@
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title .input {
   width: 70%;
   font-size: 13pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title .input input {
+  width: 80%;
+  font-size: 13pt;
   border: none;
-  border: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-url {
@@ -293,8 +310,13 @@
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-url .input {
   width: 70%;
   font-size: 13pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-url .input input {
+  width: 80%;
+  font-size: 13pt;
   border: none;
-  border: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag {
@@ -311,12 +333,36 @@
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag .select {
   width: 70%;
+  font-size: 13pt;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-tag .select select {
+  width: 80%;
   font-size: 13pt;
   border: none;
+  border-bottom: 1px solid gray;
+  background-color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .btn {
+  margin: 10px 0 10px;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .btn button {
+  color: gray;
   border: 1px solid gray;
+  font-size: 10pt;
+  font-weight: bold;
+  margin: 0 5px;
+  padding: 2px 5px;
+  border-radius: 5px;
 }
 
 .mypage-main .bookmarks .bookmark-list .not-bookmark {
