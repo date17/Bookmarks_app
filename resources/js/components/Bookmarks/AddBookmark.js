@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 function mapState(state) {
@@ -13,7 +14,8 @@ class AddBookmark extends Component {
             user_id: this.props.user.id,
             title: "",
             url: "",
-            tag_id: null
+            tag_id: null,
+            error: ""
         };
         this.doChangeTitle = this.doChangeTitle.bind(this);
         this.doChangeUrl = this.doChangeUrl.bind(this);
@@ -21,6 +23,7 @@ class AddBookmark extends Component {
         this.doAction = this.doAction.bind(this);
         this.doCancel = this.doCancel.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
+        this.getErrorMessage = this.getErrorMessage.bind(this);
     }
 
     doChangeTitle(e) {
@@ -65,12 +68,16 @@ class AddBookmark extends Component {
                     title: "",
                     url: "",
                     tag_id: null,
-                    user_id: state.user_id
+                    user_id: state.user_id,
+                    error: ""
                 }));
                 this.afterAdd(tag_id, res.data);
             })
             .catch(e => {
                 console.log(e);
+                this.setState({
+                    error: e.message
+                });
             });
     }
 
@@ -78,7 +85,8 @@ class AddBookmark extends Component {
         this.setState({
             title: "",
             url: "",
-            tag_id: null
+            tag_id: null,
+            error: ""
         });
         this.props.cancel();
     }
@@ -90,30 +98,48 @@ class AddBookmark extends Component {
         this.props.after(tag_id, bookmarks);
     }
 
+    getErrorMessage() {
+        if (this.state.error) {
+            return (
+                <div className="error">
+                    <FontAwesomeIcon icon={["fas", "exclamation-circle"]} />
+                    <span className="message">{this.state.error}</span>
+                </div>
+            );
+        }
+    }
+
     render() {
         return (
             <div className="form-add">
+                {this.getErrorMessage()}
                 <div className="add-title">
-                    <label>TITLE</label>
-                    <input
-                        type="text"
-                        onChange={this.doChangeTitle}
-                        value={this.state.title}
-                    />
+                    <div className="label">TITLE</div>
+                    <div className="input">
+                        <input
+                            type="text"
+                            onChange={this.doChangeTitle}
+                            value={this.state.title}
+                        />
+                    </div>
                 </div>
                 <div className="add-url">
-                    <label>URL</label>
-                    <input
-                        type="url"
-                        onChange={this.doChangeUrl}
-                        value={this.state.url}
-                    />
+                    <div className="label">URL</div>
+                    <div className="input">
+                        <input
+                            type="url"
+                            onChange={this.doChangeUrl}
+                            value={this.state.url}
+                        />
+                    </div>
                 </div>
                 <div className="add-tag">
-                    <label>TAG</label>
-                    <select onChange={this.doChangeTag} required>
-                        {this.props.optionTag(this.props.tag_id)}
-                    </select>
+                    <div className="label">TAG</div>
+                    <div className="select">
+                        <select onChange={this.doChangeTag} required>
+                            {this.props.optionTag(this.props.tag_id)}
+                        </select>
+                    </div>
                 </div>
                 <div className="btn">
                     <button onClick={this.doCancel}>キャンセル</button>

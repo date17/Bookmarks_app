@@ -109,46 +109,71 @@
                 width: 80%;
                 margin: 20px auto;
                 border: 1px solid gray;
+                box-shadow: 0 0 8px;
                 box-sizing: border-box;
+                .error {
+                    color: red;
+                    font-size: 13pt;
+                    margin: 10px 0 10px 20px;
+                    .message {
+                        margin: 0 0 0 1rem;
+                    }
+                }
                 .add-title {
                     margin: 10px 20px;
-                    label {
+                    display: flex;
+                    .label {
+                        width: 130px;
                         font-size: 13pt;
-                        margin: 0 1rem 0 0;
                         color: gray;
                     }
-                    input {
-                        border: none;
-                        border-bottom: 1px solid gray;
-                        font-size: 13pt;
+                    .input {
                         width: 70%;
+                        input {
+                            border: none;
+                            border-bottom: 1px solid gray;
+                            font-size: 13pt;
+                            width: 100%;
+                        }
                     }
                 }
                 .add-url {
                     margin: 10px 20px;
-                    label {
+                    display: flex;
+                    .label {
+                        width: 130px;
                         font-size: 13pt;
-                        margin: 0 2rem 0 0;
                         color: gray;
                     }
-                    input {
-                        border: none;
-                        border-bottom: 1px solid gray;
-                        font-size: 13pt;
+                    .input {
                         width: 70%;
+                        input {
+                            border: none;
+                            border-bottom: 1px solid gray;
+                            font-size: 13pt;
+                            width: 100%;
+                        }
                     }
                 }
                 .add-tag {
                     margin: 10px 20px;
-                    label {
+                    display: flex;
+                    .label {
+                        width: 130px;
                         font-size: 13pt;
-                        margin: 0 2rem 0 0;
                         color: gray;
                     }
-                    select {
-                        border: none;
-                        border-bottom: 1px solid gray;
-                        font-size: 13pt;
+                    .select {
+                        width: 70%;
+                        padding: 0;
+                        margin: 0;
+                        text-align: left;
+                        select {
+                            border: none;
+                            border-bottom: 1px solid gray;
+                            font-size: 13pt;
+                            width: 40%;
+                        }
                     }
                 }
                 .btn {
@@ -161,6 +186,7 @@
                         font-size: 14pt;
                         font-weight: bold;
                         margin: 0 5px;
+                        border-radius: 5px;
                     }
                 }
             }
