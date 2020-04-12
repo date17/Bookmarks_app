@@ -4,5 +4,6 @@
     "/css/react/header.css": "/css/react/header.css",
     "/css/react/main.css": "/css/react/main.css",
     "/css/react/lp.css": "/css/react/lp.css",
-    "/css/react/login.css": "/css/react/login.css"
+    "/css/react/login.css": "/css/react/login.css",
+    "/css/react/register.css": "/css/react/register.css"
 }

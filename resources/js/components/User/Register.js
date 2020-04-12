@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 class Register extends Component {
@@ -11,13 +12,15 @@ class Register extends Component {
             name: "",
             email: "",
             password: "",
-            passwordConfirm: ""
+            passwordConfirm: "",
+            error: ""
         };
         this.doChangeName = this.doChangeName.bind(this);
         this.doChangeEmail = this.doChangeEmail.bind(this);
         this.doChangePassword = this.doChangePassword.bind(this);
         this.doChangePasswordConfirm = this.doChangePasswordConfirm.bind(this);
         this.doAction = this.doAction.bind(this);
+        this.getErrorMessage = this.getErrorMessage.bind(this);
     }
 
     doChangeName(e) {
@@ -52,12 +55,34 @@ class Register extends Component {
             .then(res => {
                 console.log(res);
                 this.setState({
-                    login: true
+                    login: true,
+                    error: "",
+                    name: "",
+                    email: "",
+                    password: "",
+                    passwordConfirm: ""
                 });
             })
             .catch(e => {
                 console.log(e);
+                console.log("miss register");
+                this.setState({
+                    password: "",
+                    passwordConfirm: "",
+                    error: e.message
+                });
             });
+    }
+
+    getErrorMessage() {
+        if (this.state.error) {
+            return (
+                <div className="error">
+                    <FontAwesomeIcon icon={["fas", "exclamation-circle"]} />
+                    <span className="message">{this.state.error}</span>
+                </div>
+            );
+        }
     }
 
     render() {
@@ -65,55 +90,58 @@ class Register extends Component {
             return <Redirect to="/mypage" />;
         } else {
             return (
-                <div>
+                <div className="register">
                     <header>
-                        <h1>新規登録画面</h1>
+                        <div className="header-title">新規登録画面</div>
                         <div>
                             <Link to="/login"></Link>
                         </div>
                     </header>
-                    <div>
-                        <label>
-                            Name:
-                            <input
-                                type="text"
-                                onChange={this.doChangeName}
-                                value={this.state.name}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Email:
-                            <input
-                                type="email"
-                                onChange={this.doChangeEmail}
-                                value={this.state.email}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Password:
-                            <input
-                                type="password"
-                                onChange={this.doChangePassword}
-                                value={this.state.password}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            PasswordConfirm:
-                            <input
-                                type="password"
-                                onChange={this.doChangePasswordConfirm}
-                                value={this.state.passwordConfirm}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <button onClick={this.doAction}>新規登録</button>
+                    <div className="register-form">
+                        {this.getErrorMessage()}
+                        <div className="name">
+                            <div className="label">Name</div>
+                            <div className="input">
+                                <input
+                                    type="text"
+                                    onChange={this.doChangeName}
+                                    value={this.state.name}
+                                />
+                            </div>
+                        </div>
+                        <div className="email">
+                            <div className="label">Email</div>
+                            <div className="input">
+                                <input
+                                    type="email"
+                                    onChange={this.doChangeEmail}
+                                    value={this.state.email}
+                                />
+                            </div>
+                        </div>
+                        <div className="pass">
+                            <div className="label">Password</div>
+                            <div className="input">
+                                <input
+                                    type="password"
+                                    onChange={this.doChangePassword}
+                                    value={this.state.password}
+                                />
+                            </div>
+                        </div>
+                        <div className="pass-confirm">
+                            <div className="label">PasswordConfirm</div>
+                            <div className="input">
+                                <input
+                                    type="password"
+                                    onChange={this.doChangePasswordConfirm}
+                                    value={this.state.passwordConfirm}
+                                />
+                            </div>
+                        </div>
+                        <div className="btn">
+                            <button onClick={this.doAction}>新規登録</button>
+                        </div>
                     </div>
                 </div>
             );

@@ -1,0 +1,119 @@
+.register {
+    margin: 100px 0;
+    min-width: 530px;
+    header {
+        margin: 20px 0;
+        .header-title {
+            color: gray;
+            font-size: 25pt;
+            text-align: center;
+        }
+    }
+    .register-form {
+        width: 60%;
+        margin: 0 auto;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0 0 8px;
+        padding: 30px 30px 10px;
+        .error {
+            color: red;
+            font-size: 13pt;
+            .message {
+                margin: 0 0 0 1rem;
+            }
+        }
+        .name {
+            display: flex;
+            margin: 15px 0;
+            .label {
+                width: 170px;
+                font-size: 15pt;
+                color: gray;
+            }
+            .input {
+                width: 70%;
+                margin: 0 0 0 30px;
+                input {
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    font-size: 15pt;
+                    color: gray;
+                }
+            }
+        }
+        .email {
+            display: flex;
+            margin: 15px 0;
+            .label {
+                width: 170px;
+                font-size: 15pt;
+                color: gray;
+            }
+            .input {
+                width: 70%;
+                margin: 0 0 0 30px;
+                input {
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    font-size: 15pt;
+                    color: gray;
+                }
+            }
+        }
+        .pass {
+            display: flex;
+            margin: 15px 0;
+            .label {
+                width: 170px;
+                font-size: 15pt;
+                color: gray;
+            }
+            .input {
+                width: 70%;
+                margin: 0 0 0 30px;
+                input {
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    font-size: 15pt;
+                    color: gray;
+                }
+            }
+        }
+        .pass-confirm {
+            display: flex;
+            margin: 15px 0;
+            .label {
+                width: 170px;
+                font-size: 15pt;
+                color: gray;
+            }
+            .input {
+                width: 70%;
+                margin: 0 0 0 30px;
+                input {
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                    font-size: 15pt;
+                    color: gray;
+                }
+            }
+        }
+        .btn {
+            margin: 15pt 0;
+            text-align: center;
+            button {
+                padding: 5px;
+                border: 1px solid gray;
+                border-radius: 5px;
+                font-size: 15pt;
+                font-weight: bold;
+                color: gray;
+            }
+        }
+    }
+}

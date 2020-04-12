@@ -1,0 +1,147 @@
+.register {
+  margin: 100px 0;
+  min-width: 530px;
+}
+
+.register header {
+  margin: 20px 0;
+}
+
+.register header .header-title {
+  color: gray;
+  font-size: 25pt;
+  text-align: center;
+}
+
+.register .register-form {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 0 0 8px;
+  padding: 30px 30px 10px;
+}
+
+.register .register-form .error {
+  color: red;
+  font-size: 13pt;
+}
+
+.register .register-form .error .message {
+  margin: 0 0 0 1rem;
+}
+
+.register .register-form .name {
+  display: -webkit-box;
+  display: flex;
+  margin: 15px 0;
+}
+
+.register .register-form .name .label {
+  width: 170px;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .name .input {
+  width: 70%;
+  margin: 0 0 0 30px;
+}
+
+.register .register-form .name .input input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .email {
+  display: -webkit-box;
+  display: flex;
+  margin: 15px 0;
+}
+
+.register .register-form .email .label {
+  width: 170px;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .email .input {
+  width: 70%;
+  margin: 0 0 0 30px;
+}
+
+.register .register-form .email .input input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .pass {
+  display: -webkit-box;
+  display: flex;
+  margin: 15px 0;
+}
+
+.register .register-form .pass .label {
+  width: 170px;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .pass .input {
+  width: 70%;
+  margin: 0 0 0 30px;
+}
+
+.register .register-form .pass .input input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .pass-confirm {
+  display: -webkit-box;
+  display: flex;
+  margin: 15px 0;
+}
+
+.register .register-form .pass-confirm .label {
+  width: 170px;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .pass-confirm .input {
+  width: 70%;
+  margin: 0 0 0 30px;
+}
+
+.register .register-form .pass-confirm .input input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 15pt;
+  color: gray;
+}
+
+.register .register-form .btn {
+  margin: 15pt 0;
+  text-align: center;
+}
+
+.register .register-form .btn button {
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 15pt;
+  font-weight: bold;
+  color: gray;
+}
+

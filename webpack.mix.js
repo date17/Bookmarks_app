@@ -16,4 +16,5 @@ mix.react("resources/js/app.js", "public/js")
     .sass("resources/sass/header.scss", "public/css/react")
     .sass("resources/sass/main.scss", "public/css/react")
     .sass("resources/sass/lp.scss", "public/css/react")
-    .sass("resources/sass/login.scss", "public/css/react");
+    .sass("resources/sass/login.scss", "public/css/react")
+    .sass("resources/sass/register.scss", "public/css/react");
