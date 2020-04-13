@@ -4,6 +4,7 @@ import Lp from "./Lp";
 import Login from "./User/Login";
 import Register from "./User/Register";
 import Mypage from "./Mypage";
+import Common from "./Common";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Auth from "./User/Auth";
 import axios from "axios";
@@ -41,6 +42,7 @@ class App extends Component {
                     <Route exact path="/register" component={Register} />
                     <Auth>
                         <Route exact path="/mypage" component={Mypage} />
+                        <Route exact path="/common" component={Common} />
                     </Auth>
                 </Switch>
             </BrowserRouter>

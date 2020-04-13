@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logout from "../User/Logout";
 
@@ -14,7 +15,9 @@ class Header extends Component {
                 <div className="mypage-title">マイページ</div>
                 <div className="user">
                     <div className="link-common">
-                        <span className="common">共有サイトへ</span>
+                        <span className="common">
+                            <Link to="/common">共有サイト</Link>
+                        </span>
                     </div>
                     <Logout />
                 </div>
