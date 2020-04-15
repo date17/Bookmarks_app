@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset("css/react/main.css")}}">
     <link rel="stylesheet" href="{{asset("css/react/login.css")}}">
     <link rel="stylesheet" href="{{asset("css/react/register.css")}}">
+    <link rel="stylesheet" href="{{ asset("css/react/common.css") }}">
 </head>
 
 <body>

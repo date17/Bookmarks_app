@@ -48,4 +48,6 @@ Route::group(['middleware' => 'api'], function () {
     Route::put("/tag", "api\TagController@update");
     //タグとそのタグに関連するブックマークの削除
     Route::delete("/tag", "api\TagController@delete");
+    //共通ページでのデータ取得
+    Route::get("/common", "api\CommonController@index");
 });

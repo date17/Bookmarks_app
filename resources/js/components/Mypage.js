@@ -216,7 +216,12 @@ class Mypage extends Component {
     render() {
         return (
             <div>
-                <Header user_name={this.props.user.name} />
+                <Header
+                    user_name={this.props.user.name}
+                    title="マイページ"
+                    url="/common"
+                    linkTitle="共有ページ"
+                />
                 <div className="mypage-main">
                     <div className="navi">
                         <div

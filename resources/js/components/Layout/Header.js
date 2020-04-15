@@ -12,11 +12,13 @@ class Header extends Component {
     render() {
         return (
             <header className="mypage-header">
-                <div className="mypage-title">マイページ</div>
+                <div className="mypage-title">{this.props.title}</div>
                 <div className="user">
                     <div className="link-common">
                         <span className="common">
-                            <Link to="/common">共有サイト</Link>
+                            <Link to={this.props.url}>
+                                {this.props.linkTitle}
+                            </Link>
                         </span>
                     </div>
                     <Logout />
