@@ -58,3 +58,8 @@
   border-radius: 5px;
 }
 
+.mypage-header .user .link-common .common a {
+  text-decoration: none;
+  color: white;
+}
+

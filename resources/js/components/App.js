@@ -13,13 +13,22 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.firstLogin = this.firstLogin.bind(this);
+        this.checkUser = this.checkUser.bind(this);
         // loginしているかをチェックする
         this.firstLogin();
     }
 
     //起動時にログインしているかどうかを確認する
-    async firstLogin() {
+    firstLogin() {
         console.log("firstLogin");
+        //checkUser()によりログインユーザを確認
+        this.checkUser();
+    }
+
+    //実際にAPIを叩く部分
+    async checkUser() {
+        console.log("checkUser");
+        //セッションIDを用いて判定している
         const response = await axios.get("/api/user");
         console.log(response.data);
         const data = response.data || null;
