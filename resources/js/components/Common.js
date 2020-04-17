@@ -11,17 +11,22 @@ const mappingState = state => {
 
 const count = 10;
 
+const defaultUrl = "/api/common";
+
 class Common extends Component {
     constructor(props) {
         super(props);
         this.state = {
             bookmarks: [],
             page: 0,
+            searchWord: "",
             error: ""
         };
 
         this.getBookmarks = this.getBookmarks.bind(this);
         this.checkBookmarks = this.checkBookmarks.bind(this);
+        this.doChangeWord = this.doChangeWord.bind(this);
+        this.doSearch = this.doSearch.bind(this);
     }
 
     componentDidMount() {
@@ -78,13 +83,40 @@ class Common extends Component {
             return (
                 <div>
                     <div>ブックマークはございません</div>
-                    <div>ブックマークはございません</div>
-                    <div>ブックマークはございません</div>
-                    <div>ブックマークはございません</div>
-                    <div>ブックマークはございません</div>
                 </div>
             );
         }
+    }
+
+    doChangeWord(e) {
+        console.log(e.target.value);
+        this.setState({
+            searchWord: e.target.value
+        });
+    }
+
+    doSearch() {
+        const url = defaultUrl + this.state.searchWord;
+        console.log(url);
+        axios
+            .get(url)
+            .then(res => {
+                console.log(res.data);
+                this.setState({
+                    searchWord: "",
+                    bookmarks: res.data,
+                    page: 1,
+                    error: ""
+                });
+            })
+            .catch(e => {
+                console.log(e);
+                this.setState({
+                    error: e.message,
+                    bookmarks: [],
+                    page: 1
+                });
+            });
     }
 
     render() {
@@ -96,6 +128,21 @@ class Common extends Component {
                     linkTitle="マイページ"
                 />
                 <div className="common-page">
+                    <div className="search">
+                        <div className="search-form">
+                            <div className="input">
+                                <input
+                                    type="text"
+                                    onChange={this.doChangeWord}
+                                    value={this.state.searchWord}
+                                    placeholder="キーワードを入力してください"
+                                />
+                            </div>
+                            <div className="btn" onClick={this.doSearch}>
+                                <FontAwesomeIcon icon={["fas", "search"]} />
+                            </div>
+                        </div>
+                    </div>
                     <div className="bookmarks">{this.getBookmarks()}</div>
                 </div>
             </div>

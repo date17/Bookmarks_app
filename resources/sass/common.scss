@@ -1,5 +1,41 @@
 .common-page {
+    min-width: 970px;
     margin: 10px 0 0 0;
     position: relative;
     top: 80px;
+    .search {
+        margin: 20px 0;
+        .search-form {
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            .input {
+                width: 70%;
+                margin: 0 0 0 12.5%;
+                input {
+                    width: 100%;
+                    font-size: 14pt;
+                    box-sizing: border-box;
+                    line-height: 26px;
+                    border: 1px solid gray;
+                }
+            }
+            .btn {
+                width: 5%;
+                margin: 0 12.5% 0 0;
+                font-size: 14pt;
+                text-align: center;
+                line-height: 26px;
+                border: 1px solid gray;
+                box-sizing: border-box;
+            }
+        }
+    }
+    .bookmarks {
+        margin: 20px auto;
+        padding: 20px;
+        width: 70%;
+        border-radius: 5px;
+        box-shadow: 0 0 8px;
+    }
 }

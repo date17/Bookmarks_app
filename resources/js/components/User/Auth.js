@@ -16,21 +16,22 @@ class Auth extends Component {
     }
 
     isLogin() {
+        console.log(this.props.login);
         return this.props.login;
     }
 
     //debounceを使用し、ログイン画面に遷移するのを待つことで、apiを叩いてログイン確認する時間を稼ぐ
     toRedirect() {
+        console.log("toRedirect");
         //指定した時間待ってから第一引数の関数を実行する
         _.debounce(() => {
+            console.log("debounce");
             return <Redirect to="/login" />;
         }, 1000);
     }
 
     render() {
-        return (
-            <>{this.props.login ? this.props.children : this.toRedirect()}</>
-        );
+        return <>{this.isLogin() ? this.props.children : this.toRedirect()}</>;
     }
 }
 
