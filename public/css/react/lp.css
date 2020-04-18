@@ -44,14 +44,18 @@ html body main .explain .bookmark {
 html body main .link {
   display: -webkit-box;
   display: flex;
-  margin: 40px 0;
+  width: 100%;
+  margin: 40px auto;
   font-size: 20pt;
   font-weight: bold;
+  position: relative;
+  -webkit-box-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 html body main .link .register {
-  width: 45%;
-  margin: 0 10% 0 0;
+  width: 30%;
+  margin: 0 5% 0 15%;
   text-align: right;
 }
 
@@ -60,11 +64,12 @@ html body main .link .register a {
   color: black;
   border: 2px solid black;
   padding: 5px;
+  box-sizing: border-box;
 }
 
 html body main .link .login {
-  width: 45%;
-  margin: 0 0 0 5%;
+  width: 30%;
+  margin: 0 15% 0 5%;
   text-align: left;
 }
 
@@ -73,6 +78,7 @@ html body main .link .login a {
   color: black;
   border: 2px solid black;
   padding: 5px;
+  box-sizing: border-box;
 }
 
 html body footer {

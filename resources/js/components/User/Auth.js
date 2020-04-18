@@ -1,8 +1,8 @@
 //loginしているかを確認する
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import _ from "lodash";
+import debounce from "lodash.debounce";
 
 const mappingState = state => {
     return state;
@@ -12,7 +12,7 @@ class Auth extends Component {
     constructor(props) {
         super(props);
         this.isLogin = this.isLogin.bind(this);
-        this.toRedirect = this.toRedirect.bind(this);
+        this.toRedirectDebounce = debounce(this.toRedirect, 1000);
     }
 
     isLogin() {
@@ -22,17 +22,18 @@ class Auth extends Component {
 
     //debounceを使用し、ログイン画面に遷移するのを待つことで、apiを叩いてログイン確認する時間を稼ぐ
     toRedirect() {
-        console.log("toRedirect");
-        //指定した時間待ってから第一引数の関数を実行する
-        _.debounce(() => {
-            console.log("debounce");
-            return <Redirect to="/login" />;
-        }, 1000);
+        this.props.history.push("/");
     }
 
     render() {
-        return <>{this.isLogin() ? this.props.children : this.toRedirect()}</>;
+        return (
+            <>
+                {this.isLogin()
+                    ? this.props.children
+                    : this.toRedirectDebounce()}
+            </>
+        );
     }
 }
 
-export default connect(mappingState)(Auth);
+export default withRouter(connect(mappingState)(Auth));
