@@ -51,5 +51,5 @@ Route::group(['middleware' => 'api'], function () {
     //共通ページでのデータ取得
     Route::get("/common", "api\CommonController@index");
     //共通ページで検索した際にその検索結果を表示する
-    Route::get("/common/{:word}", "api\CommonController@search");
+    Route::get("/common/{word}", "api\CommonController@search");
 });

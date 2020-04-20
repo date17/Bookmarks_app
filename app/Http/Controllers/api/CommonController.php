@@ -31,10 +31,10 @@ class CommonController extends Controller
     }
 
     //検索処理
-    public function search(Request $request)
+    public function search(Request $request, $word)
     {
-        if ($request->word) {
-            $word = "%{$request->word}%";
+        if ($word) {
+            $word = "%{$word}%";
             $bookmarks = Bookmark::open()->where('title', "like", $word)->get();
             return response($bookmarks, 200);
         } else {

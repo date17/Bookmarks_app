@@ -96,14 +96,13 @@ class Common extends Component {
     }
 
     doSearch() {
-        const url = defaultUrl + this.state.searchWord;
+        const url = defaultUrl + "/" + this.state.searchWord;
         console.log(url);
         axios
             .get(url)
             .then(res => {
                 console.log(res.data);
                 this.setState({
-                    searchWord: "",
                     bookmarks: res.data,
                     page: 1,
                     error: ""
@@ -111,11 +110,11 @@ class Common extends Component {
             })
             .catch(e => {
                 console.log(e);
-                this.setState({
-                    error: e.message,
-                    bookmarks: [],
-                    page: 1
-                });
+                // this.setState({
+                //     error: e.message,
+                //     bookmarks: [],
+                //     page: 1
+                // });
             });
     }
 
