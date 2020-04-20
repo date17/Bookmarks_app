@@ -4,7 +4,7 @@
     position: relative;
     top: 80px;
     .search {
-        margin: 20px 0;
+        margin: 20px 0 40px;
         .search-form {
             width: 70%;
             margin: 0 auto;
@@ -31,11 +31,35 @@
             }
         }
     }
+    .error {
+        margin: 20px auto;
+        padding: 0 20px;
+        width: 700px;
+        .message {
+            font-size: 14pt;
+            color: red;
+        }
+    }
     .bookmarks {
         margin: 20px auto;
         padding: 20px;
-        width: 70%;
+        width: 700px;
+        max-height: 500px;
+        overflow: scroll;
         border-radius: 5px;
         box-shadow: 0 0 8px;
+        .bookmark {
+            border-bottom: 1px solid gray;
+            margin: 10px 10px;
+            a {
+                padding: 0 0 0 1.3rem;
+                text-decoration: none;
+                color: gray;
+                font-size: 14pt;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
     }
 }

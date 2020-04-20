@@ -20,13 +20,14 @@ class Common extends Component {
             bookmarks: [],
             page: 0,
             searchWord: "",
-            error: ""
+            error: null
         };
 
         this.getBookmarks = this.getBookmarks.bind(this);
         this.checkBookmarks = this.checkBookmarks.bind(this);
         this.doChangeWord = this.doChangeWord.bind(this);
         this.doSearch = this.doSearch.bind(this);
+        this.getError = this.getError.bind(this);
     }
 
     componentDidMount() {
@@ -105,17 +106,30 @@ class Common extends Component {
                 this.setState({
                     bookmarks: res.data,
                     page: 1,
-                    error: ""
+                    error: null
                 });
             })
             .catch(e => {
                 console.log(e);
-                // this.setState({
-                //     error: e.message,
-                //     bookmarks: [],
-                //     page: 1
-                // });
+                this.setState({
+                    error: e.message,
+                    bookmarks: [],
+                    page: 1
+                });
             });
+    }
+
+    getError() {
+        // if (this.state.error) {
+        const errors = this.state.error;
+        //     if (errors.length > 0) {
+        //         return errors.map(error => {
+        //             return <div className="message">・{error}</div>;
+        //         });
+        //     } else {
+        return <div className="message">・{errors}</div>;
+        //     }
+        // }
     }
 
     render() {
@@ -142,6 +156,11 @@ class Common extends Component {
                             </div>
                         </div>
                     </div>
+                    {this.state.error !== null ? (
+                        <div className="error">{this.getError()}</div>
+                    ) : (
+                        <></>
+                    )}
                     <div className="bookmarks">{this.getBookmarks()}</div>
                 </div>
             </div>

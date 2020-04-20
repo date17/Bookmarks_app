@@ -6,7 +6,7 @@
 }
 
 .common-page .search {
-  margin: 20px 0;
+  margin: 20px 0 40px;
 }
 
 .common-page .search .search-form {
@@ -39,11 +39,40 @@
   box-sizing: border-box;
 }
 
+.common-page .error {
+  margin: 20px auto;
+  padding: 0 20px;
+  width: 700px;
+}
+
+.common-page .error .message {
+  font-size: 14pt;
+  color: red;
+}
+
 .common-page .bookmarks {
   margin: 20px auto;
   padding: 20px;
-  width: 70%;
+  width: 700px;
+  max-height: 500px;
+  overflow: scroll;
   border-radius: 5px;
   box-shadow: 0 0 8px;
+}
+
+.common-page .bookmarks .bookmark {
+  border-bottom: 1px solid gray;
+  margin: 10px 10px;
+}
+
+.common-page .bookmarks .bookmark a {
+  padding: 0 0 0 1.3rem;
+  text-decoration: none;
+  color: gray;
+  font-size: 14pt;
+}
+
+.common-page .bookmarks .bookmark a:hover {
+  opacity: 0.8;
 }
 
