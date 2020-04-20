@@ -122,23 +122,29 @@ class Tag extends Component {
 
     changeTagRender() {
         return (
-            <li className="tag">
-                <input
-                    type="text"
-                    value={this.state.fixedName}
-                    onChange={this.doChangeTagName}
-                />
-                <span className="btn">
-                    <FontAwesomeIcon
-                        icon={["fas", "check"]}
-                        onClick={this.doFixedAction}
+            <div className="tag">
+                <div className="input">
+                    <input
+                        type="text"
+                        value={this.state.fixedName}
+                        onChange={this.doChangeTagName}
                     />
-                    <FontAwesomeIcon
-                        icon={["far", "window-close"]}
-                        onClick={this.doCancelFixed}
-                    />
-                </span>
-            </li>
+                </div>
+                <div className="btn">
+                    <span>
+                        <FontAwesomeIcon
+                            icon={["fas", "check"]}
+                            onClick={this.doFixedAction}
+                        />
+                    </span>
+                    <span>
+                        <FontAwesomeIcon
+                            icon={["far", "window-close"]}
+                            onClick={this.doCancelFixed}
+                        />
+                    </span>
+                </div>
+            </div>
         );
     }
 
