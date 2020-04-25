@@ -4,7 +4,9 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Bookmark;
+
 use Illuminate\Support\Facades\DB;
 
 class BookmarkController extends Controller
@@ -35,6 +37,11 @@ class BookmarkController extends Controller
             $this->validate($request, Bookmark::$rules);
 
             $form = $request->all();
+
+            //csrf_tokenがあるかどうかの確認
+            if (isset($form["_token"])) {
+                unset($form["_token"]);
+            }
 
             $bookmark->fill($form)->save();
 
@@ -79,6 +86,11 @@ class BookmarkController extends Controller
 
             //更新するデータの用意
             $form = $request->all();
+
+            //CSRFトークンがあるかの確認
+            if ($form["_token"]) {
+                unset($form["_token"]);
+            }
 
             //値をセットして、更新
             $bookmark->fill($form)->save();

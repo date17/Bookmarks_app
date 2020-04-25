@@ -4,6 +4,10 @@ import { Link, Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
+const mappingState = state => {
+    return state;
+};
+
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -54,6 +58,12 @@ class Register extends Component {
             })
             .then(res => {
                 console.log(res);
+                //dispatchでログイン処理
+                this.props.dispatch({
+                    type: "LOGIN",
+                    data: res.data
+                });
+
                 this.setState({
                     login: true,
                     error: "",
@@ -86,7 +96,7 @@ class Register extends Component {
     }
 
     render() {
-        if (this.state.login) {
+        if (this.props.login) {
             return <Redirect to="/mypage" />;
         } else {
             return (
@@ -149,4 +159,4 @@ class Register extends Component {
     }
 }
 
-export default connect()(Register);
+export default connect(mappingState)(Register);

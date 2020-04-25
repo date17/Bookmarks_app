@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             //api_tokenを追加する
-            'api_token' => Str::random(60),
+            // 'api_token' => Str::random(60),
         ]);
     }
 

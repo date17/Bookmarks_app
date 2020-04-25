@@ -90,22 +90,26 @@ class Bookmarks extends Component {
     //編集時のタグのselectのoptionを作成する
     optionTag(id = null) {
         const tags = this.props.allTags;
-        if (id === null) {
-            return tags.map(tag => {
-                return <option value={tag.id}>{tag.name}</option>;
-            });
-        } else {
-            //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
-            return tags.map(tag => {
-                return id === tag.id ? (
-                    <option value={tag.id} selected>
-                        {tag.name}
-                    </option>
-                ) : (
-                    <option value={tag.id}>{tag.name}</option>
-                );
-            });
-        }
+
+        return tags.map(tag => {
+            return <option value={tag.id}>{tag.name}</option>;
+        });
+        // if (id === null) {
+        //     return tags.map(tag => {
+        //         return <option value={tag.id}>{tag.name}</option>;
+        //     });
+        // } else {
+        //     //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
+        //     return tags.map(tag => {
+        //         return id === tag.id ? (
+        //             <option value={tag.id} selected>
+        //                 {tag.name}
+        //             </option>
+        //         ) : (
+        //             <option value={tag.id}>{tag.name}</option>
+        //         );
+        //     });
+        // }
     }
 
     render() {

@@ -137,6 +137,9 @@ class AddBookmark extends Component {
                     <div className="label">TAG</div>
                     <div className="select">
                         <select onChange={this.doChangeTag} required>
+                            <option value="" disabled selected>
+                                選択してください
+                            </option>
                             {this.props.optionTag(this.props.tag_id)}
                         </select>
                     </div>

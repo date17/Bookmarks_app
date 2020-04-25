@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Bookmark;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+//model
+use App\Bookmark;
 use App\Tag;
+
 use Illuminate\Support\Facades\DB;
-use App\Http\Traits\User\UserTrait;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Traits\User\UserTrait;
 
 class TagController extends Controller
 {
@@ -40,6 +44,11 @@ class TagController extends Controller
 
             //値を作成
             $form = $request->all();
+
+            //CSRFトークンの存在を確認
+            if (isset($form["_token"])) {
+                unset($form["_token"]);
+            }
 
             //値をセットし、新規作成
             $tag->fill($form)->save();
@@ -74,8 +83,15 @@ class TagController extends Controller
                 //tagインスタンスの取得
                 $tag = Tag::find($request->id);
 
+                $form = $request->all();
+
+                //CSRFトークンの存在を確認
+                if (isset($form["_token"])) {
+                    unset($form["_token"]);
+                }
+
                 //タグの更新
-                $tag->fill($request->all())->save();
+                $tag->fill($form)->save();
 
                 //ユーザのタグの一覧を取得し返す
                 $tags = Tag::userTags($request->user_id)->orderBy("created_at", "asc")->get();

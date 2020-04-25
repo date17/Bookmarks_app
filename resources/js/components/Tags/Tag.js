@@ -97,7 +97,7 @@ class Tag extends Component {
                 <div className="name">
                     <FontAwesomeIcon icon={["fas", "folder"]} />
                     <span onClick={this.selectBookmarks}>
-                        {this.props.name}
+                        {this.props.name.substr(0, 7)}
                     </span>
                 </div>
                 <div className="btn">
