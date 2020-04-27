@@ -287,6 +287,12 @@
   padding: 0 0 0 10px;
 }
 
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .isOpen {
+  margin: 10px 0 0 0;
+  font-size: 12pt;
+  color: gray;
+}
+
 .mypage-main .bookmarks .bookmark-list .bookmark .detail .btn {
   display: -webkit-box;
   display: flex;
@@ -390,6 +396,22 @@
   -moz-appearance: none;
   appearance: none;
   border-radius: 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-isOpen {
+  margin: 10px 0 0;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-isOpen input {
+  margin: 0 0.5rem 0;
+  background-color: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-isOpen span {
+  color: gray;
+  font-size: 13pt;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .btn {

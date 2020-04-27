@@ -68,6 +68,7 @@ class Bookmarks extends Component {
                         title={value.title}
                         url={value.url}
                         tag_id={this.props.tag_id}
+                        isOpen={value.isOpen}
                         key={i++}
                         change={(tag_id, bookmarks) => {
                             this.doChangeBookmarks(tag_id, bookmarks);

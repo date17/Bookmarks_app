@@ -233,6 +233,11 @@
                             padding: 0 0 0 10px;
                         }
                     }
+                    .isOpen {
+                        margin: 10px 0 0 0;
+                        font-size: 12pt;
+                        color: gray;
+                    }
                     .btn {
                         display: flex;
                         width: 20%;
@@ -319,6 +324,19 @@
                                 appearance: none; //追加
                                 border-radius: 0;
                             }
+                        }
+                    }
+                    .edit-isOpen {
+                        margin: 10px 0 0;
+                        input {
+                            margin: 0 0.5rem 0;
+                            background-color: none;
+                            border: 1px solid gray;
+                            border-radius: 5px;
+                        }
+                        span {
+                            color: gray;
+                            font-size: 13pt;
                         }
                     }
                     .btn {

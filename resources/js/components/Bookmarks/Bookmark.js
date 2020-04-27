@@ -16,16 +16,43 @@ class Bookmark extends Component {
             detail: false,
             fixTitle: this.props.title,
             fixUrl: this.props.url,
-            fixTag: this.props.tag_id
+            fixTag: this.props.tag_id,
+            fixIsOpen: this.changeIsOpenIntToBool(this.props.isOpen)
         };
         this.doChangeDetail = this.doChangeDetail.bind(this);
         this.doChangeFixForm = this.doChangeFixForm.bind(this);
         this.doChangeFixTitle = this.doChangeFixTitle.bind(this);
         this.doChangeFixUrl = this.doChangeFixUrl.bind(this);
         this.doChangeFixTag = this.doChangeFixTag.bind(this);
+        this.doChangeFixIsOpen = this.doChangeFixIsOpen.bind(this);
         this.doFixAction = this.doFixAction.bind(this);
         this.fixedForm = this.fixedForm.bind(this);
         this.detailForm = this.detailForm.bind(this);
+        this.changeIsOpenIntToBool = this.changeIsOpenIntToBool.bind(this);
+        this.showIsOpen = this.showIsOpen.bind(this);
+    }
+
+    //0,1で取得するisOpenをboolean型に変換する
+    changeIsOpenIntToBool(isOpen = null) {
+        console.log(isOpen);
+        if (isOpen === 0) {
+            return false;
+        } else if (isOpen === 1) {
+            return true;
+        } else {
+            console.log("changeIsOpenIntToBool isOpenが取得できませんでした");
+        }
+    }
+
+    //isOpenについて表示する部分
+    showIsOpen(isOpen = null) {
+        if (isOpen === 0) {
+            return "共有サイトに公開しない";
+        } else if (isOpen === 1) {
+            return "共有サイトに公開する";
+        } else {
+            console.log("isOpenが取得できませんでした");
+        }
     }
 
     doChangeDetail() {
@@ -46,7 +73,8 @@ class Bookmark extends Component {
                 fixed: false,
                 fixTitle: this.props.title,
                 fixUrl: this.props.url,
-                fixTag: this.props.tag_id
+                fixTag: this.props.tag_id,
+                fixIsOpen: this.props.isOpen
             });
         } else if (fixed === false) {
             console.log("change true");
@@ -87,6 +115,23 @@ class Bookmark extends Component {
                         </select>
                     </div>
                 </div>
+                <div className="edit-isOpen">
+                    {this.state.fixIsOpen ? (
+                        <input
+                            type="checkbox"
+                            onClick={this.doChangeFixIsOpen}
+                            value={this.state.fixIsOpen}
+                            selected
+                        />
+                    ) : (
+                        <input
+                            type="checkbox"
+                            onClick={this.doChangeFixIsOpen}
+                            value={this.state.fixIsOpen}
+                        />
+                    )}
+                    <span>共有サイトに公開する</span>
+                </div>
                 <div className="btn">
                     <button onClick={this.doChangeFixForm}>キャンセル</button>
                     <button onClick={this.doFixAction}>変更</button>
@@ -112,6 +157,9 @@ class Bookmark extends Component {
                     <div className="detail">
                         <div className="url">
                             URL<span>{this.props.url}</span>
+                        </div>
+                        <div className="isOpen">
+                            {this.showIsOpen(this.props.isOpen)}
                         </div>
                         <div className="btn">
                             <div>
@@ -157,6 +205,20 @@ class Bookmark extends Component {
         });
     }
 
+    doChangeFixIsOpen(e) {
+        console.log("doChangeFixIsOpen");
+        console.log(e.target.value);
+        const isOpen = e.target.value;
+
+        isOpen
+            ? this.setState({
+                  fixIsOpen: false
+              })
+            : this.setState({
+                  fixIsOpen: true
+              });
+    }
+
     doFixAction() {
         axios
             .put("/api/bookmark", {
@@ -164,6 +226,7 @@ class Bookmark extends Component {
                 title: this.state.fixTitle,
                 url: this.state.fixUrl,
                 tag_id: this.state.fixTag,
+                isOpen: this.state.fixIsOpen,
                 user_id: this.props.user.id
             })
             .then(res => {
@@ -176,7 +239,8 @@ class Bookmark extends Component {
                     fixed: false,
                     fixTitle: this.props.title,
                     fixUrl: this.props.url,
-                    fixTag: this.props.tag_id
+                    fixTag: this.props.tag_id,
+                    fixIsOpen: this.props.isOpen
                 });
                 //ブックマークを更新
                 this.props.change(tag_id, bookmarks);

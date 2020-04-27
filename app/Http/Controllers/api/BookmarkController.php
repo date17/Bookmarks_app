@@ -88,7 +88,7 @@ class BookmarkController extends Controller
             $form = $request->all();
 
             //CSRFトークンがあるかの確認
-            if ($form["_token"]) {
+            if (isset($form["_token"])) {
                 unset($form["_token"]);
             }
 
