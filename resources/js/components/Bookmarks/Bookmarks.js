@@ -69,7 +69,7 @@ class Bookmarks extends Component {
                         url={value.url}
                         tag_id={this.props.tag_id}
                         isOpen={value.isOpen}
-                        key={i++}
+                        key={value.id}
                         change={(tag_id, bookmarks) => {
                             this.doChangeBookmarks(tag_id, bookmarks);
                         }}
@@ -92,9 +92,23 @@ class Bookmarks extends Component {
     optionTag(id = null) {
         const tags = this.props.allTags;
 
-        return tags.map(tag => {
-            return <option value={tag.id}>{tag.name}</option>;
-        });
+        if (id !== null) {
+            //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
+            return tags.map(tag => {
+                return id === tag.id ? (
+                    <option value={tag.id} selected>
+                        {tag.name}
+                    </option>
+                ) : (
+                    <option value={tag.id}>{tag.name}</option>
+                );
+            });
+        } else {
+            return tags.map(tag => {
+                return <option value={tag.id}>{tag.name}</option>;
+            });
+        }
+
         // if (id === null) {
         //     return tags.map(tag => {
         //         return <option value={tag.id}>{tag.name}</option>;

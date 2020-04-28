@@ -16,8 +16,8 @@ class ChangeBoolIsOpen
     public function handle($request, Closure $next)
     {
         //リクエストで受け取ったisOpenはboolean型であるため、それを直す
-        if (isset($request->isOpen)) {
-            $isOpen_bool = $request->isOpen;
+        if (isset($request->isOpen_bool)) {
+            $isOpen_bool = $request->isOpen_bool;
             if ($isOpen_bool) {
                 $request->isOpen = 1;
             } else {

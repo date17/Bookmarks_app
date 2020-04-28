@@ -141,7 +141,7 @@ class Mypage extends Component {
             axios
                 .get("/api/bookmark", {
                     params: {
-                        user_id: this.props.user_id
+                        user_id: this.props.user.id
                     }
                 })
                 .then(res => {
@@ -150,6 +150,33 @@ class Mypage extends Component {
                         select_id: null,
                         select_name: "ブックマーク一覧",
                         bookmarks: res.data
+                    });
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+        } else if (
+            this.state.select_id !== tag_id &&
+            this.state.select_id !== null
+        ) {
+            console.log(
+                "doChangeBookmarks state select_id is not common tag_id "
+            );
+
+            console.log("user_id is " + this.props.user.id);
+            console.log("select_id is " + this.state.select_id);
+
+            axios
+                .get("/api/selectTag", {
+                    params: {
+                        user_id: this.props.user.id,
+                        tag_id: this.state.select_id
+                    }
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState({
+                        bookmarks: res.data.bookmark
                     });
                 })
                 .catch(e => {

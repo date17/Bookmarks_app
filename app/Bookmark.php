@@ -50,7 +50,7 @@ class Bookmark extends Model
     //isOpenがtrueのレコードを取得する
     public function scopeOpen($query)
     {
-        return $query->where("isOpen", 0);
+        return $query->where("isOpen", 1);
     }
 
     //フォームから受け取ったtag_idのレコードが存在しているかの確認
