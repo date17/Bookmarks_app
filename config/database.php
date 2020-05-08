@@ -91,6 +91,16 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'testing' => [
+            'driver'   => 'sqlite',
+            'database' => ':memory:', // SQLiteのインメモリ機能を使用
+            'prefix'   => '',
+            'options'  => [
+                // テストデータの永続化
+                PDO::ATTR_PERSISTENT => false,
+            ],
+        ],
+
     ],
 
     /*
@@ -123,7 +133,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

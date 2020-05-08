@@ -17,9 +17,15 @@ class CreateBookmarksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('url');
-            $table->integer('tag_id');
-            $table->integer('user_id');
+            //外部キーで、参照する主キーがbigIncrementsの時、外部キーの制約はunsignedBigIntegerにする
+            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('user_id');
+            $table->boolean("isOpen");
             $table->timestamps();
+
+            //foreignKey
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
