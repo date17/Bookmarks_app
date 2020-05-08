@@ -36,11 +36,11 @@ Route::group(['middleware' => 'api'], function () {
     Route::get("/tag", "api\TagController@index");
     //選択したタグに関連するブックマークを取得
     Route::get("/selectTag", "api\TagController@selectTag");
-    //ブックマークの新規登録(リクエストでくるboolean型のisOpenを0,1で扱えるように変換するミドルウェア)
+    //ブックマークの新規登録
     Route::post("/bookmark", "api\BookmarkController@create");
     //ブックマークの削除
     Route::delete('/bookmark', "api\BookmarkController@delete");
-    //ブックマークの更新(リクエストでくるboolean型のisOpenを0,1で扱えるように変換するミドルウェア)
+    //ブックマークの更新
     Route::put("/bookmark", "api\BookmarkController@update");
     //タグの新規登録
     Route::post("/tag", "api\TagController@create");
