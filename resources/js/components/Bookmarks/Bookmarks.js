@@ -45,6 +45,7 @@ class Bookmarks extends Component {
         const title = this.props.tag_name;
         if (title == undefined || title == "") {
             console.log("select title false");
+
             return <div className="select">NO SELECT</div>;
         } else {
             console.log("select title true");
@@ -67,7 +68,7 @@ class Bookmarks extends Component {
                         id={value.id}
                         title={value.title}
                         url={value.url}
-                        tag_id={this.props.tag_id}
+                        tag_id={value.tag_id}
                         isOpen={value.isOpen}
                         key={value.id}
                         change={(tag_id, bookmarks) => {

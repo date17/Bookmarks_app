@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import debounce from "lodash.debounce";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const mappingState = state => {
     return state;
@@ -12,7 +13,7 @@ class Auth extends Component {
     constructor(props) {
         super(props);
         this.isLogin = this.isLogin.bind(this);
-        this.toRedirectDebounce = debounce(this.toRedirect, 2000);
+        this.toRedirect = this.toRedirect.bind(this);
     }
 
     isLogin() {
@@ -26,13 +27,7 @@ class Auth extends Component {
     }
 
     render() {
-        return (
-            <>
-                {this.isLogin()
-                    ? this.props.children
-                    : this.toRedirectDebounce()}
-            </>
-        );
+        return <>{this.isLogin() ? this.props.children : this.toRedirect()}</>;
     }
 }
 

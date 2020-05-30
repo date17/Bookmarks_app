@@ -32,6 +32,10 @@
                 box-sizing: border-box;
                 padding: 5px;
                 border-radius: 5px;
+                &:hover {
+                    border: 2px solid black;
+                    color: black;
+                }
             }
         }
         .link-common {
@@ -47,6 +51,12 @@
                 a {
                     text-decoration: none;
                     color: white;
+                    &:hover {
+                        color: black;
+                    }
+                }
+                &:hover {
+                    border: 2px solid black;
                 }
             }
         }

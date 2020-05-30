@@ -221,7 +221,7 @@ class Mypage extends Component {
 
     componentDidMount() {
         const user_id = this.props.user.id;
-        this.getBookmarks();
+        // this.getBookmarks();
         axios
             .get("/api/tag", {
                 params: {
@@ -229,6 +229,7 @@ class Mypage extends Component {
                 }
             })
             .then(res => {
+                console.log("componentdidmount");
                 console.log(res.data);
                 //ステートの更新
                 this.setState({

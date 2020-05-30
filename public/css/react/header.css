@@ -44,6 +44,11 @@
   border-radius: 5px;
 }
 
+.mypage-header .user .btn-logout .logout:hover {
+  border: 2px solid black;
+  color: black;
+}
+
 .mypage-header .user .link-common {
   margin: 0 5% 0 10%;
 }
@@ -61,5 +66,13 @@
 .mypage-header .user .link-common .common a {
   text-decoration: none;
   color: white;
+}
+
+.mypage-header .user .link-common .common a:hover {
+  color: black;
+}
+
+.mypage-header .user .link-common .common:hover {
+  border: 2px solid black;
 }
 

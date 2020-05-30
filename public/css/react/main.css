@@ -45,7 +45,7 @@
 }
 
 .mypage-main .navi .tags .label .icon-plus:hover {
-  border: 1px solid gray;
+  color: black;
 }
 
 .mypage-main .navi .tags .newInput {
@@ -67,6 +67,8 @@
 
 .mypage-main .navi .tags .newInput button {
   background-color: white;
+  border-radius: 5px;
+  padding: 0 2px;
 }
 
 .mypage-main .navi .tags .tag {
@@ -97,6 +99,10 @@
 
 .mypage-main .navi .tags .tag .btn span {
   padding: 0 5px;
+}
+
+.mypage-main .navi .tags .tag .btn span:hover {
+  color: black;
 }
 
 .mypage-main .navi .tags .tag:hover {
@@ -133,6 +139,11 @@
   border-radius: 5px;
   color: gray;
   font-size: 15pt;
+}
+
+.mypage-main .bookmarks .bookmark-list .add span:hover {
+  border: 1px solid black;
+  color: black;
 }
 
 .mypage-main .bookmarks .bookmark-list .form-add {
@@ -223,6 +234,7 @@
   border-bottom: 1px solid gray;
   font-size: 13pt;
   width: 40%;
+  padding: 5px 0;
 }
 
 .mypage-main .bookmarks .bookmark-list .form-add .btn {
@@ -238,6 +250,11 @@
   font-weight: bold;
   margin: 0 5px;
   border-radius: 5px;
+}
+
+.mypage-main .bookmarks .bookmark-list .form-add .btn button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark {
@@ -316,6 +333,11 @@
   border: 1px solid gray;
   border-radius: 5px;
   background-color: white;
+}
+
+.mypage-main .bookmarks .bookmark-list .bookmark .detail .btn div button:hover {
+  border: 1px solid black;
+  color: black;
 }
 
 .mypage-main .bookmarks .bookmark-list .bookmark .edit-form .edit-title {
