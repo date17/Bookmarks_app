@@ -13,8 +13,8 @@ class Bookmark extends Model
     public static $rules = array(
         'title' => 'required',
         'url' => 'url',
-        'tag_id' => 'integer',
-        'user_id' => 'required|integer',
+        'tag_id' => 'required|integer|exists:tags,id',
+        'user_id' => 'required|integer|exists:users,id',
         "isOpen" => "boolean"
     );
 
@@ -22,11 +22,6 @@ class Bookmark extends Model
     function dateFormat($date)
     {
         return date("Y/m/d", strtotime($date));
-        // if (gettype($date) === "Date") {
-        //     return date("Y/m/d", $date);
-        // } else {
-        //     return $date;
-        // }
     }
 
     //ログインしているユーザのブックマークを取得

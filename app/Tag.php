@@ -12,7 +12,7 @@ class Tag extends Model
     //バリデーションルール
     public static $rules = array(
         'name' => 'required',
-        'user_id' => 'required|integer'
+        'user_id' => 'required|integer|exists:users,id'
     );
 
     //ログインしているユーザのIDを使用してその人にマッチしているタグを取得
