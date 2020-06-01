@@ -6,11 +6,9 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
-use App\Http\Traits\User\UserTrait;
 
 class RedirectIfAuthenticated
 {
-    use UserTrait;
     /**
      * Handle an incoming request.
      *

@@ -223,7 +223,7 @@ class Mypage extends Component {
         const user_id = this.props.user.id;
         // this.getBookmarks();
         axios
-            .get("/api/tag", {
+            .get("/api/info", {
                 params: {
                     id: user_id
                 }
@@ -233,7 +233,10 @@ class Mypage extends Component {
                 console.log(res.data);
                 //ステートの更新
                 this.setState({
-                    tags: res.data
+                    tags: res.data.tags,
+                    bookmarks: res.data.bookmarks,
+                    select_id: null,
+                    select_name: "ブックマーク一覧"
                 });
             })
             .catch(e => {

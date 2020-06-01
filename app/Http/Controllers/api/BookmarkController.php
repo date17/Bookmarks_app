@@ -4,18 +4,28 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Bookmark;
-
 use Illuminate\Support\Facades\DB;
+use App\Traits\Mypage;
+use Illuminate\Support\Facades\Auth;
 
 class BookmarkController extends Controller
 {
+
+    use Mypage;
 
     public function __construct()
     {
         //ログインしているか確認
         $this->middleware("auth");
+    }
+
+    //ログインユーザのタグとブックマークを取得
+    public function info()
+    {
+        $user = Auth::user();
+
+        return $this->userInfo($user->id);
     }
 
     //ユーザのブックマーク情報を取得
