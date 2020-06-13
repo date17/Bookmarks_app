@@ -25,7 +25,8 @@ class AddTag extends Component {
         });
     }
 
-    doAction() {
+    doAction(e) {
+        e.preventDefault();
         const user_id = this.state.user_id;
         const name = this.state.name;
         axios
@@ -36,10 +37,9 @@ class AddTag extends Component {
             .then(res => {
                 console.log(res.data);
                 this.afterAdd(res.data);
-                this.setState(state => ({
-                    user_id: state.user_id,
+                this.setState({
                     name: ""
-                }));
+                });
             })
             .catch(e => {
                 console.log(e);
@@ -53,16 +53,18 @@ class AddTag extends Component {
     render() {
         return (
             <div className="newInput">
-                <div>
-                    <input
-                        type="text"
-                        onChange={this.doChangeName}
-                        value={this.state.name}
-                    />
-                </div>
-                <div>
-                    <button onClick={this.doAction}>追加</button>
-                </div>
+                <form onSubmit={this.doAction}>
+                    <div>
+                        <input
+                            type="text"
+                            onChange={this.doChangeName}
+                            value={this.state.name}
+                        />
+                    </div>
+                    <div>
+                        <button type="submit">追加</button>
+                    </div>
+                </form>
             </div>
         );
     }

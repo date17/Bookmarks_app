@@ -49,24 +49,22 @@ class Tag extends Component {
         }
     }
 
-    doFixedAction() {
-        if (this.state.fixedName === "") {
-            console.log("fixed name is empty!!");
-        } else {
-            axios
-                .put("/api/tag", {
-                    id: this.props.id,
-                    name: this.state.fixedName,
-                    user_id: this.props.user.id
-                })
-                .then(res => {
-                    console.log(res.data);
-                    this.doChangeTags(this.props.id, res.data);
-                })
-                .catch(e => {
-                    console.log(e);
-                });
-        }
+    doFixedAction(e) {
+        e.preventDefault();
+        const params = {
+            id: this.props.id,
+            name: this.state.fixedName,
+            user_id: this.props.user.id
+        };
+        axios
+            .put("/api/tag", params)
+            .then(res => {
+                console.log(res.data);
+                this.doChangeTags(res.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     doCancelFixed() {
@@ -83,9 +81,9 @@ class Tag extends Component {
         });
     }
 
-    doChangeTags(id = null, tags) {
+    doChangeTags(tags) {
         console.log("Tag doChangeTags");
-        this.props.doChange(id, tags);
+        this.props.doChange(tags);
         this.setState({
             fixed: false
         });
@@ -123,27 +121,30 @@ class Tag extends Component {
     changeTagRender() {
         return (
             <div className="tag">
-                <div className="input">
-                    <input
-                        type="text"
-                        value={this.state.fixedName}
-                        onChange={this.doChangeTagName}
-                    />
-                </div>
-                <div className="btn">
-                    <span>
-                        <FontAwesomeIcon
-                            icon={["fas", "check"]}
-                            onClick={this.doFixedAction}
+                <form onSubmit={this.doFixedAction}>
+                    <div className="input">
+                        <input
+                            type="text"
+                            value={this.state.fixedName}
+                            onChange={this.doChangeTagName}
+                            required
                         />
-                    </span>
-                    <span>
-                        <FontAwesomeIcon
-                            icon={["far", "window-close"]}
-                            onClick={this.doCancelFixed}
-                        />
-                    </span>
-                </div>
+                    </div>
+                    <div className="btn">
+                        <span>
+                            <FontAwesomeIcon
+                                icon={["fas", "check"]}
+                                type="submit"
+                            />
+                        </span>
+                        <span>
+                            <FontAwesomeIcon
+                                icon={["far", "window-close"]}
+                                onClick={this.doCancelFixed}
+                            />
+                        </span>
+                    </div>
+                </form>
             </div>
         );
     }

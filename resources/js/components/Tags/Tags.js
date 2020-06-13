@@ -62,24 +62,28 @@ class Tags extends Component {
     //タグの追加、変更、削除などが起こったときのステートとの連携
     doChangeTags(tags = this.state.tags) {
         //今選択しているタグに変更があるかをチェックするため、ステートのselect_idを用いて、取得したtagデータから取得する
-        selectTag = tags.filter(tag => {
-            return tag.id === this.state.select_id;
-        });
+        const selectTag =
+            tags.filter(tag => {
+                return tag.id === this.state.select_id;
+            }) || null;
 
-        if (this.state.select_name !== selectTag.name) {
-            this.setState({
-                tags: tags,
-                select_name: selectTag.name
-            });
-        } else if (!selectTag) {
+        if (!selectTag) {
             this.setState({
                 tags: tags,
                 select_id: null,
-                select_name: "ブックマーク一覧"
+                select_name: "ブックマーク一覧",
+                newInput: false
+            });
+        } else if (this.state.select_name !== selectTag.name) {
+            this.setState({
+                tags: tags,
+                select_name: selectTag.name,
+                newInput: false
             });
         } else {
             this.setState({
-                tags: tags
+                tags: tags,
+                newInput: false
             });
         }
     }
@@ -112,8 +116,13 @@ class Tags extends Component {
     render() {
         return (
             <div className="navi">
-                <div className="bookmark-all" onClick={this.getBookmarks}>
-                    <FontAwesomeIcon icon={["fas", "folder"]} />
+                <FontAwesomeIcon icon={["fas", "folder"]} />
+                <div
+                    className="bookmark-all"
+                    onClick={(id = null, name = "ブックマーク一覧") =>
+                        this.changeSelectTag(id, name)
+                    }
+                >
                     <span>ブックマーク一覧</span>
                 </div>
                 <div className="tags">
@@ -128,7 +137,7 @@ class Tags extends Component {
                         </span>
                     </div>
                     {this.state.newInput ? (
-                        <AddTag after={this.doChangeTags} />
+                        <AddTag after={tags => this.doChangeTags(tags)} />
                     ) : (
                         <></>
                     )}
