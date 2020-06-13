@@ -14,7 +14,7 @@ class AddBookmark extends Component {
             user_id: this.props.user.id,
             title: "",
             url: "",
-            tag_id: null,
+            tag_id: this.props.tag_id,
             error: ""
         };
         this.doChangeTitle = this.doChangeTitle.bind(this);
@@ -22,8 +22,49 @@ class AddBookmark extends Component {
         this.doChangeTag = this.doChangeTag.bind(this);
         this.doAction = this.doAction.bind(this);
         this.doCancel = this.doCancel.bind(this);
-        this.afterAdd = this.afterAdd.bind(this);
         this.getErrorMessage = this.getErrorMessage.bind(this);
+        this.optionTag = this.optionTag.bind(this);
+    }
+
+    optionTag() {
+        if (
+            this.props.tag_id === null ||
+            this.props.name === "ブックマーク一覧"
+        ) {
+            return (
+                <>
+                    <option disabled value="" key="0" selected>
+                        選択してください
+                    </option>
+                    {this.props.tags.map(tag => {
+                        return (
+                            <option value={tag.id} key={tag.id}>
+                                {tag.name}
+                            </option>
+                        );
+                    })}
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <option disabled value="" key="0">
+                        選択してください
+                    </option>
+                    {this.props.tags.map(tag => {
+                        return this.props.tag_id === tag.id ? (
+                            <option value={tag.id} key={tag.id} selected>
+                                {tag.name}
+                            </option>
+                        ) : (
+                            <option value={tag.id} key={tag.id}>
+                                {tag.name}
+                            </option>
+                        );
+                    })}
+                </>
+            );
+        }
     }
 
     doChangeTitle(e) {
@@ -48,30 +89,36 @@ class AddBookmark extends Component {
         });
     }
 
-    doAction() {
+    doAction(e) {
+        e.preventDefault();
+        console.log("AddBookmark doAction");
+
         const user_id = this.state.user_id;
         const title = this.state.title;
         const url = this.state.url;
         const tag_id = this.state.tag_id;
+        const isOpen = false;
+
+        const params = {
+            user_id: user_id,
+            title: title,
+            url: url,
+            tag_id: tag_id,
+            isOpen: isOpen
+        };
 
         axios
-            .post("/api/bookmark", {
-                title: title,
-                url: url,
-                tag_id: tag_id,
-                user_id: user_id,
-                isOpen: false
-            })
+            .post("/api/bookmark", params)
             .then(res => {
                 console.log(res.data);
+                this.props.after();
                 this.setState(state => ({
                     title: "",
                     url: "",
-                    tag_id: null,
+                    tag_id: this.props.tag_id,
                     user_id: state.user_id,
                     error: ""
                 }));
-                this.afterAdd(tag_id, res.data);
             })
             .catch(e => {
                 console.log(e);
@@ -85,17 +132,10 @@ class AddBookmark extends Component {
         this.setState({
             title: "",
             url: "",
-            tag_id: null,
+            tag_id: this.props.tag_id,
             error: ""
         });
         this.props.cancel();
-    }
-
-    afterAdd(tag_id, bookmarks) {
-        console.log("after add");
-        console.log(tag_id);
-        console.log(bookmarks);
-        this.props.after(tag_id, bookmarks);
     }
 
     getErrorMessage() {
@@ -112,42 +152,43 @@ class AddBookmark extends Component {
     render() {
         return (
             <div className="form-add">
-                {this.getErrorMessage()}
-                <div className="add-title">
-                    <div className="label">TITLE</div>
-                    <div className="input">
-                        <input
-                            type="text"
-                            onChange={this.doChangeTitle}
-                            value={this.state.title}
-                        />
+                <form onSubmit={this.doAction}>
+                    {this.getErrorMessage()}
+                    <div className="add-title">
+                        <div className="label">TITLE</div>
+                        <div className="input">
+                            <input
+                                type="text"
+                                onChange={this.doChangeTitle}
+                                value={this.state.title}
+                                required
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="add-url">
-                    <div className="label">URL</div>
-                    <div className="input">
-                        <input
-                            type="url"
-                            onChange={this.doChangeUrl}
-                            value={this.state.url}
-                        />
+                    <div className="add-url">
+                        <div className="label">URL</div>
+                        <div className="input">
+                            <input
+                                type="url"
+                                onChange={this.doChangeUrl}
+                                value={this.state.url}
+                                required
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="add-tag">
-                    <div className="label">TAG</div>
-                    <div className="select">
-                        <select onChange={this.doChangeTag} required>
-                            <option value="" disabled selected>
-                                選択してください
-                            </option>
-                            {this.props.optionTag(this.props.tag_id)}
-                        </select>
+                    <div className="add-tag">
+                        <div className="label">TAG</div>
+                        <div className="select">
+                            <select onChange={this.doChangeTag} required>
+                                {this.optionTag()}
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div className="btn">
-                    <button onClick={this.doCancel}>キャンセル</button>
-                    <button onClick={this.doAction}>追加</button>
-                </div>
+                    <div className="btn">
+                        <button onClick={this.doCancel}>キャンセル</button>
+                        <button type="submit">追加</button>
+                    </div>
+                </form>
             </div>
         );
     }

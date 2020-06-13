@@ -7,12 +7,20 @@ use PHPUnit\Framework\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @test
+     * @dataProvider dataProvider_for_basicTest
      */
-    public function testBasicTest()
+    public function basicTest(int $expected, int $amount)
     {
-        $this->assertTrue(true);
+        $this->assertSame($expected, $amount);
+    }
+
+    public function dataProvider_for_basicTest()
+    {
+        return [
+            "0" => [0, 0],
+            "2" => [2, 2],
+            "0 1000" => [0, 100]
+        ];
     }
 }

@@ -12,13 +12,9 @@ use App\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Traits\User\UserTrait;
 
 class TagController extends Controller
 {
-
-    use UserTrait;
-
     public function __construct()
     {
         $this->middleware("auth");
@@ -31,7 +27,7 @@ class TagController extends Controller
             $tags = Tag::userTags($request->id)->orderBy("created_at", "asc")->get();
             return $tags;
         } else {
-            return response("not id data", 200);
+            return response("not id data", 422);
         }
     }
 

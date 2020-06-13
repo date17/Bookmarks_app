@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import DeleteBookmark from "./DeleteBookmark";
 import Bookmark from "./Bookmark";
 import AddBookmark from "./AddBookmark";
 
@@ -12,6 +11,7 @@ class Bookmarks extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            bookmarks: [],
             detail: false,
             add: false
         };
@@ -19,8 +19,8 @@ class Bookmarks extends Component {
         this.selectTitle = this.selectTitle.bind(this);
         this.doChangeAdd = this.doChangeAdd.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
-        this.optionTag = this.optionTag.bind(this);
         this.doAddCancel = this.doAddCancel.bind(this);
+        this.selectBookmarks = this.selectBookmarks.bind(this);
     }
 
     doChangeAdd() {
@@ -36,26 +36,18 @@ class Bookmarks extends Component {
         });
     }
 
-    doChangeBookmarks(tag_id = null, bookmarks = []) {
-        console.log("Bookmarks doChangeBookmarks");
-        this.props.changeBookmarks(tag_id, bookmarks);
-    }
-
     selectTitle() {
         const title = this.props.tag_name;
         if (title == undefined || title == "") {
-            console.log("select title false");
-
             return <div className="select">NO SELECT</div>;
         } else {
-            console.log("select title true");
             return <div className="select">{title}</div>;
         }
     }
 
     //デフォルトでpropsを使う
     showBookmark() {
-        const bookmarks = this.props.bookmarks;
+        const bookmarks = this.state.bookmarks;
         if (!bookmarks || bookmarks.length === 0) {
             return (
                 <div className="not-bookmark">ブックマークはございません</div>
@@ -71,61 +63,60 @@ class Bookmarks extends Component {
                         tag_id={value.tag_id}
                         isOpen={value.isOpen}
                         key={value.id}
-                        change={(tag_id, bookmarks) => {
-                            this.doChangeBookmarks(tag_id, bookmarks);
-                        }}
-                        optionTag={this.optionTag}
+                        tags={this.props.tags}
+                        afterDelete={this.selectBookmarks}
                     />
                 );
             });
         }
     }
 
-    afterAdd(id, bookmarks) {
+    afterAdd() {
         //Mypageコンポーネントのbookmarksステートを変更することで表示するブックマークを更新する
-        this.props.changeBookmarks(id, bookmarks);
         this.setState({
             add: false
         });
+        //Bookmarkの更新
+        this.selectBookmarks();
     }
 
-    //編集時のタグのselectのoptionを作成する
-    optionTag(id = null) {
-        const tags = this.props.allTags;
-
-        if (id !== null) {
-            //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
-            return tags.map(tag => {
-                return id === tag.id ? (
-                    <option value={tag.id} selected>
-                        {tag.name}
-                    </option>
-                ) : (
-                    <option value={tag.id}>{tag.name}</option>
-                );
+    selectBookmarks() {
+        const tag_id = this.props.tag_id;
+        const user_id = this.props.user.id;
+        axios
+            .get("api/selectTag", {
+                params: {
+                    tag_id: tag_id,
+                    user_id: user_id
+                }
+            })
+            .then(res => {
+                console.log(res.data);
+                this.setState({ bookmarks: res.data });
+            })
+            .catch(e => {
+                console.log(e);
             });
-        } else {
-            return tags.map(tag => {
-                return <option value={tag.id}>{tag.name}</option>;
-            });
-        }
+    }
 
-        // if (id === null) {
-        //     return tags.map(tag => {
-        //         return <option value={tag.id}>{tag.name}</option>;
-        //     });
-        // } else {
-        //     //編集するブックマークにタグが設定されている時(tagはrequiredにしているため、エラーがない限りこっち)
-        //     return tags.map(tag => {
-        //         return id === tag.id ? (
-        //             <option value={tag.id} selected>
-        //                 {tag.name}
-        //             </option>
-        //         ) : (
-        //             <option value={tag.id}>{tag.name}</option>
-        //         );
-        //     });
-        // }
+    componentDidMount() {
+        const user_id = this.props.user.id;
+        const params = {
+            user_id: user_id
+        };
+
+        axios
+            .get("/api/bookmark", {
+                params
+            })
+            .then(res => {
+                console.log(res);
+
+                this.setState({ bookmarks: res.data });
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     render() {
@@ -140,7 +131,7 @@ class Bookmarks extends Component {
                         <AddBookmark
                             tag_id={this.props.tag_id}
                             tag_name={this.props.tag_name}
-                            optionTag={this.optionTag}
+                            tags={this.props.tags}
                             cancel={this.doAddCancel}
                             after={this.afterAdd}
                         />

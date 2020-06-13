@@ -33,7 +33,7 @@ class DeleteBookmark extends Component {
                 .then(res => {
                     console.log(res.data);
                     console.log("削除しました");
-                    this.props.afterDelete(this.props.tag_id, res.data);
+                    this.props.afterDelete();
                 })
                 .catch(e => {
                     console.log(e);

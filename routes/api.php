@@ -24,32 +24,37 @@ Route::group(['middleware' => 'api'], function () {
     Route::get("/user", function () {
         return Auth::user();
     });
+
     //ログイン処理
     Route::post("/login", "Auth\LoginController@login");
     //ログアウト処理
     Route::post("/logout", "Auth\LoginController@logout");
     //新規登録処理
     Route::post("/register", "Auth\RegisterController@register");
+
     //ログインユーザーのタグとブックマークを取得
     Route::get("/info", "api\BookmarkController@info");
+
     //ユーザーのブックマーク一覧を取得
-    Route::get("/bookmark", "BookmarkController@index");
-    //タグの情報を取得
-    Route::get("/tag", "api\TagController@index");
-    //選択したタグに関連するブックマークを取得
-    Route::get("/selectTag", "api\TagController@selectTag");
+    Route::get("/bookmark", "api\BookmarkController@index");
     //ブックマークの新規登録
     Route::post("/bookmark", "api\BookmarkController@create");
     //ブックマークの削除
     Route::delete('/bookmark', "api\BookmarkController@delete");
     //ブックマークの更新
     Route::put("/bookmark", "api\BookmarkController@update");
+    //選択したタグに関連するブックマークを取得
+    Route::get("/selectTag", "api\BookmarkController@selectTag");
+
+    //タグの情報を取得
+    Route::get("/tag", "api\TagController@index");
     //タグの新規登録
     Route::post("/tag", "api\TagController@create");
     //タグの更新
     Route::put("/tag", "api\TagController@update");
     //タグとそのタグに関連するブックマークの削除
     Route::delete("/tag", "api\TagController@delete");
+
     //共通ページでのデータ取得
     Route::get("/common", "api\CommonController@index");
     //共通ページで検索した際にその検索結果を表示する

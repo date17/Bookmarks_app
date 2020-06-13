@@ -19,7 +19,7 @@ class Tag extends Component {
             fixed: false,
             fixedName: this.props.name
         };
-        this.selectBookmarks = this.selectBookmarks.bind(this);
+        this.selectTag = this.selectTag.bind(this);
         this.afterDelete = this.afterDelete.bind(this);
         this.doChangeFixed = this.doChangeFixed.bind(this);
         this.doCancelFixed = this.doCancelFixed.bind(this);
@@ -29,7 +29,7 @@ class Tag extends Component {
         this.doFixedAction = this.doFixedAction.bind(this);
     }
 
-    selectBookmarks() {
+    selectTag() {
         //親の関数をpropsで受け取りこの関数内で実行する
         this.props.doClick(this.props.id, this.props.name);
     }
@@ -96,7 +96,7 @@ class Tag extends Component {
             <div className="tag">
                 <div className="name">
                     <FontAwesomeIcon icon={["fas", "folder"]} />
-                    <span onClick={this.selectBookmarks}>
+                    <span onClick={this.selectTag}>
                         {this.props.name.substr(0, 7)}
                     </span>
                 </div>
