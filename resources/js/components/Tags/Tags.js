@@ -62,30 +62,34 @@ class Tags extends Component {
     //タグの追加、変更、削除などが起こったときのステートとの連携
     doChangeTags(tags = this.props.tags) {
         //今選択しているタグに変更があるかをチェックするため、ステートのselect_idを用いて、取得したtagデータから取得する
-        const selectTag =
-            tags.filter(tag => {
-                return tag.id === this.state.select_id;
-            }) || null;
+        // const selectTag =
+        //     tags.filter(tag => {
+        //         return tag.id === this.state.select_id;
+        //     }) || null;
 
-        if (!selectTag) {
-            this.setState({
-                tags: tags,
-                select_id: null,
-                select_name: "ブックマーク一覧",
-                newInput: false
-            });
-        } else if (this.state.select_name !== selectTag.name) {
-            this.setState({
-                tags: tags,
-                select_name: selectTag.name,
-                newInput: false
-            });
-        } else {
-            this.setState({
-                tags: tags,
-                newInput: false
-            });
-        }
+        // if (!selectTag) {
+        //     this.setState({
+        //         tags: tags,
+        //         select_id: null,
+        //         select_name: "ブックマーク一覧",
+        //         newInput: false
+        //     });
+        // } else if (this.state.select_name !== selectTag.name) {
+        //     this.setState({
+        //         tags: tags,
+        //         select_name: selectTag.name,
+        //         newInput: false
+        //     });
+        // } else {
+        //     this.setState({
+        //         tags: tags,
+        //         newInput: false
+        //     });
+        // }
+        this.props.changeTags(tags);
+        this.setState({
+            newInput: false
+        });
     }
 
     //タグ消去時の動き

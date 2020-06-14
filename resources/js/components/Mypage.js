@@ -25,6 +25,7 @@ class Mypage extends Component {
 
         this.doChangeSelectTags = this.doChangeSelectTags.bind(this);
         this.getUserBookmarks = this.getUserBookmarks.bind(this);
+        this.changeTags = this.changeTags.bind(this);
     }
 
     getUserBookmarks() {
@@ -78,6 +79,12 @@ class Mypage extends Component {
         }
     }
 
+    changeTags(tags) {
+        this.setState({
+            tags: tags
+        });
+    }
+
     componentDidMount() {
         const user_id = this.props.user.id;
         // this.getBookmarks();
@@ -118,6 +125,7 @@ class Mypage extends Component {
                             this.doChangeSelectTags(id, name);
                         }}
                         getUserBookmarks={this.getUserBookmarks}
+                        changeTags={tags => this.changeTags(tags)}
                     />
                     <Bookmarks
                         tags={this.state.tags}
