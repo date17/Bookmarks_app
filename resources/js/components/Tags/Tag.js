@@ -30,7 +30,6 @@ class Tag extends Component {
     }
 
     selectTag() {
-        //親の関数をpropsで受け取りこの関数内で実行する
         this.props.doClick(this.props.id, this.props.name);
     }
 

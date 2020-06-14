@@ -109,7 +109,7 @@ class BookmarkController extends Controller
     {
         if (!$request->tag_id && !$request->user_id) {
             return response("not tag_id or user_id", 400);
-        } else if (!$request->tag_id) {
+        } elseif (!$request->tag_id && Auth::user()->id === $request->user_id) {
             $bookmarks = Bookmark::loginUser($request->user_id)->get();
         } else {
             $bookmarks = Bookmark::loginUser($request->user_id)->selectTag($request->tag_id)->get();

@@ -93,18 +93,12 @@ class AddBookmark extends Component {
         e.preventDefault();
         console.log("AddBookmark doAction");
 
-        const user_id = this.state.user_id;
-        const title = this.state.title;
-        const url = this.state.url;
-        const tag_id = this.state.tag_id;
-        const isOpen = false;
-
         const params = {
-            user_id: user_id,
-            title: title,
-            url: url,
-            tag_id: tag_id,
-            isOpen: isOpen
+            user_id: this.state.user_id,
+            title: this.state.title,
+            url: this.state.url,
+            tag_id: this.state.tag_id,
+            isOpen: false
         };
 
         axios

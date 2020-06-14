@@ -28,7 +28,7 @@ class Tags extends Component {
 
     getTags() {
         //ストアのタグ情報を代入
-        const tags = this.state.tags;
+        const tags = this.props.tags;
         if (tags.length > 0) {
             let i = 0;
             //mapで回す
@@ -50,7 +50,7 @@ class Tags extends Component {
     }
 
     //親コンポーネントの関数呼び出し（選択するタグの変更）
-    changeSelectTag(id, name) {
+    changeSelectTag(id = null, name = "ブックマーク一覧") {
         this.props.doChangeSelectTags(id, name);
         //ステートの更新
         this.setState({
@@ -60,7 +60,7 @@ class Tags extends Component {
     }
 
     //タグの追加、変更、削除などが起こったときのステートとの連携
-    doChangeTags(tags = this.state.tags) {
+    doChangeTags(tags = this.props.tags) {
         //今選択しているタグに変更があるかをチェックするため、ステートのselect_idを用いて、取得したtagデータから取得する
         const selectTag =
             tags.filter(tag => {
@@ -89,7 +89,7 @@ class Tags extends Component {
     }
 
     //タグ消去時の動き
-    doDelete(tags = this.state.tags) {
+    doDelete(tags = this.props.tags) {
         this.props.doChangeSelectTag(null, "ブックマーク一覧");
 
         this.setState({
@@ -106,23 +106,14 @@ class Tags extends Component {
         });
     }
 
-    componentDidUpdate(prevProps) {
-        //props.tagsの更新比較
-        if (this.props.tags !== prevProps.tags) {
-            this.setState({ tags: this.props.tags });
-        }
-    }
-
     render() {
         return (
             <div className="navi">
-                <FontAwesomeIcon icon={["fas", "folder"]} />
                 <div
                     className="bookmark-all"
-                    onClick={(id = null, name = "ブックマーク一覧") =>
-                        this.changeSelectTag(id, name)
-                    }
+                    onClick={this.props.getUserBookmarks}
                 >
+                    <FontAwesomeIcon icon={["fas", "folder"]} />
                     <span>ブックマーク一覧</span>
                 </div>
                 <div className="tags">

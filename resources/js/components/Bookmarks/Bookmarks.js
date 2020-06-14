@@ -11,16 +11,14 @@ class Bookmarks extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            bookmarks: [],
             detail: false,
             add: false
         };
-        this.showBookmark = this.showBookmark.bind(this);
+        this.showBookmarks = this.showBookmarks.bind(this);
         this.selectTitle = this.selectTitle.bind(this);
         this.doChangeAdd = this.doChangeAdd.bind(this);
         this.afterAdd = this.afterAdd.bind(this);
         this.doAddCancel = this.doAddCancel.bind(this);
-        this.selectBookmarks = this.selectBookmarks.bind(this);
     }
 
     doChangeAdd() {
@@ -46,8 +44,8 @@ class Bookmarks extends Component {
     }
 
     //デフォルトでpropsを使う
-    showBookmark() {
-        const bookmarks = this.state.bookmarks;
+    showBookmarks() {
+        const bookmarks = this.props.bookmarks;
         if (!bookmarks || bookmarks.length === 0) {
             return (
                 <div className="not-bookmark">ブックマークはございません</div>
@@ -64,7 +62,10 @@ class Bookmarks extends Component {
                         isOpen={value.isOpen}
                         key={value.id}
                         tags={this.props.tags}
-                        afterDelete={this.selectBookmarks}
+                        afterDelete={(
+                            id = this.props.tag_id,
+                            name = this.props.tag_name
+                        ) => this.props.changeBookmarks(id, name)}
                     />
                 );
             });
@@ -77,47 +78,28 @@ class Bookmarks extends Component {
             add: false
         });
         //Bookmarkの更新
-        this.selectBookmarks();
+        this.props.changeBookmarks(this.props.tag_id, this.props.tag_name);
     }
 
-    selectBookmarks() {
-        const tag_id = this.props.tag_id;
-        const user_id = this.props.user.id;
-        axios
-            .get("api/selectTag", {
-                params: {
-                    tag_id: tag_id,
-                    user_id: user_id
-                }
-            })
-            .then(res => {
-                console.log(res.data);
-                this.setState({ bookmarks: res.data });
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    }
+    // componentDidMount() {
+    //     const user_id = this.props.user.id;
+    //     const params = {
+    //         user_id: user_id
+    //     };
 
-    componentDidMount() {
-        const user_id = this.props.user.id;
-        const params = {
-            user_id: user_id
-        };
+    //     axios
+    //         .get("/api/bookmark", {
+    //             params
+    //         })
+    //         .then(res => {
+    //             console.log(res);
 
-        axios
-            .get("/api/bookmark", {
-                params
-            })
-            .then(res => {
-                console.log(res);
-
-                this.setState({ bookmarks: res.data });
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    }
+    //             this.setState({ bookmarks: res.data });
+    //         })
+    //         .catch(e => {
+    //             console.log(e);
+    //         });
+    // }
 
     render() {
         return (
@@ -138,7 +120,7 @@ class Bookmarks extends Component {
                     ) : (
                         <div></div>
                     )}
-                    {this.showBookmark()}
+                    {this.showBookmarks()}
                 </div>
             </div>
         );

@@ -19,18 +19,63 @@ class Mypage extends Component {
             tags: [],
             newInput: false,
             select_id: null,
-            select_name: ""
+            select_name: "",
+            bookmarks: []
         };
 
         this.doChangeSelectTags = this.doChangeSelectTags.bind(this);
+        this.getUserBookmarks = this.getUserBookmarks.bind(this);
+    }
+
+    getUserBookmarks() {
+        axios
+            .get("api/bookmark", {
+                params: {
+                    user_id: this.props.user.id
+                }
+            })
+            .then(res => {
+                console.log(res.data);
+                this.setState({
+                    bookmarks: res.data,
+                    select_id: null,
+                    select_name: "ブックマーク一覧"
+                });
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     //選択しているタグの切り替えとステートの連携
     doChangeSelectTags(id = null, name = "ブックマーク一覧") {
-        this.setState({
-            select_id: id,
-            select_name: name
-        });
+        console.log(id);
+        if (this.state.select_id !== id && id !== null) {
+            console.log("axios api/selectTag");
+            axios
+                .get("api/selectTag", {
+                    params: {
+                        tag_id: id,
+                        user_id: this.props.user.id
+                    }
+                })
+                .then(res => {
+                    console.log(res.data);
+                    this.setState({
+                        bookmarks: res.data,
+                        select_id: id,
+                        select_name: name
+                    });
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+        } else if (this.state.select_name !== name) {
+            this.setState({
+                select_id: id,
+                select_name: name
+            });
+        }
     }
 
     componentDidMount() {
@@ -48,7 +93,8 @@ class Mypage extends Component {
                 this.setState({
                     tags: res.data.tags,
                     select_id: null,
-                    select_name: "ブックマーク一覧"
+                    select_name: "ブックマーク一覧",
+                    bookmarks: res.data.bookmarks
                 });
             })
             .catch(e => {
@@ -71,11 +117,16 @@ class Mypage extends Component {
                         doChangeSelectTags={(id, name) => {
                             this.doChangeSelectTags(id, name);
                         }}
+                        getUserBookmarks={this.getUserBookmarks}
                     />
                     <Bookmarks
                         tags={this.state.tags}
                         tag_id={this.state.select_id}
                         tag_name={this.state.select_name}
+                        bookmarks={this.state.bookmarks}
+                        changeBookmarks={(id, name) =>
+                            this.doChangeSelectTags(id, name)
+                        }
                     />
                 </div>
             </div>
