@@ -20,9 +20,9 @@ class BookmarkTest extends TestCase
      *
      * @test
      */
-    public function testBookmarkCreate()
+    public function BookmarkCreate()
     {
         //ダミーデータ
-        factory(Bookmark::class);
+        // factory(Bookmark::class);
     }
 }

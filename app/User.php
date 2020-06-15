@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     //挿入可能なカラム
     protected $fillable = [
-        'name', 'email', 'password', 'api_token'
+        'name', 'email', 'password',
     ];
 
     /**
