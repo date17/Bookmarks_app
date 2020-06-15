@@ -81,26 +81,6 @@ class Bookmarks extends Component {
         this.props.changeBookmarks(this.props.tag_id, this.props.tag_name);
     }
 
-    // componentDidMount() {
-    //     const user_id = this.props.user.id;
-    //     const params = {
-    //         user_id: user_id
-    //     };
-
-    //     axios
-    //         .get("/api/bookmark", {
-    //             params
-    //         })
-    //         .then(res => {
-    //             console.log(res);
-
-    //             this.setState({ bookmarks: res.data });
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-    //         });
-    // }
-
     render() {
         return (
             <div className="bookmarks">

@@ -51,6 +51,10 @@ class Mypage extends Component {
     //選択しているタグの切り替えとステートの連携
     doChangeSelectTags(id = null, name = "ブックマーク一覧") {
         console.log(id);
+        if (id == null && name === "ブックマーク一覧") {
+            this.getUserBookmarks();
+        }
+
         if (this.state.select_id !== id && id !== null) {
             console.log("axios api/selectTag");
             axios
@@ -79,10 +83,21 @@ class Mypage extends Component {
         }
     }
 
-    changeTags(tags) {
-        this.setState({
-            tags: tags
-        });
+    changeTags(tags, type = "afterDelete") {
+        if (type === "afterDelete") {
+            this.getUserBookmarks();
+            this.setState({
+                tags: tags
+            });
+        } else if (type === "afterAdd") {
+            this.setState({
+                tags: tags
+            });
+        } else if (type === "afterFix") {
+            this.setState({
+                tags: tags
+            });
+        }
     }
 
     componentDidMount() {
@@ -125,7 +140,7 @@ class Mypage extends Component {
                             this.doChangeSelectTags(id, name);
                         }}
                         getUserBookmarks={this.getUserBookmarks}
-                        changeTags={tags => this.changeTags(tags)}
+                        changeTags={(tags, type) => this.changeTags(tags, type)}
                     />
                     <Bookmarks
                         tags={this.state.tags}

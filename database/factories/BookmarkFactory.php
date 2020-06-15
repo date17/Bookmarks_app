@@ -5,8 +5,12 @@
 use App\Bookmark;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Bookmark::class, function (Faker $faker) {
     return [
-        //
+        'title' => "",
+        'url' => "",
+        "tag_id" => "",
+        "user_id" => "",
+
     ];
 });

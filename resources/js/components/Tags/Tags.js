@@ -39,10 +39,10 @@ class Tags extends Component {
                         id={tag.id}
                         name={tag.name}
                         doClick={(id, name) => this.changeSelectTag(id, name)}
-                        doChange={tags => {
-                            this.doChangeTags(tags);
+                        doChange={(tags, type) => {
+                            this.doChangeTags(tags, type);
                         }}
-                        doDelete={tags => this.doDelete(tags)}
+                        doDelete={(tags, type) => this.doDelete(tags, type)}
                     />
                 );
             });
@@ -60,44 +60,37 @@ class Tags extends Component {
     }
 
     //タグの追加、変更、削除などが起こったときのステートとの連携
-    doChangeTags(tags = this.props.tags) {
-        //今選択しているタグに変更があるかをチェックするため、ステートのselect_idを用いて、取得したtagデータから取得する
-        // const selectTag =
-        //     tags.filter(tag => {
-        //         return tag.id === this.state.select_id;
-        //     }) || null;
-
-        // if (!selectTag) {
-        //     this.setState({
-        //         tags: tags,
-        //         select_id: null,
-        //         select_name: "ブックマーク一覧",
-        //         newInput: false
-        //     });
-        // } else if (this.state.select_name !== selectTag.name) {
-        //     this.setState({
-        //         tags: tags,
-        //         select_name: selectTag.name,
-        //         newInput: false
-        //     });
-        // } else {
-        //     this.setState({
-        //         tags: tags,
-        //         newInput: false
-        //     });
-        // }
-        this.props.changeTags(tags);
-        this.setState({
-            newInput: false
-        });
+    doChangeTags(tags = this.props.tags, type) {
+        if (type === "afterFix") {
+            //今選択しているタグに変更があるかをチェックするため、ステートのselect_idを用いて、取得したtagデータから取得する
+            const selectTag =
+                tags.filter(tag => {
+                    return tag.id === this.state.select_id;
+                }) || null;
+            if (!selectTag) {
+                this.setState({
+                    select_id: null,
+                    select_name: "ブックマーク一覧"
+                });
+            } else if (this.state.select_name !== selectTag.name) {
+                this.setState({
+                    select_name: selectTag.name
+                });
+            }
+            this.props.changeTags(tags, "afterFix");
+        } else {
+            this.props.changeTags(tags, "afterAdd");
+            this.setState({
+                newInput: false
+            });
+        }
     }
 
     //タグ消去時の動き
-    doDelete(tags = this.props.tags) {
-        this.props.doChangeSelectTag(null, "ブックマーク一覧");
+    doDelete(tags = this.props.tags, type) {
+        this.props.changeTags(tags, type);
 
         this.setState({
-            tags: tags,
             select_id: null,
             select_name: "ブックマーク一覧"
         });

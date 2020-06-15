@@ -33,9 +33,9 @@ class Tag extends Component {
         this.props.doClick(this.props.id, this.props.name);
     }
 
-    afterDelete(tags) {
+    afterDelete(tags, type) {
         console.log("tag afterDelete");
-        this.props.after(tags);
+        this.props.doDelete(tags, type);
     }
 
     doChangeFixed() {
@@ -82,7 +82,7 @@ class Tag extends Component {
 
     doChangeTags(tags) {
         console.log("Tag doChangeTags");
-        this.props.doChange(tags);
+        this.props.doChange(tags, "afterFix");
         this.setState({
             fixed: false
         });
@@ -107,8 +107,8 @@ class Tag extends Component {
                     <span>
                         <DeleteTag
                             id={this.props.id}
-                            after={tags => {
-                                this.afterDelete(tags);
+                            after={(tags, type) => {
+                                this.afterDelete(tags, type);
                             }}
                         />
                     </span>
@@ -131,10 +131,9 @@ class Tag extends Component {
                     </div>
                     <div className="btn">
                         <span>
-                            <FontAwesomeIcon
-                                icon={["fas", "check"]}
-                                type="submit"
-                            />
+                            <button type="submit">
+                                <FontAwesomeIcon icon={["fas", "check"]} />
+                            </button>
                         </span>
                         <span>
                             <FontAwesomeIcon

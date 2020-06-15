@@ -71,7 +71,7 @@ class TagController extends Controller
     //タグの編集
     public function update(Request $request)
     {
-        if ($this->checkUser(Auth::user()->id, $request->user_id)) {
+        if (Auth::user()->id ===  $request->user_id) {
             return DB::transaction(function () use ($request) {
                 //バリデーション
                 $this->validate($request, Tag::$rules);

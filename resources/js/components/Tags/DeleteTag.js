@@ -44,7 +44,7 @@ class DeleteTag extends Component {
 
     afterDelete(tags) {
         console.log("deleteTag afterDelete");
-        this.props.after(tags);
+        this.props.after(tags, "afterDelete");
     }
 
     render() {
