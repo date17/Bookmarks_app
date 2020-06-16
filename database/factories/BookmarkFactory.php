@@ -11,12 +11,12 @@ $factory->define(Bookmark::class, function (Faker $faker) {
     return [
         'title' => $faker->text(10),
         'url' => "https://{$faker->text(10)}",
-        "tag_id" => function () {
+        'tag_id' => function () {
             return factory(Tag::class)->create()->id;
         },
-        "user_id" => function () {
+        'user_id' => function () {
             return factory(User::class)->create()->id;
-        }
-
+        },
+        'isOpen' => false
     ];
 });
