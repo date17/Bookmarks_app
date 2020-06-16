@@ -42,4 +42,42 @@ class TagDB extends TestCase
 
         $this->assertDatabaseHas("tags", $tag->toArray());
     }
+
+    /**
+     * @test
+     */
+    public function update_Tagテーブルの更新()
+    {
+        $id = $this->user->id;
+        $tag = factory(Tag::class)->create([
+            "user_id" => $id
+        ]);
+
+        $this->assertDatabaseHas("tags", $tag->toArray());
+
+        $updateForm = [
+            "name" => "勉強",
+        ];
+
+        $tag->fill($updateForm)->save();
+
+        $this->assertDatabaseHas("tags", $tag->toArray());
+    }
+
+    /**
+     * @test
+     */
+    public function delete_Tagテーブルの削除()
+    {
+        $id = $this->user->id;
+        $tag = factory(Tag::class)->create([
+            "user_id" => $id
+        ]);
+
+        $this->assertDatabaseHas("tags", $tag->toArray());
+
+        $tag->delete();
+
+        $this->assertDatabaseMissing("tags", $tag->toArray());
+    }
 }
