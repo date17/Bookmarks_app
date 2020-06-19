@@ -48,9 +48,12 @@ class BookmarkControllerTest extends TestCase
         // api/info --> BookmarkController@info
         $response = $this->get('/api/info');
 
-        $response->assertStatus(200)->assertJsonFragment([
-            "tags" => $tag->toArray(),
-            // "bookmarks" => $bookmarks
+        $bookmarks = Bookmark::loginUser($this->user->id)->orderBy("created_at", "asc")->get();
+        $tags = Tag::userTags($this->user->id)->orderBy("created_at", "asc")->get();
+
+        $response->assertStatus(200)->assertJson([
+            "tags" => $tags->toArray(),
+            "bookmarks" => $bookmarks->toArray()
         ]);
     }
 }
