@@ -36,24 +36,25 @@ class BookmarkControllerTest extends TestCase
         ]);
 
 
-        $tag = factory(Tag::class)->create([
+        factory(Tag::class)->create([
             'user_id' => $this->user->id
         ]);
 
-        $bookmarks = factory(Bookmark::class, 10)->create([
-            'tag_id' => $tag->id,
+        $tag = Tag::where("user_id", $this->user->id)->get();
+
+        factory(Bookmark::class, 10)->create([
+            'tag_id' => mt_rand(1, $tag->count()),
             'user_id' => $this->user->id
         ]);
+
+        $bookmarks = Bookmark::where("user_id", $this->user->id)->get();
 
         // api/info --> BookmarkController@info
         $response = $this->get('/api/info');
 
-        $bookmarks = Bookmark::loginUser($this->user->id)->orderBy("created_at", "asc")->get();
-        $tags = Tag::userTags($this->user->id)->orderBy("created_at", "asc")->get();
-
-        $response->assertStatus(200)->assertJson([
-            "tags" => $tags->toArray(),
-            "bookmarks" => $bookmarks->toArray()
-        ]);
+        $response->assertStatus(200)
+            ->assertJsonFragment([
+                'tags' => array_multisort($tag)
+            ]);
     }
 }
