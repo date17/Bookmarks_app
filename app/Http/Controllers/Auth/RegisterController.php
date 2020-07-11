@@ -75,10 +75,10 @@ class RegisterController extends Controller
         ]);
     }
 
-    //registerdをオーバーライド
-    public function registerd(Request $request, $user)
+    //registeredをオーバーライド
+    public function registered(Request $request, $user)
     {
-        //SPAであるため、リダイレクトではなく、ログインしているユーザを返してあげる
-        return $user;
+        // //SPAであるため、リダイレクトではなく、ログインしているユーザを返してあげる
+        return response($user, 200);
     }
 }

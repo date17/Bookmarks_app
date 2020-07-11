@@ -52,9 +52,16 @@ class BookmarkControllerTest extends TestCase
         // api/info --> BookmarkController@info
         $response = $this->get('/api/info');
 
-        $response->assertStatus(200)
-            ->assertJsonFragment([
-                'tags' => array_multisort($tag)
-            ]);
+        $tags_array = $tag->toArray();
+        $bookmarks_array = $bookmarks->toArray();
+
+        $response->assertStatus(200)->assertJsonFragment([
+            "tags" => $tags_array,
+            "bookmarks" => $bookmarks_array
+        ]);
     }
+
+    /**
+     * @test
+     */
 }
