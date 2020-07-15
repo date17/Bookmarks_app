@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 //model
 use App\Bookmark;
+use App\Http\Requests\TagRequest;
 use App\Tag;
 
 use Illuminate\Support\Facades\DB;
@@ -32,12 +33,9 @@ class TagController extends Controller
     }
 
     //タグの新規作成
-    public function create(Request $request, Tag $tag)
+    public function create(TagRequest $request, Tag $tag)
     {
         return DB::transaction(function () use ($request, $tag) {
-            //バリデーション
-            $this->validate($request, Tag::$rules);
-
             //値を作成
             $form = $request->all();
 
